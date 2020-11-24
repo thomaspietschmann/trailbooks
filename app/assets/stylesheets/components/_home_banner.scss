@@ -1,7 +1,47 @@
+.home-navbar {
+  position: absolute;
+  top: -300px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+  font-weight: bold;
+  padding: 2rem 0rem;
+
+  a {
+    color: white;
+  }
+}
+
+.login-signup {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  p {
+    margin-bottom: 0;
+    margin-left: 0.7rem;
+  }
+}
+
+.signup {
+  background: rgba(255,255,255,0.1);
+  padding: 0.7rem 2rem;
+  border-radius: 2rem;
+  margin-left: 2rem;
+}
+
 .container-home {
-  padding: 0 6rem;
+  margin: 0 6rem;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .home-banner {
