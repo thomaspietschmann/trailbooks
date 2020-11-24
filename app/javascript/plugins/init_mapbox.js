@@ -6,7 +6,7 @@ const initMapbox = () => {
   const fitMapToMarkers = (map, markers) => {
     const bounds = new mapboxgl.LngLatBounds();
     markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
-    const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+    // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
     map.fitBounds(bounds, {
       padding: 70,
       maxZoom: 15,
@@ -20,19 +20,21 @@ const initMapbox = () => {
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/brizlelem/ckhw1xc2e0y2d19nxpeh4t2co'
+      // style: 'mapbox://styles/mapbox/streets-v11'
     });
-  }
-  const markers = JSON.parse(mapElement.dataset.markers);
-  markers.forEach((marker) => {
-    new mapboxgl.Marker()
-      .setLngLat([marker.lng, marker.lat])
-      .setPopup(popup)
-      .addTo(map);
-  });
-  fitMapToMarkers(map, markers);
 
+    const markers = JSON.parse(mapElement.dataset.markers);
+    markers.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+      new mapboxgl.Marker()
+        .setLngLat([marker.lng, marker.lat])
+        .setPopup(popup)
+        .addTo(map);
+    });
+    fitMapToMarkers(map, markers);
+
+  };
 };
-
 export {
   initMapbox
 };
