@@ -1,0 +1,54 @@
+.container-home {
+  padding: 0 6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-banner {
+  background-image:
+    linear-gradient(to bottom, rgba(30,34,43,0.9), rgba(30,34,43,0.4)),
+    asset-url("home-banner.jpg");
+  background-size: cover;
+  padding-top: 300px;
+  padding-bottom: 80px;
+}
+
+.subtitle {
+  width: 490px;
+  margin-top: 20px;
+}
+
+.three-steps {
+  margin-right: auto;
+}
+
+.title-subtitle {
+    h1 {
+    font-size: 32px;
+    font-weight: 200;
+    letter-spacing: 0.16em;
+    color: white;
+  }
+
+  p {
+    font-family: 'Georgia';
+    color: white;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+  }
+}
+
+.icon-and-text {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
+
+  p {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    margin-top: 30px;
+  }
+}
