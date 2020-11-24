@@ -17,7 +17,7 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
     @booking.accomodation = @accomodation
     if @reservation.save
-      redirct_to reservations_path
+      redirect_to reservations_path
     else
       render "new"
     end
