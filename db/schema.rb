@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_11_24_124431) do
     t.boolean "lunch_bag"
     t.boolean "breakfast"
     t.boolean "dinner"
-    t.float "longitutde"
+    t.float "longitude"
     t.float "latitude"
     t.float "price_per_night"
     t.integer "capacity"

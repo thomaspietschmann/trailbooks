@@ -7,7 +7,6 @@ class AccomodationsController < ApplicationController
         lat: accomodation.latitude,
         lng: accomodation.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { accomodation: accomodation })
-
       }
     end
   end
