@@ -1,2 +1,25 @@
 class ReservationsController < ApplicationController
+  def index
+  end
+
+  def new
+    @accomodation = Accomodation.find(params[:accomodation_id])
+    @reservation = Reservation.new
+  end
+
+  def create
+    @accomodation = Accomodation.find(params[:accomodation_id])
+    @reservation = reservation.new(reservation_params)
+    start_date = Date.parse(params[:reservation][:start_date])
+    end_date = Date.parse(params[:reservation][:end_date])
+    total_price = (end_date - start_date).to_i * @accomodation.total_price
+    @reservation.total_price = total_price
+    @reservation.user = current_user
+    @booking.accomodation = @accomodation
+    if @reservation.save
+      redirect_to reservations_path
+    else
+      render "new"
+    end
+  end
 end
