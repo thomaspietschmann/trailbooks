@@ -5,6 +5,22 @@ puts "Creating sample trails"
 Trail.create(name: "Laugevagur Trail")
 Trail.create(name: "Tour de Mont Blanc")
 
+
+def attach_photo_and_save(acc)
+  p acc.category
+  if acc.category == "Campsite"
+    filepath = "campsites"
+  elsif acc.category == "Hut"
+    filepath = "huts"
+  end
+filepath = Dir.glob("./db/seed_img/#{filepath}/*.jpeg").sample
+p "Using #{filepath} for upload..."
+file = File.open(filepath)
+filename = "camp.jpeg"
+acc.photos.attach(io: file, filename: filename, content_type: 'image/jpeg')
+acc.save
+end
+
 puts "adding sample accomodations to trail"
 acc = Accomodation.new(
   name: "Briz's Diner ",
@@ -21,12 +37,13 @@ acc = Accomodation.new(
   capacity: 10
 )
 acc.trail = Trail.find_by(name: "Laugevagur Trail")
-acc.save
+attach_photo_and_save(acc)
+
 
 acc = Accomodation.new(
   name: "Leeannas pumpkin cupcakes",
   description: "cold rooms but warm food",
-  category: "Hotel",
+  category: "Hut",
   toilets: true,
   showers: true,
   lunch_bag: true,
@@ -38,12 +55,12 @@ acc = Accomodation.new(
   capacity: 10
 )
 acc.trail = Trail.find_by(name: "Laugevagur Trail")
-acc.save
+attach_photo_and_save(acc)
 
 acc = Accomodation.new(
   name: "Landmannalaugar",
   description: "Nice place in the tundra",
-  category: "Hotel",
+  category: "Hut",
   toilets: true,
   showers: true,
   lunch_bag: true,
@@ -56,7 +73,7 @@ acc = Accomodation.new(
 )
 
 acc.trail = Trail.find_by(name: "Laugevagur Trail")
-acc.save
+attach_photo_and_save(acc)
 
 acc = Accomodation.new(
   name: "Volcano Huts",
@@ -74,13 +91,13 @@ acc = Accomodation.new(
 )
 
 acc.trail = Trail.find_by(name: "Laugevagur Trail")
-acc.save
+attach_photo_and_save(acc)
 
 
 acc = Accomodation.new(
-  name: "Hotel Col de la Forclaz",
+  name: "Hut Col de la Forclaz",
   description: "Food and more",
-  category: "Hotel",
+  category: "Hut",
   toilets: true,
   showers: true,
   lunch_bag: true,
@@ -93,13 +110,13 @@ acc = Accomodation.new(
 )
 
 acc.trail = Trail.find_by(name: "Tour de Mont Blanc")
-acc.save
+attach_photo_and_save(acc)
 
 
 acc = Accomodation.new(
   name: "Alpage",
   description: "Beautiful refugio on Mont Blanc",
-  category: "Refugio",
+  category: "Hut",
   toilets: true,
   showers: true,
   lunch_bag: true,
@@ -112,13 +129,13 @@ acc = Accomodation.new(
 )
 
 acc.trail = Trail.find_by(name: "Tour de Mont Blanc")
-acc.save
+attach_photo_and_save(acc)
 
 
 acc = Accomodation.new(
   name: "Refuge de Miage",
   description: "Beautiful refugio on Mont Blanc",
-  category: "Refugio",
+  category: "Hut",
   toilets: true,
   showers: true,
   lunch_bag: true,
@@ -131,7 +148,7 @@ acc = Accomodation.new(
 )
 
 acc.trail = Trail.find_by(name: "Tour de Mont Blanc")
-acc.save
+attach_photo_and_save(acc)
 
 
 
