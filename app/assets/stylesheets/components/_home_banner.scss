@@ -1,5 +1,4 @@
 .home-navbar {
-  position: absolute;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -7,6 +6,7 @@
   font-weight: bold;
   padding: 2rem 0;
   width: 90vw;
+  margin: auto;
 
   a {
     color: white;
@@ -42,8 +42,10 @@
     linear-gradient(to bottom, rgba(30,34,43,0.9), rgba(30,34,43,0.4)),
     asset-url("home-banner.jpg");
   background-size: cover;
-  height: 100vh;
+  background-position: center;
+  height: 70vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -56,68 +58,17 @@
   text-align: center;
 
   h1 {
-    font-size: 48px;
+    font-size: 42px;
     font-weight: bold;
     color: white;
     text-align: center;
   }
 
   p {
-    font-size: 24px;
+    font-size: 18px;
     color: $grey-6;
     text-align: center;
     margin-top: 1rem;
     width: 40vw;
-  }
-}
-
-.start-date-box {
-  width: 410px;
-  display: flex;
-  flex-direction: column;
-  background: white;
-  height: 270px;
-  border-radius: 30px;
-  position: absolute;
-  bottom: -150px;
-  align-items: center;
-  padding: 2rem;
-  box-shadow: 1px 4px 4px $grey-4;
-
-  p {
-    color: $grey-1;
-    font-size: 14px;
-    letter-spacing: 0.12em;
-    font-weight: bold;
-    text-align: center;
-  }
-}
-
-.start-date-input {
-  height: 58px;
-  width: 280px;
-  border-radius: 8px;
-  border: 2px solid $grey-3;
-  margin-top: 2rem;
-  background: $grey-6;
-}
-
-.three-steps {
-  margin-top: 10rem;
-  display: flex;
-}
-
-.icon-and-text {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 30px;
-  padding: 0 2rem;
-
-  p {
-    color: $grey-1;
-    font-size: 1rem;
-    font-weight: bold;
-    margin-top: 30px;
   }
 }

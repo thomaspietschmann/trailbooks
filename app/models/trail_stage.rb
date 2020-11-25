@@ -1,3 +1,3 @@
 class TrailStage < ApplicationRecord
-  belongs_to :trails
+  belongs_to :trail
 end

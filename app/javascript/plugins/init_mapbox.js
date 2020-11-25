@@ -8,9 +8,9 @@ const initMapbox = () => {
     markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
     // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
     map.fitBounds(bounds, {
-      padding: 70,
+      padding: 100,
       maxZoom: 15,
-      duration: 0
+      duration: 2000
     });
   };
 
@@ -27,18 +27,29 @@ const initMapbox = () => {
     markers.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
-      const element = document.createElement('div');
-      element.className = 'marker';
-      element.style.backgroundImage = `url('${marker.image_url}')`;
-      element.style.backgroundSize = 'contain';
-      element.style.width = '25px';
-      element.style.height = '25px';
+      if (marker.type === "trailstage") {
+        const element = document.createElement('div');
+        element.className = 'marker-ts';
+        element.style.width = '25px';
+        element.style.height = '25px';
+        // element.innerHTML = `<div class="number">${marker.num}</div><div class="stage-name">${marker.name}</div>`
+        element.innerHTML = marker.num
+        new mapboxgl.Marker(element)
+          .setLngLat([marker.lng, marker.lat])
+          .addTo(map);
+      } else {
+        const element = document.createElement('div');
+        element.className = 'marker';
+        element.style.backgroundImage = `url('${marker.image_url}')`;
+        element.style.backgroundSize = 'contain';
+        element.style.width = '25px';
+        element.style.height = '25px';
+        new mapboxgl.Marker(element)
+          .setLngLat([marker.lng, marker.lat])
+          .setPopup(popup)
+          .addTo(map);
+      }
 
-
-      new mapboxgl.Marker(element)
-        .setLngLat([marker.lng, marker.lat])
-        .setPopup(popup)
-        .addTo(map);
     });
     fitMapToMarkers(map, markers);
   };

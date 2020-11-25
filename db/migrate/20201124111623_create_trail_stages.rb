@@ -1,7 +1,6 @@
 class CreateTrailStages < ActiveRecord::Migration[6.0]
   def change
     create_table :trail_stages do |t|
-      t.references :trail
       t.string :name
       t.integer :stage_number
       t.float :longitude
@@ -9,6 +8,7 @@ class CreateTrailStages < ActiveRecord::Migration[6.0]
       t.integer :distance_from_last
       t.integer :ascend_from_last
       t.integer :descend_from_last
+      t.references :trail, null: false, foreign_key: true
 
       t.timestamps
     end

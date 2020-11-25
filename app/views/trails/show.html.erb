@@ -1,12 +1,21 @@
 
 
 <h1><%= @trail.name %></h1>
-<div id="map"
-     style="width: 50%; height: 400px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-<div class="accomodation-container">
-
-
-</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 col-xl-2" id="reservations-col">
+      <h4>All trailstages</h4>
+      <% @trail.trail_stages.each do |ts| %>
+        <div class="ts-<%=ts.stage_number%>">
+          <p><%= ts.stage_number %>. <%= ts.name %></p>
+          <p>...
+            <p>
+            </div>
+          <% end %>
+        </div>
+        <div class="col" id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>"></div>
+      </div>
+      <div class="accomodation-container">
+      </div>
+    </div>
