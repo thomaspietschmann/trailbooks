@@ -31,8 +31,38 @@ import {
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
+
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMapbox();
+  const markers = document.querySelectorAll(".marker");
+  markers.forEach((marker) => {
+    marker.addEventListener("click", () => {
+      setTimeout(() => {
+        const fetchButton = document.querySelector(".fetch-accomodation");
+        const accomodationContainer = document.querySelector(".accomodation-container");
+        if(fetchButton) {
+          fetchButton.addEventListener("click", event => {
+            fetch(`/accomodations/${event.currentTarget.dataset.accomodationId}`)
+             .then(response => response.text())
+             .then((html) => {
+              accomodationContainer.innerHTML = html;
+             });
+          })
+        }
+      }, 200);
+    });
+  });
 });
+
+
+
+
+
+
+
+
+
+

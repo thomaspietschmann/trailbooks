@@ -38,6 +38,7 @@ acc = Accomodation.new(
 )
 acc.trail = Trail.find_by(name: "Laugevagur Trail")
 attach_photo_and_save(acc)
+attach_photo_and_save(acc)
 
 
 acc = Accomodation.new(

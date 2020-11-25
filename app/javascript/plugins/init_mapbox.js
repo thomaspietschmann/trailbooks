@@ -34,15 +34,17 @@ const initMapbox = () => {
       element.style.width = '25px';
       element.style.height = '25px';
 
+
       new mapboxgl.Marker(element)
         .setLngLat([marker.lng, marker.lat])
         .setPopup(popup)
         .addTo(map);
     });
     fitMapToMarkers(map, markers);
-
   };
 };
+
+
 export {
-  initMapbox
+  initMapbox,
 };
