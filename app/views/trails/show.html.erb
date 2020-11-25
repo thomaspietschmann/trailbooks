@@ -4,7 +4,7 @@
     <div class="col-md-3 col-xl-2" id="reservations-col">
       <h4>All trailstages</h4>
       <% @trail.trail_stages.each do |ts| %>
-        <div>
+        <div class="ts-<%=ts.stage_number%>">
           <p><%= ts.stage_number %>. <%= ts.name %></p>
           <p>...
             <p>
