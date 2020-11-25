@@ -43,7 +43,7 @@
     asset-url("home-banner.jpg");
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -58,37 +58,17 @@
   text-align: center;
 
   h1 {
-    font-size: 48px;
+    font-size: 42px;
     font-weight: bold;
     color: white;
     text-align: center;
   }
 
   p {
-    font-size: 24px;
+    font-size: 18px;
     color: $grey-6;
     text-align: center;
     margin-top: 1rem;
     width: 40vw;
   }
 }
-
-.three-steps {
-  margin-top: 10rem;
-  display: flex;
-}
-
-// .icon-and-text {
-//   display: flex;
-//   align-items: center;
-//   flex-direction: column;
-//   margin-top: 30px;
-//   padding: 0 2rem;
-
-//   p {
-//     color: $grey-1;
-//     font-size: 1rem;
-//     font-weight: bold;
-//     margin-top: 30px;
-//   }
-// }
