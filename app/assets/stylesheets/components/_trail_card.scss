@@ -1,0 +1,83 @@
+body {
+  background: $trailbooks-blue;
+}
+
+.container-home {
+  width: 80vw;
+  margin: auto;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.trail-card {
+  background-image:
+    linear-gradient(rgba(30,34,43,0.5), rgba(30,34,43,0.5)),
+    asset-url("Laugavegur.jpg");
+    border-radius: 8px;
+    width: 580px;
+    height: 270px;
+    padding: 16px 30px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+
+  :hover {
+    box-shadow: 2px solid white;
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: white;
+  }
+
+  p {
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+  }
+}
+
+.trail-card-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 85%;
+  position: relative;
+}
+
+.trail-card-right {
+  display: flex;
+  flex-direction: column;
+
+  svg {
+    margin: 8px 0;
+  }
+}
+
+.trail-outline {
+  position: absolute;
+  top: 20px;
+  right: 0px;
+}
+
+.trail-stats {
+  display: flex;
+
+  p {
+    margin-right: 2rem;
+  }
+
+  svg {
+    margin-right: 1rem;
+  }
+
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
