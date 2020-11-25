@@ -1,0 +1,12 @@
+<div class="accomodation-show">
+  <% @accomodation.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  <div class="accomodation-show-infos">
+    <div>
+      <h2><%= @accomodation.name %></h2>
+      <p><%= @accomodation.description %></p>
+    </div>
+    <h2 class="accomodation-show-pricing"><%= @accomodation.price_per_night %> €</h2>
+  </div>
+</div>
