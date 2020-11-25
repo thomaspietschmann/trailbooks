@@ -8,9 +8,9 @@ const initMapbox = () => {
     markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
     // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
     map.fitBounds(bounds, {
-      padding: 70,
+      padding: 100,
       maxZoom: 15,
-      duration: 0
+      duration: 2000
     });
   };
 
