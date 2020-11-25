@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   def index
+    @reservations = Reservation.where(user: current_user)
   end
 
   def new
@@ -14,8 +15,8 @@ class ReservationsController < ApplicationController
     end_date = Date.parse(params[:reservation][:end_date])
     total_price = (end_date - start_date).to_i * @accomodation.total_price
     @reservation.total_price = total_price
-    @reservation.user = current_user
-    @booking.accomodation = @accomodation
+    @reservation.itinerary = current_itinerary
+    @reservation.accomodation = @accomodation
     if @reservation.save
       redirect_to reservations_path
     else

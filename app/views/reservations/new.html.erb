@@ -1,0 +1,11 @@
+<div class=container>
+
+  <h1>New Reservation</h1>
+
+    <%= simple_form_for([@accomodation, @reservation]) do |f| %>
+        <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+        <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "RESERVE NOW" %>
+    <%= end %>
+
+</div>
