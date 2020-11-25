@@ -7,7 +7,8 @@ class TrailsController < ApplicationController
       {
         lat: accomodation.latitude,
         lng: accomodation.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { accomodation: accomodation })
+        infoWindow: render_to_string(partial: "info_window", locals: { accomodation: accomodation }),
+        image_url: helpers.asset_url('mapbox-icon.png')
       }
     end
   end
