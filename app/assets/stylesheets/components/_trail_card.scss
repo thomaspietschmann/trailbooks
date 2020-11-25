@@ -16,9 +16,9 @@ a:hover {
     linear-gradient(rgba(30,34,43,0.5), rgba(30,34,43,0.5)),
     asset-url("Laugavegur.jpg");
     border-radius: 8px;
-    width: 580px;
-    height: 270px;
-    padding: 16px 30px;
+    width: 560px;
+    height: 260px;
+    padding: 24px 30px;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -29,7 +29,7 @@ a:hover {
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1,5rem;
     color: white;
   }
 
@@ -68,12 +68,12 @@ a:hover {
 
   p {
     margin-right: 2rem;
+    margin-bottom: 0;
   }
 
   svg {
     margin-right: 1rem;
   }
-
 }
 
 .cards {
