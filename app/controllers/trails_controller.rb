@@ -11,6 +11,21 @@ class TrailsController < ApplicationController
         image_url: helpers.asset_url(icon)
       }
     end
+
+    @trail.trail_stages.each do |tstage|
+      ts = {
+        lat: tstage.latitude,
+        lng: tstage.longitude,
+        num: tstage.stage_number,
+        # name: tstage.name,
+        type: "trailstage"
+        # infoWindow: render_to_string(partial: "info_window", locals: { accomodation: accomodation }),
+        # image_url: helpers.asset_url("mapbox-icon.png")
+      }
+      @markers << ts
+    end
+
+    p @markers
   end
   # To Do: create and add markers for trail stages to @markers
 
