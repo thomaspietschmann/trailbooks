@@ -1,0 +1,18 @@
+.info-window-btn {
+  text-align: center;
+}
+.details-btn {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  align: center;
+  font-size: 12px;
+}
+
+.details-btn:hover {
+  opacity: 1;
+}

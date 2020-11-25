@@ -1,3 +1,15 @@
-<h2><%= accomodation.name %></h2>
-<p><%= accomodation.description %></p>
-<p><%= accomodation.price_per_night %>€/night</p>
+<div class="accomodation-info-window">
+  <% accomodation.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+    <div class="accomodation-info-window-infos">
+    <div>
+      <h2><%= accomodation.name %></h2>
+      <p><%= accomodation.description %></p>
+    </div>
+    <h2 class="accomodation-info-window-pricing"><%= accomodation.price_per_night %>€/night</h2>
+  </div>
+  <div class="info-window-btn">
+  <%= link_to 'More details', accomodation_path(accomodation.id), class: "btn details-btn" %>
+</div>
+</div>
