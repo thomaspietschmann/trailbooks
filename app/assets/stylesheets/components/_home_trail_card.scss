@@ -1,12 +1,8 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
-}
-
-
-a:hover {
-  text-decoration: none;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 32px;
+  margin: 50px 0;
 }
 
 .trail-card {
@@ -79,21 +75,14 @@ a:hover {
   border-radius: 8px;
 }
 
-.hut-campsite-icons {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-}
-
 .hover-state:hover > .trail-card > .trail-card-info {
   background: $grey-6;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 32px;
-  margin: 50px 0;
+.hut-campsite-icons {
+  position: absolute;
+  top: 16px;
+  left: 16px;
 }
 
 .home-container {
@@ -101,3 +90,6 @@ a:hover {
   margin: auto;
 }
 
+a:hover {
+  text-decoration: none;
+}
