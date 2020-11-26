@@ -1,51 +1,52 @@
 <div class="container-home mt-4">
-  <div class="cards">
-    <a href="#">
-
-      <div class="trail-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path trail.photos.last.key %>')">
-        <div class="trail-card-left">
-          <div class="trail-and-country">
-            <h2><%= trail.name %></h2>
-            <p> <%= trail.country %></p>
-          </div>
-          <div class="trail-stats">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ruler" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M5 4h14a1 1 0 0 1 1 1v5a1 1 0 0 1 -1 1h-7a1 1 0 0 0 -1 1v7a1 1 0 0 1 -1 1h-5a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1" />
-              <line x1="4" y1="8" x2="6" y2="8" />
-              <line x1="4" y1="12" x2="7" y2="12" />
-              <line x1="4" y1="16" x2="6" y2="16" />
-              <line x1="8" y1="4" x2="8" y2="6" />
-              <polyline points="12 4 12 7 " />
-              <polyline points="16 4 16 6 " />
-            </svg>
-            <p><%= trail.distance %>km</p>
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <circle cx="12" cy="12" r="9" />
-              <polyline points="12 7 12 12 15 15" />
-            </svg>
-            <p><%= trail.number_of_days %> days</p>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.61803 19L10 2.23607L18.382 19H1.61803Z" stroke="white" stroke-width="2"/>
-              <path d="M3.73682 15.1111H15.7368" stroke="white" stroke-width="2"/>
-              <line x1="6.31592" y1="10.3333" x2="13.8159" y2="10.3333" stroke="white" stroke-width="2"/>
-            </svg>
-            <p><%= trail.elevation_range %> m</p>
-          </div>
-          <div class="trail-outline">
-            <%= cl_image_tag(trail.photos.first.key) %>
-          </div>
-        </div>
-        <div class="trail-card-right">
+  <a href="" class="hover-state">
+    <div class="trail-card">
+      <div class="trail-card-image" style="background-image: url('<%= cl_image_path trail.photos.last.key %>')">
+        <div class="trail-outline">
+        <%= cl_image_tag(trail.photos.first.key) %>
+      </div>
+      </div>
+      <div class="trail-card-info">
+        <h2><%= trail.name %></h2>
+        <p> <%= trail.country %></p>
+        <div class="hut-campsite-icons">
           <svg width="27" height="25" viewBox="0 0 27 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M25.8569 12.486L21.3576 7.96089C21.3021 7.84916 21.191 7.73743 21.0799 7.68156L13.6922 0.251397C13.3589 -0.0837989 12.859 -0.0837989 12.5257 0.251397L5.08251 7.68156C4.97141 7.73743 4.86032 7.84916 4.80477 7.96089L0.249959 12.5419C-0.0833198 12.8771 -0.0833198 13.3799 0.249959 13.7151C0.583238 14.0503 1.08316 14.0503 1.41644 13.7151L4.19376 10.9218C4.3604 10.7542 4.63813 10.8659 4.63813 11.0894V24.0503C4.63813 24.4972 5.02696 24.8883 5.47133 24.8883H9.19295C9.47068 24.8883 9.69287 24.6648 9.69287 24.3855V14.7207C9.69287 12.8212 11.2482 11.257 13.1368 11.257C15.0253 11.257 16.5806 12.8212 16.5806 14.7207V24.4972C16.5806 24.7765 16.8028 25 17.0806 25H20.6355C21.0799 25 21.4687 24.6089 21.4687 24.162V11.1453C21.4687 10.9218 21.7465 10.7542 21.9131 10.9777L24.6904 13.7709C24.8571 13.9385 25.0793 13.9944 25.3014 13.9944C25.5236 13.9944 25.7458 13.8827 25.9125 13.7151C26.2457 13.324 26.1902 12.8212 25.8569 12.486Z" fill="white"/>
+            <path d="M25.8569 12.486L21.3576 7.96089C21.3021 7.84916 21.191 7.73743 21.0799 7.68156L13.6922 0.251397C13.3589 -0.0837989 12.859 -0.0837989 12.5257 0.251397L5.08251 7.68156C4.97141 7.73743 4.86032 7.84916 4.80477 7.96089L0.249959 12.5419C-0.0833198 12.8771 -0.0833198 13.3799 0.249959 13.7151C0.583238 14.0503 1.08316 14.0503 1.41644 13.7151L4.19376 10.9218C4.3604 10.7542 4.63813 10.8659 4.63813 11.0894V24.0503C4.63813 24.4972 5.02696 24.8883 5.47133 24.8883H9.19295C9.47068 24.8883 9.69287 24.6648 9.69287 24.3855V14.7207C9.69287 12.8212 11.2482 11.257 13.1368 11.257C15.0253 11.257 16.5806 12.8212 16.5806 14.7207V24.4972C16.5806 24.7765 16.8028 25 17.0806 25H20.6355C21.0799 25 21.4687 24.6089 21.4687 24.162V11.1453C21.4687 10.9218 21.7465 10.7542 21.9131 10.9777L24.6904 13.7709C24.8571 13.9385 25.0793 13.9944 25.3014 13.9944C25.5236 13.9944 25.7458 13.8827 25.9125 13.7151C26.2457 13.324 26.1902 12.8212 25.8569 12.486Z" fill="#BDBDBD"/>
           </svg>
           <svg width="28" height="25" viewBox="0 0 28 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M26.6003 23.711L14.6512 3.78964L16.5272 0.660609L15.4126 0L13.8931 2.52965L12.3768 0L11.2622 0.660609L13.1382 3.78964L1.19232 23.711H0V25H27.7343V23.711H26.6003ZM10.8864 23.711V18.6163C10.8864 16.9954 12.2213 15.6741 13.8639 15.6741C14.6512 15.6741 15.3932 15.9803 15.9537 16.5345C16.511 17.0888 16.8188 17.8268 16.8188 18.6163V23.7142H10.8864V23.711Z" fill="white"/>
+            <path d="M26.6003 23.711L14.6512 3.78964L16.5272 0.660609L15.4126 0L13.8931 2.52965L12.3768 0L11.2622 0.660609L13.1382 3.78964L1.19232 23.711H0V25H27.7343V23.711H26.6003ZM10.8864 23.711V18.6163C10.8864 16.9954 12.2213 15.6741 13.8639 15.6741C14.6512 15.6741 15.3932 15.9803 15.9537 16.5345C16.511 17.0888 16.8188 17.8268 16.8188 18.6163V23.7142H10.8864V23.711Z" fill="#BDBDBD"/>
           </svg>
+        </div>
+        <div class="trail-stats">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ruler" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#828282" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 4h14a1 1 0 0 1 1 1v5a1 1 0 0 1 -1 1h-7a1 1 0 0 0 -1 1v7a1 1 0 0 1 -1 1h-5a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1" />
+            <line x1="4" y1="8" x2="6" y2="8" />
+            <line x1="4" y1="12" x2="7" y2="12" />
+            <line x1="4" y1="16" x2="6" y2="16" />
+            <line x1="8" y1="4" x2="8" y2="6" />
+            <polyline points="12 4 12 7 " />
+            <polyline points="16 4 16 6 " />
+          </svg>
+          <p><%= trail.distance %>km</p>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#828282" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <circle cx="12" cy="12" r="9" />
+            <polyline points="12 7 12 12 15 15" />
+          </svg>
+          <p><%= trail.number_of_days %> days</p>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.61803 19L10 2.23607L18.382 19H1.61803Z" stroke="#828282" stroke-width="2"/>
+            <path d="M3.73682 15.1111H15.7368" stroke="#828282" stroke-width="2"/>
+            <line x1="6.31592" y1="10.3333" x2="13.8159" y2="10.3333" stroke="#828282" stroke-width="2"/>
+          </svg>
+          <p><%= trail.elevation_range %> m</p>
         </div>
       </div>
     </div>
-  </div>
+  </a>
 </div>
+
+
+
+
