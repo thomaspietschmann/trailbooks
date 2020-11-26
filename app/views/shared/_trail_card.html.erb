@@ -1,12 +1,13 @@
 <div class="container-home mt-4">
   <div class="cards">
     <a href="#">
+
       <div class="trail-card">
 
         <div class="trail-card-left">
           <div class="trail-and-country">
-            <h2>Laugavegur</h2>
-            <p>Iceland</p>
+            <h2><%= trail.name %></h2>
+            <p> <%= trail.country %></p>
           </div>
           <div class="trail-stats">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ruler" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -19,19 +20,19 @@
               <polyline points="12 4 12 7 " />
               <polyline points="16 4 16 6 " />
             </svg>
-            <p>170km</p>
+            <p><%= trail.distance %> km</p>
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
               <circle cx="12" cy="12" r="9" />
               <polyline points="12 7 12 12 15 15" />
             </svg>
-            <p>4 days</p>
+            <p><%= trail.number_of_days %> days</p>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.61803 19L10 2.23607L18.382 19H1.61803Z" stroke="white" stroke-width="2"/>
             <path d="M3.73682 15.1111H15.7368" stroke="white" stroke-width="2"/>
             <line x1="6.31592" y1="10.3333" x2="13.8159" y2="10.3333" stroke="white" stroke-width="2"/>
             </svg>
-            <p>510 - 2125m</p>
+            <p><%= trail.elevation_range %> m</p>
           </div>
           <div class="trail-outline">
             <svg width="176" height="140" viewBox="0 0 176 140" fill="none" xmlns="http://www.w3.org/2000/svg">
