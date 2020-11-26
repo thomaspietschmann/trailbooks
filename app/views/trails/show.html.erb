@@ -3,34 +3,43 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-3 col-xl-3" id="reservations-col">
-      <!-- TABS -->
+<!-- TABS START -->
       <nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <a class="nav-item nav-link active" id="nav-trailstages-tab" data-toggle="tab" href="#nav-trailstages" role="tab" aria-controls="nav-trailstages" aria-selected="true">Trail Stages</a>
-          <a class="nav-item nav-link" id="nav-itinerary-tab" data-toggle="tab" href="#nav-itinerary" role="tab" aria-controls="nav-itinerary" aria-selected="false">My Itinerary</a>
+        <div class="nav list-inline tabs-underlined" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link tab-underlined active" id="nav-itinerary-tab" data-toggle="tab" href="#nav-itinerary" role="tab" aria-controls="nav-itinerary" aria-selected="true">My Itinerary</a>
+          <a class="nav-item nav-link tab-underlined" id="nav-trailstages-tab" data-toggle="tab" href="#nav-trailstages" role="tab" aria-controls="nav-trailstages" aria-selected="false">Trail Stages</a>
         </div>
       </nav>
+<!-- TAB CONTENT -->
       <div class="tab-content" id="nav-tabContent">
-        <!-- trailstages tab content -->
-        <div class="tab-pane fade show active" id="nav-trailstages" role="tabpanel" aria-labelledby="nav-trailstages-tab">
+<!-- itinerary -->
+        <div class="tab-pane fade show active" id="nav-itinerary" role="tabpanel" aria-labelledby="nav-itinerary-tab">
+          <div class="start-date">
+            <p>WHEN WILL YOU START YOUR HIKE?</p>
+            <input type="text">
+            <a href="" class="btn-reserve">Make reservations</a>
+          </div>
           <% @trail.trail_stages.each do |ts| %>
             <div class="ts-<%=ts.stage_number%>">
               <p><%= ts.stage_number %>. <%= ts.name %></p>
-              <p>...
-              <p>
             </div>
           <% end %>
         </div>
-                <!-- itinerary tab content -->
-        <div class="tab-pane fade" id="nav-itinerary" role="tabpanel" aria-labelledby="nav-itinerary-tab">
-          <div class="start-date">
-          <p>WHEN WILL YOU START YOUR HIKE?</p>
+<!-- trails stages -->
+        <div class="tab-pane fade" id="nav-trailstages" role="tabpanel" aria-labelledby="nav-trailstages-tab">
+          <div class="first-stage">
+            <div class="icon-line">
+              <div class="start-marker"></div>
+              <div class="vl"></div>
+            </div>
+            <p>Landmannalangar</p>
           </div>
         </div>
       </div>
-      <!-- end of TABS -->
+<!-- TABS END -->
     </div>
-    <!-- MAP -->
+
+<!-- MAP -->
     <div class="col-md-9" id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>"></div>
     <!-- accomodation overlay -->
     <div class="accomodation-container"></div>

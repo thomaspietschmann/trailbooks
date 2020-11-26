@@ -9,6 +9,7 @@
 .tab-content {
   overflow: scroll;
   height: 100%;
+  padding: 16px 0;
 }
 
 .tab-pane {
@@ -16,6 +17,88 @@
 }
 
 #reservations-col {
-  height: calc(100vh - 60px);
+  height: calc(100vh - 50px);
   overflow: hidden;
+}
+
+.first-stage {
+  display: flex;
+  margin-top: 24px;
+  padding: 0 2rem;
+
+  p {
+    font-weight: bold;
+    margin-left: 1rem;
+    color: $grey-1;
+  }
+}
+
+.icon-line {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.start-marker {
+  width: 18px;
+  height: 18px;
+  background: #219653;
+  border-radius: 50%;
+}
+
+.vl {
+  border-left: 2px solid $grey-4;
+  height: 80px;
+  margin: auto;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+}
+
+
+.tabs-underlined {
+  display: flex;
+  align-items: center;
+}
+
+.tabs-underlined .tab-underlined {
+  color: black;
+  padding: 8px;
+  margin: 8px 16px;
+  opacity: .4;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+}
+
+.tabs-underlined .tab-underlined.active {
+  opacity: 1;
+  border-bottom: 3px solid #555555;
+}
+
+
+.start-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  input {
+    width: 230px;
+    height: 50px;
+    background: $grey-6;
+    border: 2px solid $grey-3;
+    border-radius: 8px;
+  }
+}
+
+.btn-reserve {
+  background: $trailbooks-red;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
 }
