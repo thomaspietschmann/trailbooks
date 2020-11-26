@@ -27,6 +27,7 @@ import "bootstrap";
 import {
   initMapbox
 } from '../plugins/init_mapbox';
+import "../plugins/flatpickr";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -35,6 +36,17 @@ const closeAccommodation = (accomodationContainer) => {
   closeBtn.addEventListener("click", event => {
     accomodationContainer.innerHTML = "";
   });
+};
+
+const addAccToIti = (accomodationContainer) => {
+  const addButton = accomodationContainer.querySelector("#add-to-itinerary");
+  const accName = accomodationContainer.querySelector("#accomodation-name").innerText;
+  const accPrice = accomodationContainer.querySelector(".accomodation-show-pricing").innerText;
+  const itinerary = document.querySelector("#itinerary");
+  const htmlCard = `<div>${accName}</div>`
+  addButton.addEventListener("click", event => {
+    itinerary.insertAdjacentHTML("beforeend", htmlCard)
+  })
 };
 
 
@@ -55,7 +67,8 @@ document.addEventListener('turbolinks:load', () => {
              .then(response => response.text())
              .then((html) => {
               accomodationContainer.innerHTML = html;
-              closeAccommodation(accomodationContainer)
+              closeAccommodation(accomodationContainer);
+              addAccToIti(accomodationContainer);
              });
           })
         }
