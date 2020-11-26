@@ -1,0 +1,21 @@
+
+.accomodation-container {
+  position: absolute;
+  right: 0;
+  background: white;
+
+}
+
+.tab-content {
+  overflow: scroll;
+  height: 100%;
+}
+
+.tab-pane {
+  overflow: scroll;
+}
+
+#reservations-col {
+  height: calc(100vh - 60px);
+  overflow: hidden;
+}
