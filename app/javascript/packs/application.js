@@ -44,26 +44,16 @@ document.addEventListener('turbolinks:load', () => {
       setTimeout(() => {
         const fetchButton = document.querySelector(".fetch-accomodation");
         const accomodationContainer = document.querySelector(".accomodation-container");
-        if(fetchButton) {
+        if (fetchButton) {
           fetchButton.addEventListener("click", event => {
             fetch(`/accomodations/${event.currentTarget.dataset.accomodationId}`)
-             .then(response => response.text())
-             .then((html) => {
-              accomodationContainer.innerHTML = html;
-             });
+              .then(response => response.text())
+              .then((html) => {
+                accomodationContainer.innerHTML = html;
+              });
           })
         }
       }, 200);
     });
   });
 });
-
-
-
-
-
-
-
-
-
-
