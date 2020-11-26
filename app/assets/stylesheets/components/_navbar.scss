@@ -1,12 +1,28 @@
-.navbar-lewagon {
+.trailbooks-navbar {
+  background: $trailbooks-blue;
+  height: 50px;
+  display: flex;
+  align-items: center;
+
+  h1 {
+    color: white;
+    font-size: 14px;
+    font-weight: lighter;
+    margin-bottom: 0;
+  }
+}
+
+.container-map {
+  width: 90vw;
+  margin: auto;
+  display: flex;
   justify-content: space-between;
-  background: white;
+  align-items: center;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.user-avatar {
+  border-radius: 50%;
+  background: $grey-6;
+  height: 30px;
+  width: 30px;
 }

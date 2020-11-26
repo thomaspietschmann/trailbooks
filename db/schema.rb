@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_164704) do
+ActiveRecord::Schema.define(version: 2020_11_26_135523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_164704) do
   end
 
   create_table "trail_stages", force: :cascade do |t|
+    t.bigint "trail_id"
     t.string "name"
     t.integer "stage_number"
     t.float "longitude"
@@ -88,7 +89,6 @@ ActiveRecord::Schema.define(version: 2020_11_25_164704) do
     t.integer "distance_from_last"
     t.integer "ascend_from_last"
     t.integer "descend_from_last"
-    t.bigint "trail_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["trail_id"], name: "index_trail_stages_on_trail_id"
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_164704) do
     t.string "name"
     t.string "country"
     t.integer "distance"
-    t.integer "number_of_days"
+    t.string "number_of_days"
     t.string "elevation_range"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -123,5 +123,4 @@ ActiveRecord::Schema.define(version: 2020_11_25_164704) do
   add_foreign_key "itineraries", "users"
   add_foreign_key "reservations", "accomodations"
   add_foreign_key "reservations", "itineraries"
-  add_foreign_key "trail_stages", "trails"
 end

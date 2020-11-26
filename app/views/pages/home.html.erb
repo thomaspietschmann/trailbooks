@@ -1,3 +1,7 @@
 <%= render "shared/home_banner" %>
 <%= render "shared/three_steps" %>
-<%= render "shared/trail_card" %>
+
+<% @trails.each do |trail| %>
+
+<%= render "shared/trail_card", trail: trail %>
+<% end %>

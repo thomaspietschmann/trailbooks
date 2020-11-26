@@ -52,10 +52,13 @@ const initMapbox = () => {
 
     });
     fitMapToMarkers(map, markers);
+    map.on('load', () => {
+        map.resize();
+    });
   };
 };
 
 
 export {
-  initMapbox,
+  initMapbox
 };

@@ -1,11 +1,12 @@
 <div class="container-home mt-4">
   <div class="cards">
-    <% @trails.each do |trail| %>
-      <div class="trail-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path trail.photos.last.key, crop: :fill %>')">
+    <a href="#">
+
+      <div class="trail-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path trail.photos.last.key %>')">
         <div class="trail-card-left">
           <div class="trail-and-country">
             <h2><%= trail.name %></h2>
-            <p><%= trail.country %></p>
+            <p> <%= trail.country %></p>
           </div>
           <div class="trail-stats">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ruler" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -30,7 +31,7 @@
               <path d="M3.73682 15.1111H15.7368" stroke="white" stroke-width="2"/>
               <line x1="6.31592" y1="10.3333" x2="13.8159" y2="10.3333" stroke="white" stroke-width="2"/>
             </svg>
-            <p><%= trail.elevation_range %></p>
+            <p><%= trail.elevation_range %> m</p>
           </div>
           <div class="trail-outline">
             <%= cl_image_tag(trail.photos.first.key) %>
@@ -45,6 +46,6 @@
           </svg>
         </div>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
