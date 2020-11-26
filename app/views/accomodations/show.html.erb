@@ -1,7 +1,7 @@
 <div class="accommodation-page">
   <div id="close-btn" style="background-image: url(<%= asset_path 'close.png' %>)"></div>
   <div class="carousel-show">
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleCtrls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
           <%= cl_image_tag @accomodation.photos.first.key, class: "d-block w-100 fixed-height" %>
@@ -12,11 +12,11 @@
           </div>
         <% end %>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <a class="carousel-control-prev" href="#carouselExampleCtrls" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <a class="carousel-control-next" href="#carouselExampleCtrls" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
@@ -25,10 +25,13 @@
 
   <div class="accomodation-show-infos">
     <div>
-      <h2><%= @accomodation.name %></h2>
+      <h2 id="accomodation-name"><%= @accomodation.name %></h2>
       <p><%= @accomodation.description %></p>
     </div>
     <h2 class="accomodation-show-pricing"><%= @accomodation.price_per_night %> €</h2>
+  </div>
+  <div id="add-to-itinerary">
+    Add to my itinerary
   </div>
 </div>
 
