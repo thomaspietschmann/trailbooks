@@ -23,9 +23,11 @@
   </div>
   <div class="accomodation-info-window-infos">
     <div>
-      <h2><%= accomodation.name %></h2>
+      <h2 class="acc-name"><%= accomodation.name %></h2>
+      <h2 class="acc-price"><%= accomodation.price_per_night %> €</h2>
     </div>
     <div class="fetch-accomodation" data-accomodation-id="<%= accomodation.id %>">More info</div>
+    <div id="add-to-iti" data-accomodation-id="<%= accomodation.id %>">Add to my itinerary</div>
   </div>
 
 
