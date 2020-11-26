@@ -1,10 +1,33 @@
 Accomodation.destroy_all
-Trail.destroy_all
 TrailStage.destroy_all
+Trail.destroy_all
 
 puts "Creating sample trails"
-Trail.create(name: "Laugavegur Trail")
-Trail.create(name: "Tour du Mont Blanc")
+
+def create_trail(input)
+  p input
+  puts "creating trail #{input[:name]}"
+  trail = Trail.new(input)
+  filename = "#{trail[:trail_outline]}.svg"
+  file = File.open("./db/seed_img/outlines/#{filename}")
+  trail.photos.attach(io: file, filename: filename, content_type: 'image/svg')
+  trail.save!
+  filename = "#{trail[:trail_outline]}.jpg"
+  file = File.open("./db/seed_img/trail_bg/#{filename}")
+  trail.photos.attach(io: file, filename: filename, content_type: 'image/jpg')
+  trail.save!
+end
+
+trails = [{name: "Laugavegur Trail", trail_outline: "laugavegur", country: "Iceland", number_of_days: 4, elevation_range: "510 - 2125m", distance: 170},
+{name: "Tour du Mont Blanc", trail_outline: "tour-du-mont-blanc", country: "France", number_of_days: 11, elevation_range: "510 - 2125m", distance: 170}]
+
+trails.each do |trail|
+  create_trail(trail)
+end
+
+
+
+
 
 
 def attach_photo_and_save(acc)
