@@ -11,63 +11,62 @@ a:hover {
 
 .trail-card {
   display: flex;
+  flex-direction: column;
+  width: 360px;
   border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.25)
+  box-shadow: 0 0 8px rgba(0,0,0,0.25);
 }
 
 .trail-card-image {
-  width: 440px;
+  width: 360px;
   height: 240px;
   background-size: cover;
   background-position: center;
-  border-radius: 8px 0 0 8px;
+  border-radius: 8px 8px 0 0;
 }
 
 .trail-card-info {
-  width: 480px;
-  padding: 24px 30px;
+  width: 360px;
+  padding: 16px 24px;
+  background: white;
+  border-radius: 0 0 8px 8px;
+
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: $grey-1;
+    margin-bottom: 4px;
   }
 
   p {
-    font-size: 1rem;
+    font-size: 14px;
     color: $grey-2;
     font-weight: bold;
+    margin-bottom: 8px;
   }
 }
 
 .trail-stats {
   display: flex;
-  margin-top: 60px;
 
   p {
-    margin-right: 2rem;
+    margin-right: 1.2rem;
     margin-bottom: 0;
     color: $grey-3;
+    font-size: 12px;
   }
 
   svg {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
   }
 }
 
-.container-home {
-  display: flex;
-  justify-content: center;
-}
-
-.hut-campsite-icons {
-  margin-top: 20px;
-}
-
 .trail-outline {
-  width: 440px;
+  width: 360px;
   height: 240px;
   visibility: hidden;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .hover-state:hover > .trail-card > .trail-card-image > .trail-outline {
@@ -77,7 +76,24 @@ a:hover {
   border-radius: 8px;
 }
 
+.hut-campsite-icons {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
 
+.hover-state:hover > .trail-card > .trail-card-info {
+  background: $grey-6;
+}
 
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 32px;
+}
 
+.home-container {
+  width: 80vw;
+  margin: auto;
+}
 
