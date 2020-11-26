@@ -182,7 +182,9 @@ montblanc_stages.each_with_index do |stage, index|
     longitude: stage[2],
   )
   trailstage.trail = Trail.find_by(name: "Tour du Mont Blanc")
-  trailstage.save
+
+  trailstage.save!
+
 end
 
 
