@@ -35,10 +35,7 @@ class TrailsController < ApplicationController
         lat: tstage.latitude,
         lng: tstage.longitude,
         num: tstage.stage_number,
-        # name: tstage.name,
         type: "trailstage"
-        # infoWindow: render_to_string(partial: "info_window", locals: { accomodation: accomodation }),
-        # image_url: helpers.asset_url("mapbox-icon.png")
       }
       markers << ts
     end

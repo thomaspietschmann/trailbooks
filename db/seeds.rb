@@ -1,11 +1,39 @@
 Accomodation.destroy_all
-Trail.destroy_all
 TrailStage.destroy_all
+Trail.destroy_all
 
 puts "Creating sample trails"
-Trail.create(name: "Laugavegur Trail")
-Trail.create(name: "Tour du Mont Blanc")
 
+def create_trail(input)
+  p input
+  puts "creating trail #{input[:name]}"
+  trail = Trail.new(input)
+  filename = "#{trail[:trail_outline]}.svg"
+  file = File.open("./db/seed_img/outlines/#{filename}")
+  trail.photos.attach(io: file, filename: filename, content_type: 'image/svg')
+  trail.save!
+  filename = "#{trail[:trail_outline]}.jpg"
+  file = File.open("./db/seed_img/trail_bg/#{filename}")
+  trail.photos.attach(io: file, filename: filename, content_type: 'image/jpg')
+  trail.save!
+end
+
+puts "Seeding trails..."
+ 
+trails = [
+  {name: "Laugavegur Trail", country: "Iceland", distance: 55, number_of_days: "3 - 4", elevation_range: "219 - 1057", trail_outline: "laugavegur"},
+  {name: "Tour du Mont Blanc", country: "France, Italy, Switzerland", distance: 170, number_of_days: "9-11", trail_outline: "tour-du-mont-blanc"},
+  {name: "West Highland Way", country: "Scotland", distance: 154, number_of_days: "6-8", trail_outline: "west-highland-way"},
+  {name: "Milford track", country: "New Zealand", distance: 54, number_of_days: "4", trail_outline: "milford-track"},
+  {name: "Walker's Haute Route", country: "France, Switzerland", distance: 200, number_of_days: "10-15", trail_outline: "walkers-haute-route"},
+  {name: "GR20", country: "Corsica", distance: 180, number_of_days: "5-7", trail_outline: "gr20"}
+  ]
+
+trails.each do |trail|
+  create_trail(trail)
+end
+
+puts "We have trails!"
 
 def attach_photo_and_save(acc)
   p acc.category
@@ -175,7 +203,9 @@ montblanc_stages.each_with_index do |stage, index|
     longitude: stage[2],
   )
   trailstage.trail = Trail.find_by(name: "Tour du Mont Blanc")
+
   trailstage.save!
+
 end
 
 
