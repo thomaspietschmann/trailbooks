@@ -12,9 +12,13 @@
   padding: 0 2rem;
 
   p {
-    color: white;
+    color: $grey-2;
     font-size: 1rem;
     font-weight: bold;
-    margin-top: 30px;
+    margin-top: 20px;
+  }
+
+  img {
+    width: 55px;
   }
 }

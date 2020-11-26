@@ -2,9 +2,16 @@ Accomodation.destroy_all
 Trail.destroy_all
 TrailStage.destroy_all
 
-puts "Creating sample trails"
-Trail.create(name: "Laugavegur Trail")
-Trail.create(name: "Tour du Mont Blanc")
+puts "Seeding trails..."
+
+Trail.create(name: "Laugavegur Trail", country: "Iceland", distance: 55, number_of_days: "3 - 4", elevation_range: "219 - 1057")
+Trail.create(name: "Tour du Mont Blanc", country: "France, Italy, Switzerland", distance: 170, number_of_days: "9-11")
+Trail.create(name: "West Highland Way", country: "Scotland", distance: 154, number_of_days: "6-8")
+Trail.create(name: "Milford track", country: "New Zealand", distance: 54, number_of_days: "4")
+Trail.create(name: "Walker's Haute Route", country: "France, Switzerland", distance: 200, number_of_days: "10-15")
+Trail.create(name: "GR20", country: "Corsica", distance: 180, number_of_days: "5-7")
+
+puts "We have trails!"
 
 
 def attach_photo_and_save(acc)
@@ -175,7 +182,9 @@ montblanc_stages.each_with_index do |stage, index|
     longitude: stage[2],
   )
   trailstage.trail = Trail.find_by(name: "Tour du Mont Blanc")
+
   trailstage.save!
+
 end
 
 
