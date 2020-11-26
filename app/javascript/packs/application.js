@@ -30,7 +30,12 @@ import {
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-
+const closeAccommodation = (accomodationContainer) => {
+  const closeBtn = accomodationContainer.querySelector("#close-btn");
+  closeBtn.addEventListener("click", event => {
+    accomodationContainer.innerHTML = "";
+  });
+};
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -50,6 +55,7 @@ document.addEventListener('turbolinks:load', () => {
              .then(response => response.text())
              .then((html) => {
               accomodationContainer.innerHTML = html;
+              closeAccommodation(accomodationContainer)
              });
           })
         }
