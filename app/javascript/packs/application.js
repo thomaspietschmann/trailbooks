@@ -36,6 +36,7 @@ import {
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  console.log()
   initMapbox();
   const markers = document.querySelectorAll(".marker");
   markers.forEach((marker) => {
