@@ -30,7 +30,12 @@ import {
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-
+const closeAccommodation = (accomodationContainer) => {
+  const closeBtn = accomodationContainer.querySelector("#close-btn");
+  closeBtn.addEventListener("click", event => {
+    accomodationContainer.innerHTML = "";
+  });
+};
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -47,10 +52,11 @@ document.addEventListener('turbolinks:load', () => {
         if (fetchButton) {
           fetchButton.addEventListener("click", event => {
             fetch(`/accomodations/${event.currentTarget.dataset.accomodationId}`)
-              .then(response => response.text())
-              .then((html) => {
-                accomodationContainer.innerHTML = html;
-              });
+             .then(response => response.text())
+             .then((html) => {
+              accomodationContainer.innerHTML = html;
+              closeAccommodation(accomodationContainer)
+             });
           })
         }
       }, 200);

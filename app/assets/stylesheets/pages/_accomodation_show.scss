@@ -37,3 +37,16 @@
 height: calc(100vh - 60px);
 width: 450px;
 }
+
+#close-btn {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0px;
+  left: 5px;
+  cursor: pointer;
+  z-index: 10000;
+  background-size: cover;
+  background-color: white;
+  border-radius: 50%;
+}
