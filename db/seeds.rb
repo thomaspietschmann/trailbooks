@@ -3,8 +3,8 @@ Trail.destroy_all
 TrailStage.destroy_all
 
 puts "Creating sample trails"
-Trail.create(name: "Laugevagur Trail")
-Trail.create(name: "Tour de Mont Blanc")
+Trail.create(name: "Laugavegur Trail")
+Trail.create(name: "Tour du Mont Blanc")
 
 
 def attach_photo_and_save(acc)
@@ -37,7 +37,8 @@ acc = Accomodation.new(
   price_per_night: 29,
   capacity: 10
 )
-acc.trail = Trail.find_by(name: "Laugevagur Trail")
+
+acc.trail = Trail.find_by(name: "Laugavegur Trail")
 5.times do
   attach_photo_and_save(acc)
 end
@@ -56,7 +57,7 @@ acc = Accomodation.new(
   price_per_night: 34,
   capacity: 10
 )
-acc.trail = Trail.find_by(name: "Laugevagur Trail")
+acc.trail = Trail.find_by(name: "Laugavegur Trail")
 attach_photo_and_save(acc)
 
 acc = Accomodation.new(
@@ -74,7 +75,7 @@ acc = Accomodation.new(
   capacity: 10
 )
 
-acc.trail = Trail.find_by(name: "Laugevagur Trail")
+acc.trail = Trail.find_by(name: "Laugavegur Trail")
 attach_photo_and_save(acc)
 
 acc = Accomodation.new(
@@ -92,7 +93,7 @@ acc = Accomodation.new(
   capacity: 10
 )
 
-acc.trail = Trail.find_by(name: "Laugevagur Trail")
+acc.trail = Trail.find_by(name: "Laugavegur Trail")
 attach_photo_and_save(acc)
 
 
@@ -111,7 +112,7 @@ acc = Accomodation.new(
   capacity: 10
 )
 
-acc.trail = Trail.find_by(name: "Tour de Mont Blanc")
+acc.trail = Trail.find_by(name: "Tour du Mont Blanc")
 attach_photo_and_save(acc)
 
 
@@ -130,7 +131,7 @@ acc = Accomodation.new(
   capacity: 10
 )
 
-acc.trail = Trail.find_by(name: "Tour de Mont Blanc")
+acc.trail = Trail.find_by(name: "Tour du Mont Blanc")
 attach_photo_and_save(acc)
 
 
@@ -149,7 +150,7 @@ acc = Accomodation.new(
   capacity: 10
 )
 
-acc.trail = Trail.find_by(name: "Tour de Mont Blanc")
+acc.trail = Trail.find_by(name: "Tour du Mont Blanc")
 attach_photo_and_save(acc)
 
 montblanc_stages=[
