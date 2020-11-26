@@ -2,6 +2,7 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 16px;
 }
 
 .accomodation-info-window > img {
@@ -32,3 +33,11 @@
   position: relative;
 }
 
+.carousel-inner {
+
+}
+
+.mapboxgl-popup-content {
+  padding: 0 !important;
+  background: none !important;
+}
