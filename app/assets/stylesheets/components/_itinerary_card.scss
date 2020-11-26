@@ -1,0 +1,18 @@
+#container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  padding-top: 6px;
+}
+
+.accname {
+}
+
+.accprice {
+  float: right;
+}
+
+.bi {
+  float: left;
+}
