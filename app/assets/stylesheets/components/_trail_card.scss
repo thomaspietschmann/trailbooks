@@ -1,5 +1,7 @@
-body {
-  background: $trailbooks-blue;
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
 }
 
 .container-home {
@@ -76,8 +78,3 @@ a:hover {
   }
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
-}
