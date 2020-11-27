@@ -12,6 +12,7 @@ const initMapbox = () => {
       maxZoom: 15,
       duration: 2000
     });
+    map.resize();
   };
 
 
@@ -21,10 +22,14 @@ const initMapbox = () => {
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/brizlelem/ckhw1xc2e0y2d19nxpeh4t2co'
-      // style: 'mapbox://styles/mapbox/streets-v11'
     });
+    map.resize();
+
 
     const markers = JSON.parse(mapElement.dataset.markers);
+
+    // let markerCount = 0;
+
     markers.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
@@ -50,16 +55,20 @@ const initMapbox = () => {
           .setPopup(popup)
           .addTo(map);
       }
+      // markerCount++;
+      // console.log(markers.length);
+      // console.log(markerCount);
 
     });
+    // if (markerCount === markers.length) {
+    //   console.log("Calling fitmap now");
+    // }
     fitMapToMarkers(map, markers);
-    map.on('load', () => {
-        map.resize();
-    });
   };
+
 };
 
-
+// detect the map's new width and height and resize it
 export {
   initMapbox
 };
