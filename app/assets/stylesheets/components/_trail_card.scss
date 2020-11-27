@@ -4,77 +4,96 @@
   grid-gap: 16px;
 }
 
-.container-home {
-  width: 80vw;
-  margin: auto;
-}
 
 a:hover {
   text-decoration: none;
 }
 
 .trail-card {
-  background-image:
-    linear-gradient(rgba(30,34,43,0.5), rgba(30,34,43,0.5)),
-    asset-url("Laugavegur.jpg");
-    border-radius: 8px;
-    width: 560px;
-    height: 260px;
-    padding: 24px 30px;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.25);
+}
 
-  :hover {
-    box-shadow: 2px solid white;
-  }
+.trail-card-image {
+  width: 360px;
+  height: 240px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px 8px 0 0;
+}
+
+.trail-card-info {
+  width: 360px;
+  padding: 16px 24px;
+  background: white;
+  border-radius: 0 0 8px 8px;
 
   h2 {
-    font-size: 1.5rem;
-    color: white;
+    font-size: 1.2rem;
+    color: $grey-1;
+    margin-bottom: 4px;
   }
 
   p {
-    font-size: 1rem;
-    color: white;
+    font-size: 14px;
+    color: $grey-2;
     font-weight: bold;
+    margin-bottom: 8px;
   }
-}
-
-.trail-card-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 85%;
-  position: relative;
-}
-
-.trail-card-right {
-  display: flex;
-  flex-direction: column;
-
-  svg {
-    margin: 8px 0;
-  }
-}
-
-.trail-outline {
-  position: absolute;
-  top: 20px;
-  right: 0px;
 }
 
 .trail-stats {
   display: flex;
 
   p {
-    margin-right: 2rem;
+    margin-right: 1.2rem;
     margin-bottom: 0;
+    color: $grey-3;
+    font-size: 12px;
   }
 
   svg {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
   }
+}
+
+.trail-outline {
+  width: 360px;
+  height: 240px;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.hover-state:hover > .trail-card > .trail-card-image > .trail-outline {
+  visibility: visible;
+  background-image:
+    linear-gradient(rgba(30,34,43,0.5), rgba(30,34,43,0.5));
+  border-radius: 8px;
+}
+
+.hut-campsite-icons {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.hover-state:hover > .trail-card > .trail-card-info {
+  background: $grey-6;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 32px;
+}
+
+.home-container {
+  width: 80vw;
+  margin: auto;
 }
 
