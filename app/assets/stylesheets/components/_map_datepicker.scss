@@ -1,0 +1,30 @@
+.flatpickr-months .flatpickr-month {
+  background: $grey-6 !important;
+  color: $grey-1 !important;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  background: $grey-6 !important;
+  color: $grey-1 !important;
+}
+
+.flatpickr-weekdays {
+  background: $grey-6 !important;
+  color: $grey-1 !important;
+
+}
+
+span.flatpickr-weekday {
+  background: $grey-6 !important;
+  color: $grey-1 !important;
+}
+
+.flatpickr-day.selected {
+  background: $trailbooks-red !important;
+  border-color: $trailbooks-red !important;
+}
+
+.flatpickr-calendar.arrowTop:after {
+  border-bottom-color: $grey-6 !important;
+  color: $grey-1 !important;
+}

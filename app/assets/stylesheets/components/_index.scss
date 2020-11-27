@@ -1,14 +1,20 @@
 // Import your components CSS files here.
 @import "accommodation_container";
 @import "alert";
-@import "carousel-show";
-@import "details_btn";
+
+@import "map_datepicker";
+@import "map_marker";
+@import "map_navbar";
+@import "map_popover";
+
 @import "home_banner";
 @import "home_three_steps";
 @import "home_trail_card";
-@import "map_marker";
-@import "map_navbar";
-@import "tab_content_itinerary";
-@import "tab_content_trailstages";
+
+@import "tab_itinerary";
+@import "tab_itinerary_card";
+@import "tab_trailstages";
 @import "tabs";
+
+@import "details_btn";
 

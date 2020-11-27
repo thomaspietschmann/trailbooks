@@ -1,14 +1,15 @@
+.carousel-show {
+  .fixed-height {
+    height: 140px;
+    object-fit: cover;
+  }
+}
+
 .accomodation-info-window {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 16px;
-}
-
-.accomodation-info-window > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
 }
 
 .accomodation-info-window h2 {
@@ -23,7 +24,6 @@
   margin: 0;
 }
 
-
 .accomodation-info-window .accomodation-info-window-infos {
   padding: 16px;
   display: flex;
@@ -31,10 +31,6 @@
   align-items: flex-start;
   flex-direction: column;
   position: relative;
-}
-
-.carousel-inner {
-
 }
 
 .mapboxgl-popup-content {
