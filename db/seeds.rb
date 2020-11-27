@@ -2,7 +2,7 @@ Accomodation.destroy_all
 TrailStage.destroy_all
 Trail.destroy_all
 
-puts "Creating sample trails"
+puts "Seeding trails..."
 
 def create_trail(input)
   p input
@@ -18,15 +18,13 @@ def create_trail(input)
   trail.save!
 end
 
-puts "Seeding trails..."
-
 trails = [
-  {name: "Laugavegur Trail", country: "Iceland", distance: 55, number_of_days: "3 - 4", elevation_range: "219 - 1057", trail_outline: "laugavegur"},
-  {name: "Tour du Mont Blanc", country: "France, Italy, Switzerland", distance: 170, number_of_days: "9-11", trail_outline: "tour-du-mont-blanc"},
-  {name: "West Highland Way", country: "Scotland", distance: 154, number_of_days: "6-8", trail_outline: "west-highland-way"},
-  {name: "Milford track", country: "New Zealand", distance: 54, number_of_days: "4", trail_outline: "milford-track"},
-  {name: "Walker's Haute Route", country: "France, Switzerland", distance: 200, number_of_days: "10-15", trail_outline: "walkers-haute-route"},
-  {name: "GR20", country: "Corsica", distance: 180, number_of_days: "5-7", trail_outline: "gr20"}
+  {name: "Laugavegur Trail", country: "Iceland", distance: 55, number_of_days: "3-4", elevation_range: "219 - 1,057", trail_outline: "laugavegur"},
+  {name: "Tour du Mont Blanc", country: "France, Italy, Switzerland", distance: 170, number_of_days: "9-11", elevation_range: "556 - 2,210", trail_outline: "tour-du-mont-blanc"},
+  {name: "West Highland Way", country: "Scotland", distance: 154, number_of_days: "6-8", elevation_range: "5 - 548", trail_outline: "west-highland-way"},
+  {name: "Milford track", country: "New Zealand", distance: 54, number_of_days: "4", elevation_range: "82 - 1,109", trail_outline: "milford-track"},
+  {name: "Walker's Haute Route", country: "France, Switzerland", distance: 200, number_of_days: "10-15", elevation_range: "890 - 3,294", trail_outline: "walkers-haute-route"},
+  {name: "GR20", country: "Corsica", distance: 180, number_of_days: "5-7", elevation_range: "41 - 1,197", trail_outline: "gr20"}
   ]
 
 trails.each do |trail|
