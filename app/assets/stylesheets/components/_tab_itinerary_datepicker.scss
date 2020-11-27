@@ -11,7 +11,6 @@
 .flatpickr-weekdays {
   background: $grey-6 !important;
   color: $grey-1 !important;
-
 }
 
 span.flatpickr-weekday {
@@ -21,7 +20,14 @@ span.flatpickr-weekday {
 
 .flatpickr-day.selected {
   background: $trailbooks-red !important;
-  border-color: $trailbooks-red !important;
+  border: none;
+}
+
+.flatpickr-day:hover {
+  background: $trailbooks-blue !important;
+  color: white !important;
+  font-weight: bold;
+  border: none;
 }
 
 .flatpickr-calendar.arrowTop:after {
