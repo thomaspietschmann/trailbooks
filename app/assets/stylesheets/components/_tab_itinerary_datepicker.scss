@@ -34,3 +34,7 @@ span.flatpickr-weekday {
   border-bottom-color: $grey-6 !important;
   color: $grey-1 !important;
 }
+
+.form-control:disabled, .form-control[readonly] {
+  width: 180px;
+}

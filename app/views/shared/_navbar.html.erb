@@ -1,8 +1,10 @@
 <div class="trailbooks-navbar">
   <div class="container-map">
-    <div class="logo">
-        <%= image_tag "trailbooks-logo.png" %>
-    </div>
+    <%= link_to root_path do %>
+      <div class="logo">
+          <%= image_tag "trailbooks-logo.png" %>
+      </div>
+    <% end %>
     <h1><strong><%= @trail.name %></strong> | <%= @trail.country %></h1>
     <div class="user-avatar">
     </div>
