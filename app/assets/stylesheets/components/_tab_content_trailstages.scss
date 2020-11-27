@@ -1,0 +1,30 @@
+.first-stage {
+  display: flex;
+  margin-top: 24px;
+  padding: 0 2rem;
+
+  p {
+    font-weight: bold;
+    margin-left: 1rem;
+    color: $grey-1;
+  }
+}
+
+.icon-line {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.start-marker {
+  width: 18px;
+  height: 18px;
+  background: #219653;
+  border-radius: 50%;
+}
+
+.vl {
+  border-left: 2px solid $grey-4;
+  height: 80px;
+  margin: auto;
+}
