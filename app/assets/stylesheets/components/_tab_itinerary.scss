@@ -1,17 +1,3 @@
-.start-date {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  input {
-    width: 230px;
-    height: 50px;
-    background: $grey-6;
-    border: 2px solid $grey-3;
-    border-radius: 8px;
-  }
-}
-
 .btn-reserve {
   background: $trailbooks-red;
   text-decoration: none;
