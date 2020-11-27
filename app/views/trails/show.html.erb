@@ -16,17 +16,29 @@
 <!-- itinerary -->
         <div class="tab-pane fade show active" id="nav-itinerary" role="tabpanel" aria-labelledby="nav-itinerary-tab">
           <div class="start-date">
-            <p>WHEN WILL YOU START YOUR HIKE?</p>
-            <input type="text">
-            <a href="" class="btn-reserve">Make reservations</a>
+            <div class="container">
+              <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+                WHEN WILL YOU START YOUR HIKE?
+
+                <%= simple_form_for :search, method: "get" do |f| %>
+                  <%= f.input :checkin_date, as: :string, remote: true,  required: true, input_html: {class: "datepicker"} %>
+                  <%= f.button :submit, "Let's go!", class: "btn btn-primary" %>
+                <% end %>
+              </div>
+            </div>
           </div>
+          <div id="itinerary">
+
+          </div>
+        </div>
+<!-- trailstages -->
+        <div class="tab-pane fade" id="nav-trailstages" role="tabpanel" aria-labelledby="nav-trailstages-tab">
           <% @trail.trail_stages.each do |ts| %>
             <div class="ts-<%=ts.stage_number%>">
               <p><%= ts.stage_number %>. <%= ts.name %></p>
             </div>
           <% end %>
         </div>
-<!-- trails stages -->
         <div class="tab-pane fade" id="nav-trailstages" role="tabpanel" aria-labelledby="nav-trailstages-tab">
           <div class="first-stage">
             <div class="icon-line">

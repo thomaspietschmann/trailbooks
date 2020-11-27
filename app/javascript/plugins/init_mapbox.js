@@ -14,6 +14,7 @@ const initMapbox = () => {
     });
   };
 
+
   if (mapElement) { // only build a map if there's a div#map to inject into
     // mapboxgl.accessToken = "pk.eyJ1IjoiZW1lcmdlbmNlZSIsImEiOiJja2d6MjZka3IwemFtMnlxaDVtMGs1Z2w4In0.HJAtijPoXT2Fsl1fwuD4Fw";
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
