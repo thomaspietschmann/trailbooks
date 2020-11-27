@@ -179,8 +179,8 @@ This is where the popular trail Laugavegur, from Landmannalaugar to Þórsmörk,
   lunch_bag: true,
   breakfast: false,
   dinner: true,
-  latitude: 63.6133,
-  longitude: -19.6172,
+  latitude: 63.6860549,
+  longitude: -19.5021758,
   price_per_night: 39,
   capacity: 75
 )
@@ -272,5 +272,26 @@ montblanc_stages.each_with_index do |stage, index|
 
 end
 
+
+laugavegur_stages=[
+["Landmannalaugar",63.9909,-19.0612],
+["Hrafntinnusker",63.9330,-19.1684],
+["Álftavatn",63.8578,-19.2272 ],
+["Emstrur",63.7663,-19.374],
+["Þórsmörk",63.6807,-19.4826],
+
+]
+
+laugavegur_stages.each_with_index do |stage, index|
+  trailstage = TrailStage.new(
+    name: stage[0],
+    stage_number: index + 1,
+    latitude: stage[1],
+    longitude: stage[2],
+  )
+  trailstage.trail = Trail.find_by(name: "Laugavegur Trail")
+
+  trailstage.save!
+end
 
 puts "Done."
