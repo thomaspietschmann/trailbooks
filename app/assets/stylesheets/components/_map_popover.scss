@@ -41,3 +41,7 @@
 .acc-price {
   display: none;
 }
+
+.mapboxgl-popup-close-button {
+  z-index: 10000;
+}
