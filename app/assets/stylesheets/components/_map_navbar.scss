@@ -22,7 +22,8 @@
 
 .user-avatar {
   border-radius: 50%;
-  background: $grey-6;
+  background-image: asset-url("profile.jpg");
   height: 30px;
   width: 30px;
+  background-size: cover;
 }
