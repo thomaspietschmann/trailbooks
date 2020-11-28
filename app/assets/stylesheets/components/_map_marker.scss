@@ -9,7 +9,22 @@
 
 .marker-ts {
   background-color: white;
-  border-radius: 50%;
+  color: black;
   border: 3px solid black;
-  text-align: center;
+  font-weight:bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.marker-ts-start {
+  background-image: asset-url("marker-stage-start.png");
+  background-size: contain;
+}
+
+.marker-ts-end {
+  background-image: asset-url("marker-stage-end.png");
+  background-size: contain;
 }

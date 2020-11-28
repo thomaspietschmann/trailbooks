@@ -1,35 +1,41 @@
-<div class="accomodation-info-window">
-  <div class="carousel-show">
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <%= cl_image_tag accomodation.photos.first.key, class: "d-block w-100 fixed-height" %>
-        </div>
-        <% accomodation.photos[1..-1].each do |photo| %>
-          <div class="carousel-item">
-            <%= cl_image_tag photo.key, class: "d-block w-100 fixed-height" %>
+<!-- MAP POPOVER -->
+
+<div class="fetch-accomodation popover" data-accomodation-id="<%= accomodation.id %>">
+    <div class="carousel-show popover-carousel">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= cl_image_tag accomodation.photos.first.key, class: "d-block w-100 fixed-height" %>
           </div>
-        <% end %>
+          <% accomodation.photos[1..-1].each do |photo| %>
+            <div class="carousel-item">
+              <%= cl_image_tag photo.key, class: "d-block w-100 fixed-height" %>
+            </div>
+          <% end %>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
-  </div>
-  <div class="accomodation-info-window-infos">
-    <div>
-      <h2 class="acc-name"><%= accomodation.name %></h2>
-      <h2 class="acc-price"><%= accomodation.price_per_night %> €</h2>
+    <div class="popover-info">
+      <% if accomodation.category == "Hut"%>
+        <svg width="18" height="18" viewBox="0 0 39 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M38.583 18.4793L31.8693 11.7821C31.7864 11.6168 31.6207 11.4514 31.4549 11.3687L20.4312 0.372067C19.9339 -0.124022 19.1879 -0.124022 18.6906 0.372067L7.58398 11.3687C7.41821 11.4514 7.25244 11.6168 7.16956 11.7821L0.372983 18.562C-0.124328 19.0581 -0.124328 19.8022 0.372983 20.2983C0.870293 20.7944 1.61626 20.7944 2.11357 20.2983L6.25782 16.1642C6.50648 15.9162 6.9209 16.0816 6.9209 16.4123V35.5944C6.9209 36.2559 7.5011 36.8346 8.16418 36.8346H13.7175C14.1319 36.8346 14.4634 36.5039 14.4634 36.0905V21.7866C14.4634 18.9754 16.7842 16.6603 19.6023 16.6603C22.4204 16.6603 24.7412 18.9754 24.7412 21.7866V36.2559C24.7412 36.6693 25.0727 37 25.4872 37H30.7918C31.4549 37 32.0351 36.4212 32.0351 35.7598V16.495C32.0351 16.1642 32.4495 15.9162 32.6982 16.2469L36.8424 20.381C37.0911 20.6291 37.4226 20.7117 37.7541 20.7117C38.0857 20.7117 38.4172 20.5464 38.6659 20.2983C39.1632 19.7196 39.0803 18.9754 38.583 18.4793Z" fill="#333333"/>
+        </svg>
+      <% else %>
+        <svg width="20" height="18" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M25.5363 22.7626L14.0652 3.63805L15.8661 0.634184L14.7961 0L13.3374 2.42846L11.8817 0L10.8117 0.634184L12.6126 3.63805L1.14462 22.7626H0V24H26.625V22.7626H25.5363ZM10.4509 22.7626V17.8716C10.4509 16.3155 11.7324 15.0472 13.3094 15.0472C14.0652 15.0472 14.7775 15.3411 15.3156 15.8732C15.8506 16.4053 16.1461 17.1137 16.1461 17.8716V22.7657H10.4509V22.7626Z" fill="#333333"/>
+        </svg>
+      <% end %>
+      <p class="acc-name"><%= accomodation.name %></p>
+      <p class="acc-price"><%= accomodation.price_per_night %> €</p>
+      <p id="add-to-iti" data-accomodation-id="<%= accomodation.id %>">+</p>
     </div>
-    <div class="fetch-accomodation" data-accomodation-id="<%= accomodation.id %>">More info</div>
-    <div id="add-to-iti" data-accomodation-id="<%= accomodation.id %>">Add to my itinerary</div>
-  </div>
-
-
 </div>
 

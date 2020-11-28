@@ -68,7 +68,7 @@ document.addEventListener('turbolinks:load', () => {
   markers.forEach((marker) => {
     marker.addEventListener("click", () => {
       setTimeout(() => {
-        const infoWindow = document.querySelector(".accomodation-info-window-infos");
+        const infoWindow = document.querySelector(".popover-info");
         const addAccToItiInfo = (infoWindow) => {
         const addToItiButton = infoWindow.querySelector("#add-to-iti");
         const accName = infoWindow.querySelector(".acc-name").innerText;

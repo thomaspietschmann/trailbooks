@@ -2,10 +2,9 @@
 <%= render "shared/three_steps" %>
 
 <div class="home-container">
-<div class="cards">
-<% @trails.each do |trail| %>
-
-<%= render "shared/trail_card", trail: trail %>
-<% end %>
-</div>
+  <div class="cards">
+  <% @trails.each do |trail| %>
+  <%= render "shared/trail_card", trail: trail %>
+  <% end %>
+  </div>
 </div>
