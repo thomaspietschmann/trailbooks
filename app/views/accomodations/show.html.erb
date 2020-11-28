@@ -1,4 +1,4 @@
-<div class="accommodation-page">
+<div class="accom-show">
   <div id="close-btn" style="background-image: url(<%= asset_path 'close.png' %>)"></div>
   <div class="carousel-show">
     <div id="carouselExampleCtrls" class="carousel slide" data-ride="carousel">
@@ -23,15 +23,13 @@
     </div>
   </div>
 
-  <div class="accomodation-show-infos">
-    <div>
-      <h2 id="accomodation-name"><%= @accomodation.name %></h2>
-      <p><%= @accomodation.description %></p>
+  <div class="accom-show-info">
+    <h2><%= @accomodation.name %></h2>
+    <p><strong><%= @accomodation.price_per_night %> €</strong></p>
+    <p><%= @accomodation.description %></p>
+    <div id="add-to-itinerary">
+      Add to my itinerary
     </div>
-    <h2 class="accomodation-show-pricing"><%= @accomodation.price_per_night %> €</h2>
-  </div>
-  <div id="add-to-itinerary">
-    Add to my itinerary
   </div>
 </div>
 
