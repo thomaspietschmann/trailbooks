@@ -2,6 +2,8 @@ Accomodation.destroy_all
 TrailStage.destroy_all
 Trail.destroy_all
 
+# -------------------------- TRAILS -------------------------
+
 puts "Seeding trails..."
 
 def create_trail(input)
@@ -31,7 +33,11 @@ trails.each do |trail|
   create_trail(trail)
 end
 
-puts "We have trails!"
+puts "Trails seeded"
+
+
+# -------------------------- ACCOMMODATION PHOTOS -------------------------
+
 
 def attach_photo_and_save(acc)
   p acc.category
@@ -60,11 +66,17 @@ def attach_photos(acc)
   end
 end
 
-puts "adding sample accomodations to trail"
+
+
+# -------------------------- LAUGAVEGUR TRAIL -------------------------
+
+
+puts "Seeding accommodations for Laugavegur Trail..."
+
 acc = Accomodation.new(
-  name: "Landmannalaugar",
+  name: "Landmannalaugar Hut",
   description: "Landmannalaugar mark the beginning or end of a great many hikes in the Nature Reserve Fjallabak. Among other trails is the popular trail Laugavegur, that runs from Landmannalaugar to Þórsmörk.",
-  category: "Campsite",
+  category: "Hut",
   toilets: false,
   showers: true,
   lunch_bag: true,
@@ -72,7 +84,7 @@ acc = Accomodation.new(
   dinner: true,
   latitude: 63.9912415,
   longitude: -19.0600593,
-  price_per_night: 39,
+  price_per_night: 9500,
   capacity: 78
 )
 
@@ -80,9 +92,9 @@ acc.trail = Trail.find_by(name: "Laugavegur Trail")
 attach_photos(acc)
 
 acc = Accomodation.new(
-  name: "Hrafntinnusker",
+  name: "Hrafntinnusker Hut",
   description: "The Höskuldsskáli hut in Hrafntinnusker is operated by Ferðafélag Íslands (The Iceland Touring Association, FÍ) and accommodates 52 people. The hut sits right on the popular trail Laugavegur, from Landmannalaugar to Þórsmörk and is often considered the first stop on the trail.",
-  category: "Campsite",
+  category: "Hut",
   toilets: true,
   showers: true,
   lunch_bag: true,
@@ -90,34 +102,16 @@ acc = Accomodation.new(
   dinner: false,
   latitude: 63.9336295,
   longitude: -19.1707295,
-  price_per_night: 39,
+  price_per_night: 9500,
   capacity: 52
 )
 acc.trail = Trail.find_by(name: "Laugavegur Trail")
 attach_photos(acc)
 
 acc = Accomodation.new(
-  name: "Landmannalaugar",
-  description: "Nice place in the tundra",
-  category: "Hut",
-  toilets: true,
-  showers: true,
-  lunch_bag: true,
-  breakfast: false,
-  dinner: true,
-  longitude: -19.06006,
-  latitude: 63.99061,
-  price_per_night: 39,
-  capacity: 58
-)
-
-acc.trail = Trail.find_by(name: "Laugavegur Trail")
-attach_photos(acc)
-
-acc = Accomodation.new(
-  name: "Álftavatn",
+  name: "Álftavatn Hut",
   description: "The huts on lake Álftavatn are on the popular trail Laugavegur, from Landmannalaugar to Þórsmörk, about half-way on the trail. Those who hike Laugavegurinn sometimes hike all the way to Álftavatn on the first day, others prefer to spend the first night in Hrafntinnusker and the second night in Álftavatn.",
-  category: "Campsite",
+  category: "Hut",
   toilets: true,
   showers: true,
   lunch_bag: true,
@@ -125,7 +119,7 @@ acc = Accomodation.new(
   dinner: true,
   latitude: 63.8576346,
   longitude: -19.2294162,
-  price_per_night: 39,
+  price_per_night: 9500,
   capacity: 72
 )
 
@@ -133,7 +127,7 @@ acc.trail = Trail.find_by(name: "Laugavegur Trail")
 attach_photos(acc)
 
 acc = Accomodation.new(
-  name: "Hvanngil",
+  name: "Hvanngil Hut",
   description: "The hut in Hvanngil is on the popular trail Laugavegur, from Landmannalaugar to Þórsmörk, a little bit further than half-way on the trail.",
   category: "Hut",
   toilets: true,
@@ -143,7 +137,7 @@ acc = Accomodation.new(
   dinner: true,
   latitude: 63.8318,
   longitude: -19.2048,
-  price_per_night: 39,
+  price_per_night: 9500,
   capacity: 60
 )
 
@@ -151,7 +145,7 @@ acc.trail = Trail.find_by(name: "Laugavegur Trail")
 attach_photos(acc)
 
 acc = Accomodation.new(
-  name: "Emstrur",
+  name: "Emstrur Hut",
   description: "Ferðafélag Íslands (The Iceland Touring Association, FÍ) operates three small mountain huts in Botnar on Emstrur, right on the popular trail Laugavegur, from Landmannalaugar to Þórsmörk.",
   category: "Hut",
   toilets: true,
@@ -161,7 +155,7 @@ acc = Accomodation.new(
   dinner: true,
   latitude: 63.854954,
   longitude: -19.248147,
-  price_per_night: 39,
+  price_per_night: 9500,
   capacity: 60
 )
 
@@ -169,10 +163,8 @@ acc.trail = Trail.find_by(name: "Laugavegur Trail")
 attach_photos(acc)
 
 acc = Accomodation.new(
-  name: "Þórsmörk",
-  description: "Þórsmörk is a true Icelandic treasure and very popular with outdoor enthusiasts, for both short and long hikes.
-
-This is where the popular trail Laugavegur, from Landmannalaugar to Þórsmörk, ends and where another popular trail Fimmvörðuháls either ends or begins.",
+  name: "Þórsmörk Hut",
+  description: "Þórsmörk is a true Icelandic treasure and very popular with outdoor enthusiasts, for both short and long hikes. This is where the popular trail Laugavegur, from Landmannalaugar to Þórsmörk, ends and where another popular trail Fimmvörðuháls either ends or begins.",
   category: "Hut",
   toilets: true,
   showers: true,
@@ -181,13 +173,43 @@ This is where the popular trail Laugavegur, from Landmannalaugar to Þórsmörk,
   dinner: true,
   latitude: 63.6860549,
   longitude: -19.5021758,
-  price_per_night: 39,
+  price_per_night: 9500,
   capacity: 75
 )
 
 acc.trail = Trail.find_by(name: "Laugavegur Trail")
 attach_photos(acc)
 
+puts "Laugavegur Trail accommodations seeded."
+
+
+laugavegur_stages=[
+["Landmannalaugar",63.9909,-19.0612],
+["Hrafntinnusker",63.9330,-19.1684],
+["Álftavatn",63.8578,-19.2272 ],
+["Emstrur",63.7663,-19.374],
+["Þórsmörk",63.6807,-19.4826],
+]
+
+laugavegur_stages.each_with_index do |stage, index|
+  trailstage = TrailStage.new(
+    name: stage[0],
+    stage_number: index + 1,
+    latitude: stage[1],
+    longitude: stage[2],
+  )
+  trailstage.trail = Trail.find_by(name: "Laugavegur Trail")
+
+  trailstage.save!
+end
+
+puts "Trail stages seeded."
+
+
+# ------------------------- TOUR DU MONT BLANC -------------------------
+
+
+puts "Seeding Tour du Mont Blanc accommodations..."
 
 acc = Accomodation.new(
   name: "Hut Col de la Forclaz",
@@ -245,7 +267,14 @@ acc = Accomodation.new(
 acc.trail = Trail.find_by(name: "Tour du Mont Blanc")
 attach_photo_and_save(acc)
 
+puts "Tour du Mont Blanc accommodations seeded."
+
+
+puts "Seeding Tour du Mont Blanc trail stages..."
+
 montblanc_stages=[
+["Les Houches",45.89006,6.79824],
+["Les Contamines",45.80732,6.72478],
 ["Les Chapieux",45.69751,6.73441],
 ["Rifugio Elisabetta",45.76700,6.83743],
 ["Courmayeur",45.79683,6.96797],
@@ -254,9 +283,7 @@ montblanc_stages=[
 ["Champex",46.02969,7.11707],
 ["Col de la Forclaz",46.057766,7.001360],
 ["Tre le Champ",45.997076,6.926385],
-["Refuge la Flegere",45.96000,6.88743],
-["Les Houches",45.89006,6.79824],
-["Les Contamines",45.80732,6.72478]
+["La Flegere",45.96000,6.88743]
 ]
 
 montblanc_stages.each_with_index do |stage, index|
@@ -272,26 +299,4 @@ montblanc_stages.each_with_index do |stage, index|
 
 end
 
-
-laugavegur_stages=[
-["Landmannalaugar",63.9909,-19.0612],
-["Hrafntinnusker",63.9330,-19.1684],
-["Álftavatn",63.8578,-19.2272 ],
-["Emstrur",63.7663,-19.374],
-["Þórsmörk",63.6807,-19.4826],
-
-]
-
-laugavegur_stages.each_with_index do |stage, index|
-  trailstage = TrailStage.new(
-    name: stage[0],
-    stage_number: index + 1,
-    latitude: stage[1],
-    longitude: stage[2],
-  )
-  trailstage.trail = Trail.find_by(name: "Laugavegur Trail")
-
-  trailstage.save!
-end
-
-puts "Done."
+puts "Tour du Mont Blanc trail stages seeded."
