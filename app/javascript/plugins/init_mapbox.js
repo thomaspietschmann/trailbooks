@@ -5,7 +5,8 @@ const initMapbox = () => {
 
   const fitMapToMarkers = (map, markers) => {
     const bounds = new mapboxgl.LngLatBounds();
-    markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+    markers.accomodation.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+    markers.trailstages.forEach(marker => bounds.extend([marker.lng, marker.lat]));
     // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
     map.fitBounds(bounds, {
       padding: 100,
@@ -28,38 +29,48 @@ const initMapbox = () => {
 
     const markers = JSON.parse(mapElement.dataset.markers);
 
-    // let markerCount = 0;
+    markers.accomodation.forEach(accomodation => {
+      const popup = new mapboxgl.Popup().setHTML(accomodation.infoWindow);
+      const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url('${accomodation.image_url}')`;
+      element.style.backgroundSize = 'contain';
+      element.style.width = '40px';
+      element.style.height = '40px';
+      new mapboxgl.Marker(element)
+        .setLngLat([accomodation.lng, accomodation.lat])
+        .setPopup(popup)
+        .addTo(map);
+    });
 
-    markers.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+    markers.trailstages.forEach((trailstage) => {
+      const popup = new mapboxgl.Popup().setHTML(trailstage.infoWindow);
+      const element = document.createElement('div');
+      element.style.width = '24px';
+      element.style.height = '24px';
 
-      if (marker.type === "trailstage") {
-        const element = document.createElement('div');
-        element.className = 'marker-ts';
-        element.style.width = '24px';
-        element.style.height = '24px';
-        // element.innerHTML = `<div class="number">${marker.num}</div><div class="stage-name">${marker.name}</div>`
-        element.innerHTML = marker.num
-        new mapboxgl.Marker(element)
-          .setLngLat([marker.lng, marker.lat])
-          .addTo(map);
+      if (trailstage.num === 0) {
+        // first trail stage
+        element.className = 'marker-ts-start';
+      } else if (trailstage.num === markers.trailstages.length - 1) {
+        // last trail stage
+        element.className = 'marker-ts-end';
       } else {
-        const element = document.createElement('div');
-        element.className = 'marker';
-        element.style.backgroundImage = `url('${marker.image_url}')`;
-        element.style.backgroundSize = 'contain';
-        element.style.width = '40px';
-        element.style.height = '40px';
-        new mapboxgl.Marker(element)
-          .setLngLat([marker.lng, marker.lat])
-          .setPopup(popup)
-          .addTo(map);
+        // any other trailstage
+        element.className = 'marker-ts';
+        element.innerHTML = trailstage.num;
       }
+
+      new mapboxgl.Marker(element)
+        .setLngLat([trailstage.lng, trailstage.lat])
+        .addTo(map);
+    });
+
+
       // markerCount++;
       // console.log(markers.length);
       // console.log(markerCount);
 
-    });
     // if (markerCount === markers.length) {
     //   console.log("Calling fitmap now");
     // }

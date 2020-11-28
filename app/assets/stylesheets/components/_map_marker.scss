@@ -17,3 +17,14 @@
   align-items: center;
   justify-content: center;
 }
+
+
+.marker-ts-start {
+  background-image: asset-url("marker-stage-start.png");
+  background-size: contain;
+}
+
+.marker-ts-end {
+  background-image: asset-url("marker-stage-end.png");
+  background-size: contain;
+}

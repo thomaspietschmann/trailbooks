@@ -12,33 +12,29 @@ class TrailsController < ApplicationController
   end
 
   def assign_icon(category)
-    if category == "Hut"
-      'marker-enabled-hut.png'
-    elsif category == "Campsite"
-      'marker-enabled-campsite.png'
-    end
+    category == "Hut" ? 'marker-enabled-hut.png' : 'marker-enabled-campsite.png'
   end
 
   def build_markers
-    markers = @trail.accomodations.map do |accomodation|
-      icon = assign_icon(accomodation.category)
-      {
-        lat: accomodation.latitude,
-        lng: accomodation.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { accomodation: accomodation }),
-        image_url: helpers.asset_url(icon)
-      }
-    end
-
-    @trail.trail_stages.each do |tstage|
-      ts = {
-        lat: tstage.latitude,
-        lng: tstage.longitude,
-        num: tstage.stage_number,
-        type: "trailstage"
-      }
-      markers << ts
-    end
-    return markers
+    {
+      accomodation: @trail.accomodations.map do |accomodation|
+        {
+          lat: accomodation.latitude,
+          lng: accomodation.longitude,
+          infoWindow: render_to_string(
+            partial: "info_window",
+            locals: { accomodation: accomodation }
+          ),
+          image_url: helpers.asset_url(assign_icon(accomodation.category))
+        }
+      end,
+      trailstages: @trail.trail_stages.map do |trailstage|
+        {
+          lat: trailstage.latitude,
+          lng: trailstage.longitude,
+          num: trailstage.stage_number
+        }
+      end
+    }
   end
 end

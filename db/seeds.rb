@@ -2,7 +2,7 @@ Accomodation.destroy_all
 TrailStage.destroy_all
 Trail.destroy_all
 
-# -------------------------- TRAILS -------------------------
+# ------------------------------- TRAILS ---------------------------------
 
 puts "Seeding trails..."
 
@@ -35,7 +35,7 @@ end
 puts "Trails seeded"
 
 
-# -------------------------- ACCOMMODATION PHOTOS -------------------------
+# -------------------------- ACCOMMODATION PHOTOS ------------------------------
 
 
 def attach_photo_and_save(acc)
@@ -180,17 +180,17 @@ puts "Laugavegur Trail accommodations seeded."
 
 
 laugavegur_stages=[
-["Landmannalaugar",63.9909,-19.0612],
-["Hrafntinnusker",63.9330,-19.1684],
-["Álftavatn",63.8578,-19.2272 ],
-["Emstrur",63.7663,-19.374],
-["Þórsmörk",63.6807,-19.4826],
+  ["Landmannalaugar",63.9909,-19.0612],
+  ["Hrafntinnusker",63.9330,-19.1684],
+  ["Álftavatn",63.8578,-19.2272 ],
+  ["Emstrur",63.7663,-19.374],
+  ["Þórsmörk",63.6807,-19.4826],
 ]
 
 laugavegur_stages.each_with_index do |stage, index|
   trailstage = TrailStage.new(
     name: stage[0],
-    stage_number: index + 1,
+    stage_number: index,
     latitude: stage[1],
     longitude: stage[2],
   )
@@ -285,7 +285,7 @@ montblanc_stages=[
 montblanc_stages.each_with_index do |stage, index|
   trailstage = TrailStage.new(
     name: stage[0],
-    stage_number: index + 1,
+    stage_number: index,
     latitude: stage[1],
     longitude: stage[2],
   )
