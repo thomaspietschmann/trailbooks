@@ -1,6 +1,12 @@
+.accomodation-container {
+  position: absolute;
+  right: 0;
+  background: white;
+}
+
 .accom-show {
   height: calc(100vh - 50px);
-  width: 500px;
+  width: 600px;
 
   img {
     height: 300px !important;
@@ -8,7 +14,16 @@
 }
 
 .accom-show-info {
-  padding: 24px 36px;
+  padding: 36px 42px;
+
+  h2 {
+    font-size: 36px;
+    color: $grey-1;
+  }
+
+  p {
+    color: $grey-1;
+  }
 }
 
 #close-btn {

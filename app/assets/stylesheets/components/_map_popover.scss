@@ -1,45 +1,37 @@
-.carousel-show {
+.popover {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  width: 230px;
+}
+
+.popover-carousel {
   .fixed-height {
-    height: 140px;
+    height: 120px;
     object-fit: cover;
   }
 }
 
-.accomodation-info-window {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 16px;
-}
-
-.accomodation-info-window h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.accomodation-info-window p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
-.accomodation-info-window .accomodation-info-window-infos {
+.popover-info {
   padding: 16px;
+  color: $grey-1;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-direction: column;
-  position: relative;
+
+  p {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 8px;
+  }
+}
+
+.acc-price {
+  display: none;
 }
 
 .mapboxgl-popup-content {
   padding: 0 !important;
   background: none !important;
-}
-
-.acc-price {
-  display: none;
 }
 
 .mapboxgl-popup-close-button {
