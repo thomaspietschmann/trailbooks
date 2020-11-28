@@ -7,8 +7,7 @@ Trail.destroy_all
 puts "Seeding trails..."
 
 def create_trail(input)
-  p input
-  puts "creating trail #{input[:name]}"
+  puts "Creating #{input[:name]}"
   trail = Trail.new(input)
   filename = "#{trail[:trail_outline]}.svg"
   file = File.open("./db/seed_img/outlines/#{filename}")
@@ -40,18 +39,15 @@ puts "Trails seeded"
 
 
 def attach_photo_and_save(acc)
-  p acc.category
-  if acc.category == "Campsite"
-    filepath = "campsites"
-  elsif acc.category == "Hut"
-    filepath = "huts"
+  p acc.name
+  filepath = "#{acc.name}"
+  @images = Dir.glob("./db/seed_img/Accomodations/Tour du Mont Blanc/#{acc.name}/*.jpg")
+  @images.each do |image|
+    p "Using #{acc.name} for upload..."
+    file = File.open(image)
+    acc.photos.attach(io: file, filename: image, content_type: 'image/jpeg')
+    acc.save
   end
-  filename = "camp.jpeg"
-  filepath = Dir.glob("./db/seed_img/#{filepath}/*.jpeg").sample
-  p "Using #{filepath} for upload..."
-  file = File.open(filepath)
-    acc.photos.attach(io: file, filename: filename, content_type: 'image/jpeg')
-acc.save
 end
 
 def attach_photos(acc)
@@ -117,8 +113,8 @@ acc = Accomodation.new(
   lunch_bag: true,
   breakfast: false,
   dinner: true,
-  latitude: 63.8576346,
-  longitude: -19.2294162,
+  latitude: 63.85939,
+  longitude: -19.22692,
   price_per_night: 9500,
   capacity: 72
 )
@@ -135,8 +131,8 @@ acc = Accomodation.new(
   lunch_bag: true,
   breakfast: false,
   dinner: true,
-  latitude: 63.8318,
-  longitude: -19.2048,
+  latitude: 63.83399,
+  longitude: -19.20421,
   price_per_night: 9500,
   capacity: 60
 )
@@ -153,8 +149,8 @@ acc = Accomodation.new(
   lunch_bag: true,
   breakfast: false,
   dinner: true,
-  latitude: 63.854954,
-  longitude: -19.248147,
+  latitude: 63.76857,
+  longitude: -19.37237,
   price_per_night: 9500,
   capacity: 60
 )
@@ -212,18 +208,18 @@ puts "Trail stages seeded."
 puts "Seeding Tour du Mont Blanc accommodations..."
 
 acc = Accomodation.new(
-  name: "Hut Col de la Forclaz",
-  description: "Food and more",
-  category: "Hut",
+  name: "Camping Bellevue",
+  description: "Camping is available at the Bellevue Campsite which is located at the base of the cable car of the same name. This is your only camping option in Les Houches. The campground has basic bathroom facilities and places to charge electronics. Les Houches has several bars, restaurants, ATMs, a small outdoors store where you can purchase stove fuel, a post office, and a grocery store.  There is a bus that runs frequently to and from Chamonix, which has several outdoor retailers and shops that will provide you with anything you may have forgotten to pack.",
+  category: "Campsite",
   toilets: true,
   showers: true,
-  lunch_bag: true,
+  lunch_bag: false,
   breakfast: false,
-  dinner: true,
-  longitude: 7.00127,
-  latitude: 46.05839,
-  price_per_night: 43,
-  capacity: 10
+  dinner: false,
+  longitude: 6.788155,
+  latitude: 45.89627,
+  price_per_night: 12,
+  capacity: 60
 )
 
 acc.trail = Trail.find_by(name: "Tour du Mont Blanc")
@@ -231,16 +227,16 @@ attach_photo_and_save(acc)
 
 
 acc = Accomodation.new(
-  name: "Alpage",
-  description: "Beautiful refugio on Mont Blanc",
-  category: "Hut",
+  name: "Camping Le Pontet",
+  description: "At the end of stage one, most campers will prefer to pitch their tent at Camping Le Pontet, just past the town of Les Contamines. This is the traditional stopping point for this stage, and it gives you better access to services and amenities, both at the campground and in the nearby town.",
+  category: "Campsite",
   toilets: true,
   showers: true,
-  lunch_bag: true,
-  breakfast: false,
+  lunch_bag: false,
+  breakfast: true,
   dinner: true,
-  longitude: 7.11574,
-  latitude: 45.90522,
+  longitude: 6.72169,
+  latitude: 45.80296,
   price_per_night: 11,
   capacity: 10
 )
@@ -250,17 +246,17 @@ attach_photo_and_save(acc)
 
 
 acc = Accomodation.new(
-  name: "Refuge de Miage",
-  description: "Beautiful refugio on Mont Blanc",
-  category: "Hut",
+  name: "Les Chapieux Camping",
+  description: "The tourist office, located in the center of the camping area, has bathrooms with sinks (cold water, potable) and toilets. There is a small shop across the road from the campsite that sells delicious local cheeses, snacks, and hiker basics like ramen noodles, trail mix, and some toiletries.  We recommend stocking up on foodstuffs in Chamonix or Les Houches to get you to this point, but the shop will meet your needs in a pinch.  Additionally, the Auberge de la Nova, just down the road from your campsite, is a nice option for drinks, snacks, or dinner.",
+  category: "Campsite",
   toilets: true,
-  showers: true,
-  lunch_bag: true,
+  showers: false,
+  lunch_bag: false,
   breakfast: false,
-  dinner: true,
-  longitude: 6.75991,
-  latitude: 45.83925,
-  price_per_night: 99,
+  dinner: false,
+  longitude: 6.73428,
+  latitude: 45.69577,
+  price_per_night: 0,
   capacity: 10
 )
 

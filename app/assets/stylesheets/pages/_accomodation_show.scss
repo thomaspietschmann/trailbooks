@@ -10,6 +10,7 @@
 
   img {
     height: 300px !important;
+    object-fit: cover;
   }
 }
 
@@ -19,6 +20,7 @@
   h2 {
     font-size: 36px;
     color: $grey-1;
+    margin-top: 8px;
   }
 
   p {
@@ -33,7 +35,7 @@
   cursor: pointer;
   z-index: 1000;
   border-radius: 50%;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.1);
 
   &:hover {
     border-radius: 50%;
