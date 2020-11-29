@@ -9,7 +9,7 @@ const initMapbox = () => {
     markers.trailstages.forEach(marker => bounds.extend([marker.lng, marker.lat]));
     // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
     map.fitBounds(bounds, {
-      padding: 100,
+      padding: 0,
       maxZoom: 15,
       duration: 2000
     });

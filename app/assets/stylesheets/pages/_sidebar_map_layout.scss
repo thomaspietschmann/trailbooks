@@ -1,6 +1,6 @@
 #sidebar {
   width: 380px;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 30px);
   margin: 15px 16px;
   background: white;
   overflow: hidden;
@@ -13,6 +13,5 @@
 
 #map {
   width: 100vw;
-  height: calc(100vh - 50px);
+  height: 100vh;
 }
-
