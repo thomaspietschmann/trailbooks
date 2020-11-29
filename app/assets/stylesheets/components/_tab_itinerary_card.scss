@@ -1,18 +1,41 @@
-#container {
+.itinerary-card {
+  color: $grey-1;
+  margin: 8px 0;
+}
+
+.grey-section {
+  background: $grey-6;
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-around;
-  padding-top: 6px;
+  padding: 4px 8px;
+
+  p {
+    font-size: 10px;
+    margin-right: 16px;
+    margin-bottom: 0;
+  }
 }
 
-.accname {
+.white-section {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  height: 100px;
+
+  svg {
+    margin: 0 12px;
+  }
 }
 
-.accprice {
-  float: right;
+.itinerary-name {
+  font-weight: bold;
+  margin: 0;
 }
 
-.bi {
-  float: left;
+.itinerary-price {
+  color: $grey-3;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
 }
+
+
