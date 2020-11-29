@@ -22,7 +22,7 @@ class TrailsController < ApplicationController
           lat: accommodation.latitude,
           lng: accommodation.longitude,
           infoWindow: render_to_string(
-            partial: "info_window",
+            partial: "accommodation_popover",
             locals: { accommodation: accommodation }
           ),
           image_url: helpers.asset_url(assign_icon(accommodation.category))
@@ -32,7 +32,11 @@ class TrailsController < ApplicationController
         {
           lat: trailstage.latitude,
           lng: trailstage.longitude,
-          num: trailstage.stage_number
+          num: trailstage.stage_number,
+          infoWindow: render_to_string(
+            partial: "trailstage_popover",
+            locals: { trailstage: trailstage }
+          )
         }
       end
     }
