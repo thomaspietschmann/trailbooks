@@ -5,7 +5,7 @@ const initMapbox = () => {
 
   const fitMapToMarkers = (map, markers) => {
     const bounds = new mapboxgl.LngLatBounds();
-    markers.accomodation.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+    markers.accommodation.forEach(marker => bounds.extend([marker.lng, marker.lat]));
     markers.trailstages.forEach(marker => bounds.extend([marker.lng, marker.lat]));
     // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
     map.fitBounds(bounds, {
@@ -29,16 +29,16 @@ const initMapbox = () => {
 
     const markers = JSON.parse(mapElement.dataset.markers);
 
-    markers.accomodation.forEach(accomodation => {
-      const popup = new mapboxgl.Popup().setHTML(accomodation.infoWindow);
+    markers.accommodation.forEach(accommodation => {
+      const popup = new mapboxgl.Popup().setHTML(accommodation.infoWindow);
       const element = document.createElement('div');
       element.className = 'marker';
-      element.style.backgroundImage = `url('${accomodation.image_url}')`;
+      element.style.backgroundImage = `url('${accommodation.image_url}')`;
       element.style.backgroundSize = 'contain';
       element.style.width = '40px';
       element.style.height = '40px';
       new mapboxgl.Marker(element)
-        .setLngLat([accomodation.lng, accomodation.lat])
+        .setLngLat([accommodation.lng, accommodation.lat])
         .setPopup(popup)
         .addTo(map);
     });

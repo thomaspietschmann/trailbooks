@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AccomodationsControllerTest < ActionDispatch::IntegrationTest
+class AccommodationsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

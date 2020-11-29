@@ -33,18 +33,18 @@ import "../plugins/flatpickr";
 // import { initSelect2 } from '../components/init_select2';
 
 
-const closeAccommodation = (accomodationContainer) => {
-  const closeBtn = accomodationContainer.querySelector("#close-btn");
+const closeAccommodation = (accommodationContainer) => {
+  const closeBtn = accommodationContainer.querySelector("#close-btn");
   closeBtn.addEventListener("click", event => {
-    accomodationContainer.innerHTML = "";
+    accommodationContainer.innerHTML = "";
   });
 };
 
 
-const addAccToIti = (accomodationContainer) => {
-  const addButton = accomodationContainer.querySelector("#add-to-itinerary");
-  const accName = accomodationContainer.querySelector("#accomodation-name").innerText;
-  const accPrice = accomodationContainer.querySelector(".accomodation-show-pricing").innerText;
+const addAccToIti = (accommodationContainer) => {
+  const addButton = accommodationContainer.querySelector("#add-to-itinerary");
+  const accName = accommodationContainer.querySelector("#accommodation-name").innerText;
+  const accPrice = accommodationContainer.querySelector(".accommodation-show-pricing").innerText;
   const itinerary = document.querySelector("#itinerary");
   const htmlCard = `<div id="container">
                       <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="#A31621" xmlns="http://www.w3.org/2000/svg">
@@ -86,16 +86,16 @@ document.addEventListener('turbolinks:load', () => {
         })
       };
         addAccToItiInfo(infoWindow);
-        const fetchButton = document.querySelector(".fetch-accomodation");
-        const accomodationContainer = document.querySelector(".accomodation-container");
+        const fetchButton = document.querySelector(".fetch-accommodation");
+        const accommodationContainer = document.querySelector(".accommodation-container");
         if (fetchButton) {
           fetchButton.addEventListener("click", event => {
-            fetch(`/accomodations/${event.currentTarget.dataset.accomodationId}`)
+            fetch(`/accommodations/${event.currentTarget.dataset.accommodationId}`)
              .then(response => response.text())
              .then((html) => {
-              accomodationContainer.innerHTML = html;
-              closeAccommodation(accomodationContainer);
-              addAccToIti(accomodationContainer);
+              accommodationContainer.innerHTML = html;
+              closeAccommodation(accommodationContainer);
+              addAccToIti(accommodationContainer);
              });
           })
         }
