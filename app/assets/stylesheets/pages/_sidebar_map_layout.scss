@@ -44,11 +44,13 @@
 
 .logo-on-map {
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   color: $trailbooks-blue;
-  opacity: 0.7;
   position: absolute;
   z-index: 3;
   width: 100vw;
-  bottom: 8px;
+  top: 16px;
+  font-family: 'Avenir', 'Nunito Sans';
+  letter-spacing: 0.16em;
+  font-weight: bold;
 }
