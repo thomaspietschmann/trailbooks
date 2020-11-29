@@ -42,27 +42,26 @@ const closeAccommodation = (accommodationContainer) => {
 
 
 const addAccToIti = (accommodationContainer) => {
-  const addButton = accommodationContainer.querySelector("#add-to-itinerary");
-  const accName = accommodationContainer.querySelector("#accommodation-name").innerText;
-  const accPrice = accommodationContainer.querySelector(".accommodation-show-pricing").innerText;
-  const itinerary = document.querySelector("#itinerary");
-  const htmlCard = `<div id="container">
-                      <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="#A31621" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                      </svg>
-                      <div class="accname"><b>${accName}</b></div>
-                      <div class="accprice">${accPrice}</div>
-                    </div>`
-  addButton.addEventListener("click", event => {
-    itinerary.insertAdjacentHTML("beforeend", htmlCard)
-  })
+  // const addButton = accommodationContainer.querySelector("#add-to-itinerary");
+  // const accName = accommodationContainer.querySelector("#accommodation-name").innerText;
+  // const accPrice = accommodationContainer.querySelector(".accommodation-show-pricing").innerText;
+  // const itinerary = document.querySelector("#itinerary");
+  // const htmlCard = `<div id="container">
+  //                     <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="#A31621" xmlns="http://www.w3.org/2000/svg">
+  //                       <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  //                     </svg>
+  //                     <div class="accname"><b>${accName}</b></div>
+  //                     <div class="accprice">${accPrice}</div>
+  //                   </div>`
+  // addButton.addEventListener("click", event => {
+  //   itinerary.insertAdjacentHTML("beforeend", htmlCard)
+  // })
 };
 
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  console.log()
   initMapbox();
   const markers = document.querySelectorAll(".marker");
   markers.forEach((marker) => {
@@ -70,29 +69,29 @@ document.addEventListener('turbolinks:load', () => {
       setTimeout(() => {
         const infoWindow = document.querySelector(".popover-info");
         const addAccToItiInfo = (infoWindow) => {
-        const addToItiButton = infoWindow.querySelector("#add-to-iti");
-        const accName = infoWindow.querySelector(".acc-name").innerText;
-        const accPrice = infoWindow.querySelector(".acc-price").innerText;
-        const itinerary = document.querySelector("#itinerary");
-        const htmlCard = `<div id="container">
-                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="#A31621" xmlns="http://www.w3.org/2000/svg">
-                              <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                            </svg>
-                            <div class="accname"><b>${accName}</b></div>
-                            <div class="accprice">${accPrice}</div>
-                          </div>`
-        addToItiButton.addEventListener("click", event => {
-          itinerary.insertAdjacentHTML("beforeend", htmlCard)
-        })
-      };
+          const addToItiButton = infoWindow.querySelector("#add-to-iti");
+          const accName = infoWindow.querySelector(".acc-name").innerHTML;
+          const accPrice = infoWindow.querySelector(".acc-price").innerHTML;
+          const itinerary = document.querySelector("#itinerary");
+          const htmlCard = `<div id="itinerary-card">
+                              <div class="accname"><b>${accName}</b></div>
+                              <div class="accprice">${accPrice}</div>
+                            </div>`;
+          addToItiButton.addEventListener("click", event => {
+            itinerary.insertAdjacentHTML("beforeend", htmlCard)
+          });
+        };
         addAccToItiInfo(infoWindow);
         const fetchButton = document.querySelector(".fetch-accommodation");
         const accommodationContainer = document.querySelector(".accommodation-container");
         if (fetchButton) {
           fetchButton.addEventListener("click", event => {
+            console.log("hi");
+            console.log(event.currentTarget.dataset.accommodationId);
             fetch(`/accommodations/${event.currentTarget.dataset.accommodationId}`)
              .then(response => response.text())
              .then((html) => {
+              console.log("then html happened")
               accommodationContainer.innerHTML = html;
               closeAccommodation(accommodationContainer);
               addAccToIti(accommodationContainer);

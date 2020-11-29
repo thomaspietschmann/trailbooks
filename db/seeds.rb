@@ -257,17 +257,18 @@ acc.trail = Trail.find_by(name: "Tour du Mont Blanc")
 attach_photo_and_save(acc)
 
 montblanc_stages=[
-["Les Houches",45.89006,6.79824],
-["Les Contamines",45.80732,6.72478],
-["Les Chapieux",45.69751,6.73441],
-["Rifugio Elisabetta",45.76700,6.83743],
-["Courmayeur",45.79683,6.96797],
-["Rifugio Bonatti",45.84692,7.03353],
-["La Fouly",45.93312,7.09851],
-["Champex",46.02969,7.11707],
-["Col de la Forclaz",46.057766,7.001360],
-["Tre le Champ",45.997076,6.926385],
-["La Flegere",45.96000,6.88743]
+  ["Les Houches",45.89006,6.79824],
+  ["Les Contamines",45.80732,6.72478],
+  ["Les Chapieux",45.69751,6.73441],
+  ["Rifugio Elisabetta",45.76700,6.83743],
+  ["Courmayeur",45.79683,6.96797],
+  ["Rifugio Bonatti",45.84692,7.03353],
+  ["La Fouly",45.93312,7.09851],
+  ["Champex",46.02969,7.11707],
+  ["Col de la Forclaz",46.057766,7.001360],
+  ["Tre le Champ",45.997076,6.926385],
+  ["La Flegere",45.96000,6.88743],
+  ["Les Houches",45.89636, 6.80487]
 ]
 
 montblanc_stages.each_with_index do |stage, index|

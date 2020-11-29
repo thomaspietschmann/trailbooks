@@ -36,5 +36,13 @@
 }
 
 .mapboxgl-popup-close-button {
-  z-index: 10000;
+  z-index: 3;
+}
+
+
+.test {
+  background: white;
+  border-radius: 16px;
+  height: 80px;
+  width: 150px;
 }

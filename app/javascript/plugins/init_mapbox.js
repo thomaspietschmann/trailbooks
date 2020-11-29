@@ -3,18 +3,18 @@ import mapboxgl from 'mapbox-gl';
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
 
-  const fitMapToMarkers = (map, markers) => {
-    const bounds = new mapboxgl.LngLatBounds();
-    markers.accommodation.forEach(marker => bounds.extend([marker.lng, marker.lat]));
-    markers.trailstages.forEach(marker => bounds.extend([marker.lng, marker.lat]));
-    // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-    map.fitBounds(bounds, {
-      padding: 100,
-      maxZoom: 15,
-      duration: 2000
-    });
-    map.resize();
-  };
+  // const fitMapToMarkers = (map, markers) => {
+  //   const bounds = new mapboxgl.LngLatBounds();
+  //   markers.accommodation.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+  //   markers.trailstages.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+  //   // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+  //   map.fitBounds(bounds, {
+  //     padding: 0,
+  //     maxZoom: 15,
+  //     duration: 2000
+  //   });
+  //   map.resize();
+  // };
 
 
   if (mapElement) { // only build a map if there's a div#map to inject into
@@ -25,7 +25,6 @@ const initMapbox = () => {
       style: 'mapbox://styles/brizlelem/ckhw1xc2e0y2d19nxpeh4t2co'
     });
     map.resize();
-
 
     const markers = JSON.parse(mapElement.dataset.markers);
 
@@ -45,6 +44,7 @@ const initMapbox = () => {
 
     markers.trailstages.forEach((trailstage) => {
       const popup = new mapboxgl.Popup().setHTML(trailstage.infoWindow);
+
       const element = document.createElement('div');
       element.style.width = '24px';
       element.style.height = '24px';
@@ -63,23 +63,28 @@ const initMapbox = () => {
 
       new mapboxgl.Marker(element)
         .setLngLat([trailstage.lng, trailstage.lat])
+        .setPopup(popup)
         .addTo(map);
     });
 
 
-      // markerCount++;
-      // console.log(markers.length);
-      // console.log(markerCount);
 
-    // if (markerCount === markers.length) {
-    //   console.log("Calling fitmap now");
-    // }
-    fitMapToMarkers(map, markers);
+    const bounds = new mapboxgl.LngLatBounds();
+    markers.accommodation.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+    markers.trailstages.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+
+    // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+    map.fitBounds(bounds, {
+      padding: 0,
+      maxZoom: 15,
+      duration: 2000
+    });
+    map.resize();
+
   };
 
 };
 
-// detect the map's new width and height and resize it
 export {
   initMapbox
 };

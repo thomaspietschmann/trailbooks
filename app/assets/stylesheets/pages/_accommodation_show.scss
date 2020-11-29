@@ -1,11 +1,17 @@
 .accommodation-container {
   position: absolute;
-  right: 0;
   background: white;
+  top: 0;
+  z-index: 5;
+  right: 0;
+  border-radius: 16px;
+  top: 56px;
+  right: 24px;
+  overflow: hidden;
 }
 
 .accom-show {
-  height: calc(100vh - 50px);
+  height: calc(100vh - 70px);
   width: 600px;
 
   img {
@@ -16,6 +22,7 @@
 
 .accom-show-info {
   padding: 36px 42px;
+  overflow: auto;
 
   h2 {
     font-size: 36px;
@@ -25,6 +32,8 @@
 
   p {
     color: $grey-1;
+    font-family: "Avenir", "Nunito Sans", "sans-serif";
+    font-size: 16px;
   }
 }
 
@@ -33,7 +42,7 @@
   top: 8px;
   left: 8px;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 4;
   border-radius: 50%;
   background: rgba(0,0,0,0.1);
 
