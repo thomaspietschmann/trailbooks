@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_26_135523) do
+ActiveRecord::Schema.define(version: 2020_11_29_115752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "accomodations", force: :cascade do |t|
+  create_table "accommodations", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.string "host_email"
@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(version: 2020_11_26_135523) do
     t.boolean "dinner"
     t.float "longitude"
     t.float "latitude"
-    t.float "price_per_night"
+    t.integer "price_per_night"
     t.integer "capacity"
     t.bigint "trail_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["trail_id"], name: "index_accomodations_on_trail_id"
+    t.index ["trail_id"], name: "index_accommodations_on_trail_id"
   end
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -69,19 +69,18 @@ ActiveRecord::Schema.define(version: 2020_11_26_135523) do
 
   create_table "reservations", force: :cascade do |t|
     t.bigint "itinerary_id", null: false
-    t.bigint "accomodation_id", null: false
+    t.bigint "accommodation_id", null: false
     t.date "checkin_date"
     t.float "total_price"
     t.boolean "booked"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "guests"
-    t.index ["accomodation_id"], name: "index_reservations_on_accomodation_id"
+    t.index ["accommodation_id"], name: "index_reservations_on_accommodation_id"
     t.index ["itinerary_id"], name: "index_reservations_on_itinerary_id"
   end
 
   create_table "trail_stages", force: :cascade do |t|
-    t.bigint "trail_id"
     t.string "name"
     t.integer "stage_number"
     t.float "longitude"
@@ -89,6 +88,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_135523) do
     t.integer "distance_from_last"
     t.integer "ascend_from_last"
     t.integer "descend_from_last"
+    t.bigint "trail_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["trail_id"], name: "index_trail_stages_on_trail_id"
@@ -117,10 +117,11 @@ ActiveRecord::Schema.define(version: 2020_11_26_135523) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "accomodations", "trails"
+  add_foreign_key "accommodations", "trails"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "itineraries", "trails"
   add_foreign_key "itineraries", "users"
-  add_foreign_key "reservations", "accomodations"
+  add_foreign_key "reservations", "accommodations", column: "accommodation_id"
   add_foreign_key "reservations", "itineraries"
+  add_foreign_key "trail_stages", "trails"
 end

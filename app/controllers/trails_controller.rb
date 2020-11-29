@@ -17,15 +17,15 @@ class TrailsController < ApplicationController
 
   def build_markers
     {
-      accomodation: @trail.accomodations.map do |accomodation|
+      accommodation: @trail.accommodations.map do |accommodation|
         {
-          lat: accomodation.latitude,
-          lng: accomodation.longitude,
+          lat: accommodation.latitude,
+          lng: accommodation.longitude,
           infoWindow: render_to_string(
             partial: "info_window",
-            locals: { accomodation: accomodation }
+            locals: { accommodation: accommodation }
           ),
-          image_url: helpers.asset_url(assign_icon(accomodation.category))
+          image_url: helpers.asset_url(assign_icon(accommodation.category))
         }
       end,
       trailstages: @trail.trail_stages.map do |trailstage|

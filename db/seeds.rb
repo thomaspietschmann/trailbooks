@@ -1,10 +1,8 @@
-Accomodation.destroy_all
+Accommodation.destroy_all
 TrailStage.destroy_all
 Trail.destroy_all
 
 # ------------------------------- TRAILS ---------------------------------
-
-puts "Seeding trails..."
 
 def create_trail(input)
   puts "Creating #{input[:name]}"
@@ -20,30 +18,34 @@ def create_trail(input)
 end
 
 trails = [
-  {name: "Laugavegur Trail", country: "Iceland", distance: 55, number_of_days: "3-4", elevation_range: "219 - 1,057", trail_outline: "laugavegur"},
-  {name: "Tour du Mont Blanc", country: "France, Italy, Switzerland", distance: 170, number_of_days: "9-11", elevation_range: "556 - 2,210", trail_outline: "tour-du-mont-blanc"},
-  {name: "West Highland Way", country: "Scotland", distance: 154, number_of_days: "6-8", elevation_range: "5 - 548", trail_outline: "west-highland-way"},
-  {name: "Milford track", country: "New Zealand", distance: 54, number_of_days: "4", elevation_range: "82 - 1,109", trail_outline: "milford-track"},
-  {name: "Walker's Haute Route", country: "France, Switzerland", distance: 200, number_of_days: "10-15", elevation_range: "890 - 3,294", trail_outline: "walkers-haute-route"},
-  {name: "GR20", country: "Corsica", distance: 180, number_of_days: "5-7", elevation_range: "41 - 1,197", trail_outline: "gr20"}
-  ]
+  ["Laugavegur Trail", "Iceland", 55, "3-4", "219 - 1,057", "laugavegur"],
+  ["Tour du Mont Blanc", "France, Italy, Switzerland", 170, "9-11", "556 - 2,210", "tour-du-mont-blanc"],
+  ["West Highland Way", "Scotland", 154, "6-8", "5 - 548", "west-highland-way"],
+  ["Milford Track", "New Zealand", 54, "4", "82 - 1,109", "milford-track"],
+  ["Walker's Haute Route", "France, Switzerland", 200, "10-15", "890 - 3,294", "walkers-haute-route"],
+  ["GR20", "Corsica", 180, "5-7", "41 - 1,197", "gr20"]
+]
 
 trails.each do |trail|
-  create_trail(trail)
+  create_trail({
+    name: trail[0],
+    country: trail[1],
+    distance: trail[2],
+    number_of_days: trail[3],
+    elevation_range: trail[4],
+    trail_outline: trail[5]
+  })
 end
-
-puts "Trails seeded"
-
 
 # -------------------------- ACCOMMODATION PHOTOS ------------------------------
 
 
 def attach_photo_and_save(acc)
-  p acc.name
+  puts acc.name
   filepath = "#{acc.name}"
-  @images = Dir.glob("./db/seed_img/Accomodations/Tour du Mont Blanc/#{acc.name}/*.jpg")
+  @images = Dir.glob("./db/seed_img/Accommodations/Tour du Mont Blanc/#{acc.name}/*.jpg")
   @images.each do |image|
-    p "Using #{acc.name} for upload..."
+    puts "Uploading images for #{acc.name}"
     file = File.open(image)
     acc.photos.attach(io: file, filename: image, content_type: 'image/jpeg')
     acc.save
@@ -51,11 +53,11 @@ def attach_photo_and_save(acc)
 end
 
 def attach_photos(acc)
-  p acc.name
+  puts acc.name
   filepath = "#{acc.name}"
-  @images = Dir.glob("./db/seed_img/Accomodations/Laugavegur/#{acc.name}/*.jpg")
+  @images = Dir.glob("./db/seed_img/Accommodations/Laugavegur/#{acc.name}/*.jpg")
   @images.each do |image|
-    p "Using #{acc.name} for upload..."
+    puts "Uploading images for #{acc.name}"
     file = File.open(image)
     acc.photos.attach(io: file, filename: image, content_type: 'image/jpeg')
     acc.save
@@ -67,9 +69,7 @@ end
 # -------------------------- LAUGAVEGUR TRAIL -------------------------
 
 
-puts "Seeding accommodations for Laugavegur Trail..."
-
-acc = Accomodation.new(
+acc = Accommodation.new(
   name: "Landmannalaugar Hut",
   description: "Landmannalaugar mark the beginning or end of a great many hikes in the Nature Reserve Fjallabak. Among other trails is the popular trail Laugavegur, that runs from Landmannalaugar to Þórsmörk.",
   category: "Hut",
@@ -87,7 +87,7 @@ acc = Accomodation.new(
 acc.trail = Trail.find_by(name: "Laugavegur Trail")
 attach_photos(acc)
 
-acc = Accomodation.new(
+acc = Accommodation.new(
   name: "Hrafntinnusker Hut",
   description: "The Höskuldsskáli hut in Hrafntinnusker is operated by Ferðafélag Íslands (The Iceland Touring Association, FÍ) and accommodates 52 people. The hut sits right on the popular trail Laugavegur, from Landmannalaugar to Þórsmörk and is often considered the first stop on the trail.",
   category: "Hut",
@@ -104,7 +104,7 @@ acc = Accomodation.new(
 acc.trail = Trail.find_by(name: "Laugavegur Trail")
 attach_photos(acc)
 
-acc = Accomodation.new(
+acc = Accommodation.new(
   name: "Álftavatn Hut",
   description: "The huts on lake Álftavatn are on the popular trail Laugavegur, from Landmannalaugar to Þórsmörk, about half-way on the trail. Those who hike Laugavegurinn sometimes hike all the way to Álftavatn on the first day, others prefer to spend the first night in Hrafntinnusker and the second night in Álftavatn.",
   category: "Hut",
@@ -122,7 +122,7 @@ acc = Accomodation.new(
 acc.trail = Trail.find_by(name: "Laugavegur Trail")
 attach_photos(acc)
 
-acc = Accomodation.new(
+acc = Accommodation.new(
   name: "Hvanngil Hut",
   description: "The hut in Hvanngil is on the popular trail Laugavegur, from Landmannalaugar to Þórsmörk, a little bit further than half-way on the trail.",
   category: "Hut",
@@ -140,7 +140,7 @@ acc = Accomodation.new(
 acc.trail = Trail.find_by(name: "Laugavegur Trail")
 attach_photos(acc)
 
-acc = Accomodation.new(
+acc = Accommodation.new(
   name: "Emstrur Hut",
   description: "Ferðafélag Íslands (The Iceland Touring Association, FÍ) operates three small mountain huts in Botnar on Emstrur, right on the popular trail Laugavegur, from Landmannalaugar to Þórsmörk.",
   category: "Hut",
@@ -158,7 +158,7 @@ acc = Accomodation.new(
 acc.trail = Trail.find_by(name: "Laugavegur Trail")
 attach_photos(acc)
 
-acc = Accomodation.new(
+acc = Accommodation.new(
   name: "Þórsmörk Hut",
   description: "Þórsmörk is a true Icelandic treasure and very popular with outdoor enthusiasts, for both short and long hikes. This is where the popular trail Laugavegur, from Landmannalaugar to Þórsmörk, ends and where another popular trail Fimmvörðuháls either ends or begins.",
   category: "Hut",
@@ -175,8 +175,6 @@ acc = Accomodation.new(
 
 acc.trail = Trail.find_by(name: "Laugavegur Trail")
 attach_photos(acc)
-
-puts "Laugavegur Trail accommodations seeded."
 
 
 laugavegur_stages=[
@@ -195,19 +193,14 @@ laugavegur_stages.each_with_index do |stage, index|
     longitude: stage[2],
   )
   trailstage.trail = Trail.find_by(name: "Laugavegur Trail")
-
   trailstage.save!
 end
-
-puts "Trail stages seeded."
 
 
 # ------------------------- TOUR DU MONT BLANC -------------------------
 
 
-puts "Seeding Tour du Mont Blanc accommodations..."
-
-acc = Accomodation.new(
+acc = Accommodation.new(
   name: "Camping Bellevue",
   description: "Camping is available at the Bellevue Campsite which is located at the base of the cable car of the same name. This is your only camping option in Les Houches. The campground has basic bathroom facilities and places to charge electronics. Les Houches has several bars, restaurants, ATMs, a small outdoors store where you can purchase stove fuel, a post office, and a grocery store.  There is a bus that runs frequently to and from Chamonix, which has several outdoor retailers and shops that will provide you with anything you may have forgotten to pack.",
   category: "Campsite",
@@ -226,7 +219,7 @@ acc.trail = Trail.find_by(name: "Tour du Mont Blanc")
 attach_photo_and_save(acc)
 
 
-acc = Accomodation.new(
+acc = Accommodation.new(
   name: "Camping Le Pontet",
   description: "At the end of stage one, most campers will prefer to pitch their tent at Camping Le Pontet, just past the town of Les Contamines. This is the traditional stopping point for this stage, and it gives you better access to services and amenities, both at the campground and in the nearby town.",
   category: "Campsite",
@@ -245,7 +238,7 @@ acc.trail = Trail.find_by(name: "Tour du Mont Blanc")
 attach_photo_and_save(acc)
 
 
-acc = Accomodation.new(
+acc = Accommodation.new(
   name: "Les Chapieux Camping",
   description: "The tourist office, located in the center of the camping area, has bathrooms with sinks (cold water, potable) and toilets. There is a small shop across the road from the campsite that sells delicious local cheeses, snacks, and hiker basics like ramen noodles, trail mix, and some toiletries.  We recommend stocking up on foodstuffs in Chamonix or Les Houches to get you to this point, but the shop will meet your needs in a pinch.  Additionally, the Auberge de la Nova, just down the road from your campsite, is a nice option for drinks, snacks, or dinner.",
   category: "Campsite",
@@ -262,11 +255,6 @@ acc = Accomodation.new(
 
 acc.trail = Trail.find_by(name: "Tour du Mont Blanc")
 attach_photo_and_save(acc)
-
-puts "Tour du Mont Blanc accommodations seeded."
-
-
-puts "Seeding Tour du Mont Blanc trail stages..."
 
 montblanc_stages=[
 ["Les Houches",45.89006,6.79824],
@@ -290,9 +278,5 @@ montblanc_stages.each_with_index do |stage, index|
     longitude: stage[2],
   )
   trailstage.trail = Trail.find_by(name: "Tour du Mont Blanc")
-
   trailstage.save!
-
 end
-
-puts "Tour du Mont Blanc trail stages seeded."
