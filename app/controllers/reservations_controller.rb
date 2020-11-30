@@ -1,6 +1,10 @@
 class ReservationsController < ApplicationController
   def index
     @reservations = Reservation.where(user: current_user)
+    respond_to do |format|
+      format.html
+      format.json { render json: { reservations: @reservations } }
+    end
   end
 
   def new
@@ -21,6 +25,10 @@ class ReservationsController < ApplicationController
     @reservation.itinerary = @itinerary
     @reservation.accommodation = @accommodation
     @reservation.save
+      render partial: "trails/itinerary",
+          locals: {
+            reservations: current_user.reservations
+          }
     # if @reservation.save
     #   redirect_to trail_path(@trail)
     # end
