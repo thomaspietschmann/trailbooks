@@ -1,14 +1,29 @@
 class TrailsController < ApplicationController
   before_action :set_trail, only: %i[show]
+  before_action :set_itinerary, only: %i[show]
 
   def show
+    @user = current_user
     @markers = build_markers
+    @reservations = @user.itineraries.find_by(trail_id: @trail.id).reservations.all
   end
 
   private
 
   def set_trail
     @trail = Trail.find(params[:id])
+  end
+
+  def set_itinerary
+    @user = current_user
+    if @user.itineraries.find_by(trail_id: @trail.id).present?
+      @user.itineraries.find_by(trail_id: @trail.id)
+    else
+      @itinerary = Itinerary.new
+      @itinerary.user = @user
+      @itinerary.trail = @trail
+      @itinerary.save!
+    end
   end
 
   def assign_icon(category)

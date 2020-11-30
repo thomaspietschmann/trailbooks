@@ -28,11 +28,12 @@ import {
   initMapbox
 } from '../plugins/init_mapbox';
 import "../plugins/flatpickr";
+import {
+  initShowAccomCont
+} from "../plugins/init_show_accom_cont";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-
-
 
 
 const addAccToIti = (accommodationContainer) => {
@@ -45,7 +46,6 @@ const addAccToIti = (accommodationContainer) => {
   //   itinerary.insertAdjacentHTML("beforeend", htmlCard)
   // })
 };
-
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -88,22 +88,24 @@ document.addEventListener('turbolinks:load', () => {
           //   itinerary.insertAdjacentHTML("beforeend", htmlCard)
           // });
         };
+        
+        addAccToItiInfo(infoWindow);
 
         // WHEN YOU CLICK ON POPOVER, OPEN UP ACCOM SHOW
 
-        addAccToItiInfo(infoWindow);
+
         const fetchButton = document.querySelector(".fetch-accommodation");
         const accommodationContainer = document.querySelector(".accommodation-container");
         if (fetchButton) {
           fetchButton.addEventListener("click", event => {
             console.log(event.currentTarget.dataset.accommodationId);
             fetch(`/accommodations/${event.currentTarget.dataset.accommodationId}`)
-             .then(response => response.text())
-             .then((html) => {
-              accommodationContainer.innerHTML = html;
-              closeAccommodation(accommodationContainer);
-              addAccToIti(accommodationContainer);
-             });
+              .then(response => response.text())
+              .then((html) => {
+                accommodationContainer.innerHTML = html;
+                closeAccommodation(accommodationContainer);
+                // addAccToIti(accommodationContainer);
+              });
           })
         }
       }, 200);
