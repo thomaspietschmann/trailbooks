@@ -9,19 +9,21 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @accommodation = Accommodation.find(params[:accommodation_id])
-    @reservation = reservation.new(reservation_params)
-    start_date = Date.parse(params[:reservation][:start_date])
-    end_date = Date.parse(params[:reservation][:end_date])
-    total_price = (end_date - start_date).to_i * @accommodation.total_price
-    @reservation.total_price = total_price
-    @reservation.itinerary = current_itinerary
+    @trail = @accommodation.trail
+    @reservation = Reservation.new
+    # start_date = Date.parse(params[:reservation][:start_date])
+    # end_date = Date.parse(params[:reservation][:end_date])
+    # total_price = (end_date - start_date).to_i * @accommodation.total_price
+    # @reservation.total_price = total_price
+    @itinerary = @user.itineraries.find_by(trail_id: @trail.id)
+    @reservation.itinerary = @itinerary
     @reservation.accommodation = @accommodation
-    if @reservation.save
-      redirect_to reservations_path
-    else
-      render "new"
-    end
+    @reservation.save
+    # if @reservation.save
+    #   redirect_to trail_path(@trail)
+    # end
   end
 
   def update

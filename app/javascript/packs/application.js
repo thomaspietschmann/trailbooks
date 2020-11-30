@@ -44,22 +44,34 @@ const closeAccommodation = (accommodationContainer) => {
 };
 
 
-const addAccToIti = (accommodationContainer) => {
-  // const addButton = accommodationContainer.querySelector("#add-to-itinerary");
-  // const accName = accommodationContainer.querySelector("#accommodation-name").innerText;
-  // const accPrice = accommodationContainer.querySelector(".accommodation-show-pricing").innerText;
-  // const itinerary = document.querySelector("#itinerary");
-  // const htmlCard = `<div id="container">
-  //                     <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="#A31621" xmlns="http://www.w3.org/2000/svg">
-  //                       <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-  //                     </svg>
-  //                     <div class="accname"><b>${accName}</b></div>
-  //                     <div class="accprice">${accPrice}</div>
-  //                   </div>`
-  // addButton.addEventListener("click", event => {
-  //   itinerary.insertAdjacentHTML("beforeend", htmlCard)
-  // })
-};
+// const addAccToIti = (accommodationContainer) => {
+//   const addButton = accommodationContainer.querySelector("#add-to-itinerary");
+//   const accName = accommodationContainer.querySelector("#accommodation-name").innerText;
+//   const accPrice = accommodationContainer.querySelector(".accommodation-show-pricing").innerText;
+//   const itinerary = document.querySelector("#itinerary");
+//   const htmlCard =
+//   //  `<div class="grey-section">
+//   //         <p>DAY 1</p>
+//   //         <p><strong>24TH JULY 2020</strong></p>
+//   //       </div>
+//   //       <div class="white-section">
+//   //         <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+//   //           <line x1="1" y1="1" x2="20.0238" y2="1" stroke="#828282" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+//   //           <line x1="1.01172" y1="7" x2="20.0355" y2="7" stroke="#828282" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+//   //           <line x1="1.01172" y1="13" x2="20.0355" y2="13" stroke="#828282" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+//   //         </svg>
+//   //         <div class="info">
+//   //           <p class="itinerary-name">${accName}</p>
+//   //           <p class="itinerary-price">${accPrice}€</p>
+//   //         </div>
+//   //         <svg width="19" height="22" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+//   //           <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1.00351C0 0.449285 0.449949 0 1.00685 0H12.9932C13.5492 0 14 0.439668 14 1.00351V15.4342C14 15.9884 13.6432 16.1611 13.2106 15.8257L7.78938 11.6226C7.35342 11.2846 6.64325 11.2872 6.21062 11.6226L0.789382 15.8257C0.353418 16.1637 0 15.998 0 15.4342V1.00351Z" fill="#A31621"/>
+//   //         </svg>
+//   //       </div>`
+//   addButton.addEventListener("click", event => {
+//     itinerary.insertAdjacentHTML("beforeend", htmlCard)
+//   })
+// };
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -71,33 +83,31 @@ document.addEventListener('turbolinks:load', () => {
     marker.addEventListener("click", () => {
       setTimeout(() => {
         const infoWindow = document.querySelector(".popover-info");
-        const addAccToItiInfo = (infoWindow) => {
-          const addToItiButton = infoWindow.querySelector("#add-to-iti");
-          const accName = infoWindow.querySelector(".acc-name").innerHTML;
-          const accPrice = infoWindow.querySelector(".acc-price").innerHTML;
-          const itinerary = document.querySelector("#itinerary");
-          const htmlCard = `<div id="itinerary-card">
-                              <div class="accname"><b>${accName}</b></div>
-                              <div class="accprice">${accPrice}</div>
-                            </div>`;
-          addToItiButton.addEventListener("click", event => {
-            itinerary.insertAdjacentHTML("beforeend", htmlCard)
-          });
-        };
-        addAccToItiInfo(infoWindow);
+        // const addAccToItiInfo = (infoWindow) => {
+        //   const addToItiButton = infoWindow.querySelector("#add-to-iti");
+        //   const accName = infoWindow.querySelector(".acc-name").innerHTML;
+        //   const accPrice = infoWindow.querySelector(".acc-price").innerHTML;
+        //   const itinerary = document.querySelector("#itinerary");
+        //   const htmlCard = `<div id="itinerary-card">
+        //                       <div class="accname"><b>${accName}</b></div>
+        //                       <div class="accprice">${accPrice}</div>
+        //                     </div>`;
+        //   addToItiButton.addEventListener("click", event => {
+        //     itinerary.insertAdjacentHTML("beforeend", htmlCard)
+        //   });
+        // };
+        // addAccToItiInfo(infoWindow);
         const fetchButton = document.querySelector(".fetch-accommodation");
         const accommodationContainer = document.querySelector(".accommodation-container");
         if (fetchButton) {
           fetchButton.addEventListener("click", event => {
-            console.log("hi");
             console.log(event.currentTarget.dataset.accommodationId);
             fetch(`/accommodations/${event.currentTarget.dataset.accommodationId}`)
               .then(response => response.text())
               .then((html) => {
-                console.log("then html happened")
                 accommodationContainer.innerHTML = html;
                 closeAccommodation(accommodationContainer);
-                addAccToIti(accommodationContainer);
+                // addAccToIti(accommodationContainer);
               });
           })
         }
