@@ -73,15 +73,33 @@ acc = Accommodation.new(
   name: "Landmannalaugar Hut",
   description: "Landmannalaugar mark the beginning or end of a great many hikes in the Nature Reserve Fjallabak. Among other trails is the popular trail Laugavegur, that runs from Landmannalaugar to Þórsmörk.",
   category: "Hut",
-  toilets: false,
+  toilets: true,
   showers: true,
   lunch_bag: true,
-  breakfast: false,
+  breakfast: true,
   dinner: true,
-  latitude: 63.9912415,
-  longitude: -19.0600593,
+  latitude: 63.99124,
+  longitude: -19.06005,
   price_per_night: 9500,
   capacity: 78
+)
+
+acc.trail = Trail.find_by(name: "Laugavegur Trail")
+attach_photos(acc)
+
+acc = Accommodation.new(
+  name: "Landmannalaugar Camping",
+  description: "The camping area is located close to the toilet house and is mostly on gravel. It is extremely difficult to drive the pegs into the ground and if it is windy, rocks have to be used to weigh the tents down. People are kindly asked to return the rocks to the wooden crates after use.",
+  category: "Campsite",
+  toilets: true,
+  showers: true,
+  lunch_bag: false,
+  breakfast: false,
+  dinner: false,
+  latitude: 63.99134,
+  longitude: -19.06105,
+  price_per_night: 500,
+  capacity: 150
 )
 
 acc.trail = Trail.find_by(name: "Laugavegur Trail")
@@ -94,13 +112,14 @@ acc = Accommodation.new(
   toilets: true,
   showers: true,
   lunch_bag: true,
-  breakfast: false,
-  dinner: false,
+  breakfast: true,
+  dinner: true,
   latitude: 63.9336295,
   longitude: -19.1707295,
   price_per_night: 9500,
   capacity: 52
 )
+
 acc.trail = Trail.find_by(name: "Laugavegur Trail")
 attach_photos(acc)
 
@@ -111,11 +130,29 @@ acc = Accommodation.new(
   toilets: true,
   showers: true,
   lunch_bag: true,
-  breakfast: false,
+  breakfast: true,
   dinner: true,
   latitude: 63.85939,
   longitude: -19.22692,
   price_per_night: 9500,
+  capacity: 72
+)
+
+acc.trail = Trail.find_by(name: "Laugavegur Trail")
+attach_photos(acc)
+
+acc = Accommodation.new(
+  name: "Álftavatn Camping",
+  description: "The showers (accessible for a fee) are also located in the toilet house. There is also a small hut for the wardens. The camping ground is big. There is a winter latrine located a short distance from the toilet house. Please note, everyone that is not staying the night either at the huts or at the campsite is required to pay a facility fee for the usage of the bathrooms and outdoor facilities such as grill and benches.",
+  category: "Campsite",
+  toilets: true,
+  showers: true,
+  lunch_bag: false,
+  breakfast: false,
+  dinner: false,
+  latitude: 63.85929,
+  longitude: -19.22592,
+  price_per_night: 500,
   capacity: 72
 )
 

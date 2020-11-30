@@ -43,7 +43,6 @@
 .logo-on-map {
   text-align: center;
   font-size: 14px;
-  color: $trailbooks-blue;
   position: absolute;
   z-index: 3;
   width: 100vw;
@@ -51,4 +50,8 @@
   font-family: 'Avenir', 'Nunito Sans';
   letter-spacing: 0.16em;
   font-weight: bold;
+
+  a {
+    color: $trailbooks-blue;
+  }
 }
