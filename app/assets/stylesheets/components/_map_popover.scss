@@ -5,6 +5,7 @@
   border-radius: 8px;
   width: 230px;
   cursor: pointer;
+  border: none;
 }
 
 .popover-carousel {
@@ -46,3 +47,19 @@
   height: 80px;
   width: 150px;
 }
+
+.popover-bookmark {
+  position: absolute;
+  z-index: 10;
+  top: 8px;
+  right: 12px;
+}
+
+.popover-bookmark > path {
+  &:hover {
+      fill: $trailbooks-red;
+      fill-opacity: 1;
+    }
+}
+
+

@@ -3,26 +3,34 @@
   margin: 8px 0;
 }
 
-.grey-section {
-  background: $grey-6;
+.darkgrey-section {
+  background: $grey-5;
   display: flex;
   padding: 4px 8px;
+  border-radius: 8px 8px 0 0;
 
   p {
     font-size: 10px;
     margin-right: 16px;
     margin-bottom: 0;
   }
+
+  .day {
+    width: 10%;
+  }
 }
 
-.white-section {
+.lightgrey-section {
+  background: $grey-6;
   display: flex;
   align-items: center;
   padding: 4px 8px;
-  height: 100px;
+  height: 90px;
+  border-radius: 0 0 8px 8px;
 
   svg {
     margin: 0 12px;
+    width: 10%;
   }
 }
 
@@ -38,4 +46,7 @@
   margin: 0;
 }
 
+.info {
+  width: 80%;
+}
 
