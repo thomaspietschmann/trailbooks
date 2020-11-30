@@ -3,17 +3,18 @@ import mapboxgl from 'mapbox-gl';
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
 
-  const fitMapToMarkers = (map, markers) => {
-    const bounds = new mapboxgl.LngLatBounds();
-    markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
-    // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-    map.fitBounds(bounds, {
-      padding: 100,
-      maxZoom: 15,
-      duration: 2000
-    });
-    map.resize();
-  };
+  // const fitMapToMarkers = (map, markers) => {
+  //   const bounds = new mapboxgl.LngLatBounds();
+  //   markers.accommodation.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+  //   markers.trailstages.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+  //   // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+  //   map.fitBounds(bounds, {
+  //     padding: 0,
+  //     maxZoom: 15,
+  //     duration: 2000
+  //   });
+  //   map.resize();
+  // };
 
 
   if (mapElement) { // only build a map if there's a div#map to inject into
@@ -25,50 +26,65 @@ const initMapbox = () => {
     });
     map.resize();
 
-
     const markers = JSON.parse(mapElement.dataset.markers);
 
-    // let markerCount = 0;
-
-    markers.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-
-      if (marker.type === "trailstage") {
-        const element = document.createElement('div');
-        element.className = 'marker-ts';
-        element.style.width = '24px';
-        element.style.height = '24px';
-        // element.innerHTML = `<div class="number">${marker.num}</div><div class="stage-name">${marker.name}</div>`
-        element.innerHTML = marker.num
-        new mapboxgl.Marker(element)
-          .setLngLat([marker.lng, marker.lat])
-          .addTo(map);
-      } else {
-        const element = document.createElement('div');
-        element.className = 'marker';
-        element.style.backgroundImage = `url('${marker.image_url}')`;
-        element.style.backgroundSize = 'contain';
-        element.style.width = '36px';
-        element.style.height = '36px';
-        new mapboxgl.Marker(element)
-          .setLngLat([marker.lng, marker.lat])
-          .setPopup(popup)
-          .addTo(map);
-      }
-      // markerCount++;
-      // console.log(markers.length);
-      // console.log(markerCount);
-
+    markers.accommodation.forEach(accommodation => {
+      const popup = new mapboxgl.Popup().setHTML(accommodation.infoWindow);
+      const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url('${accommodation.image_url}')`;
+      element.style.backgroundSize = 'contain';
+      element.style.width = '40px';
+      element.style.height = '40px';
+      new mapboxgl.Marker(element)
+        .setLngLat([accommodation.lng, accommodation.lat])
+        .setPopup(popup)
+        .addTo(map);
     });
-    // if (markerCount === markers.length) {
-    //   console.log("Calling fitmap now");
-    // }
-    fitMapToMarkers(map, markers);
+
+    markers.trailstages.forEach((trailstage) => {
+      const popup = new mapboxgl.Popup().setHTML(trailstage.infoWindow);
+
+      const element = document.createElement('div');
+      element.style.width = '24px';
+      element.style.height = '24px';
+
+      if (trailstage.num === 0) {
+        // first trail stage
+        element.className = 'marker-ts-start';
+      } else if (trailstage.num === markers.trailstages.length - 1) {
+        // last trail stage
+        element.className = 'marker-ts-end';
+      } else {
+        // any other trailstage
+        element.className = 'marker-ts';
+        element.innerHTML = trailstage.num;
+      }
+
+      new mapboxgl.Marker(element)
+        .setLngLat([trailstage.lng, trailstage.lat])
+        .setPopup(popup)
+        .addTo(map);
+    });
+
+
+
+    const bounds = new mapboxgl.LngLatBounds();
+    markers.accommodation.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+    markers.trailstages.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+
+    // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+    map.fitBounds(bounds, {
+      padding: 0,
+      maxZoom: 15,
+      duration: 2000
+    });
+    map.resize();
+
   };
 
 };
 
-// detect the map's new width and height and resize it
 export {
   initMapbox
 };
