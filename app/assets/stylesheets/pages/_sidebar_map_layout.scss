@@ -8,6 +8,8 @@
   z-index: 2;
   border-radius: 8px;
   position: fixed;
+  font-family: 'Avenir', 'Nunito Sans';
+  font-size: 16px;
 
   h1 {
     color: white;
@@ -18,10 +20,6 @@
     padding: 16px 24px;
     text-align: center;
   }
-}
-
-.tab-content {
-  padding: 0 12px;
 }
 
 #map {

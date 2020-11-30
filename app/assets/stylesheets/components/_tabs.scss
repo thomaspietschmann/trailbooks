@@ -1,16 +1,16 @@
-.tab-content {
-  overflow: scroll;
-  height: 100%;
-  padding: 16px 0;
-}
-
 .tab-pane {
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .nav {
   display: flex;
   justify-content: center;
+}
+
+.sidebar-tabs {
+  padding: 24px;
+  height: 100%;
+  overflow: auto;
 }
 
 .tabs-underlined {
