@@ -1,56 +1,41 @@
+<!-- MAP STYLESHEET -->
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css">
-<div class="user-profile"></div>
-<%= link_to root_path do %>
-  <h2 class="logo-on-map">TRAILBOOKS</h2>
-<% end %>
-<div data-controller="reservation">
-  <div id="sidebar">
-    <h1>
-      <strong><%= @trail.name %></strong> | <%= @trail.country %>
-    </h1>
-    <nav>
-      <div class="nav list-inline tabs-underlined" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link tab-underlined active" id="nav-itinerary-tab" data-toggle="tab" href="#nav-itinerary" role="tab" aria-controls="nav-itinerary" aria-selected="true">My Itinerary</a>
-        <a class="nav-item nav-link tab-underlined" id="nav-trailstages-tab" data-toggle="tab" href="#nav-trailstages" role="tab" aria-controls="nav-trailstages" aria-selected="false">Trail Stages</a>
+<!-- MAP -->
+<div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
+  <div class="user-profile"></div>
+  <h2 class="logo-on-map">
+    <%= link_to root_path do %>
+      TRAILBOOKS
+    <% end %>
+  </h2>
+  <div data-controller="reservation">
+    <div id="sidebar">
+      <h1>
+        <strong><%= @trail.name %></strong> | <%= @trail.country %>
+      </h1>
+      <div class="nav tabs-underlined" role="tablist">
+        <a class="tab-underlined active" id="nav-itinerary-tab" data-toggle="tab" href="#nav-itinerary" role="tab" aria-controls="nav-itinerary" aria-selected="true">My Itinerary</a>
+        <a class="tab-underlined" id="nav-trailstages-tab" data-toggle="tab" href="#nav-trailstages" role="tab" aria-controls="nav-trailstages" aria-selected="false">Trail Stages</a>
       </div>
-    </nav>
-    <!-- TAB CONTENT -->
-    <div class="tab-content">
-      <div class="tab-content" id="nav-tabContent">
-        <!-- itinerary -->
+      <div class="tab-content sidebar-tabs">
+        <!-- ITINERARY TAB -->
         <div class="tab-pane fade show active" id="nav-itinerary" role="tabpanel" aria-labelledby="nav-itinerary-tab">
-          <div class="start-date">
-            <%#= simple_form_for :search, method: "get" do |f| %>
-              <%#= f.input :, as: :string, remote: true,  required: true, input_html: {class: "datepicker"} %>
-              <%#= f.button :submit, " ", class: "btn btn-primary" %>
-              <%# end %>
+          <%#= simple_form_for :search, method: "get" do |f| %>
+            <%#= f.input :, as: :string, remote: true,  required: true, input_html: {class: "datepicker"} %>
+            <%#= f.button :submit, " ", class: "btn btn-primary" %>
+          <%# end %>
+          <%= render "itinerary", reservations: @reservations %>
+        </div>
+        <!-- TRAILSTAGES TAB -->
+        <div class="tab-pane fade" id="nav-trailstages" role="tabpanel" aria-labelledby="nav-trailstages-tab">
+          <% @trail.trail_stages.each do |ts| %>
+            <div class="ts-<%=ts.stage_number%>">
+              <p><%= ts.stage_number %>. <%= ts.name %></p>
             </div>
-            <%= render "itinerary", reservations: @reservations %>
-          </div>
-          <!-- trailstages -->
-          <div class="tab-pane fade" id="nav-trailstages" role="tabpanel" aria-labelledby="nav-trailstages-tab">
-            <% @trail.trail_stages.each do |ts| %>
-              <div class="ts-<%=ts.stage_number%>">
-                <p><%= ts.stage_number %>. <%= ts.name %></p>
-              </div>
-            <% end %>
-          </div>
-          <div class="tab-pane fade" id="nav-trailstages" role="tabpanel" aria-labelledby="nav-trailstages-tab">
-            <div class="first-stage">
-              <div class="icon-line">
-                <div class="start-marker"></div>
-                <div class="vl"></div>
-              </div>
-              <p>Landmannalangar</p>
-            </div>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>
-    <!-- MAP -->
-    <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
-      <div class="accommodation-container">
-        <!-- ACCOMMODATION SHOW OVERLAY-->
-      </div>
-    </div>
   </div>
+  <div class="accommodation-container"><!-- ACCOMMODATION SHOW --></div>
+</div>
