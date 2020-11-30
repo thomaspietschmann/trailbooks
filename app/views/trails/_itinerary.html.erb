@@ -1,0 +1,23 @@
+<div class="itinerary-card" data-target="reservation.refresh">
+  <% reservations.each do |reservation| %>
+  <div class="darkgrey-section">
+    <p>DAY 1</p>
+    <p><strong>24TH JULY 2020</strong></p>
+  </div>
+
+  <div class="lightgrey-section">
+    <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="1" y1="1" x2="20.0238" y2="1" stroke="#828282" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="1.01172" y1="7" x2="20.0355" y2="7" stroke="#828282" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="1.01172" y1="13" x2="20.0355" y2="13" stroke="#828282" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+      <div class="info">
+        <p class="itinerary-name"><%= reservation.accommodation.name %></p>
+        <p class="itinerary-price"><%= reservation.accommodation.price_per_night %></p>
+      </div>
+      <svg width="19" height="22" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1.00351C0 0.449285 0.449949 0 1.00685 0H12.9932C13.5492 0 14 0.439668 14 1.00351V15.4342C14 15.9884 13.6432 16.1611 13.2106 15.8257L7.78938 11.6226C7.35342 11.2846 6.64325 11.2872 6.21062 11.6226L0.789382 15.8257C0.353418 16.1637 0 15.998 0 15.4342V1.00351Z" fill="#A31621"/>
+      </svg>
+  </div>
+  <% end %>
+</div>
