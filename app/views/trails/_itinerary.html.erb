@@ -1,7 +1,8 @@
 <div class="itinerary-card" data-target="reservation.refresh">
-  <% reservations.each do |reservation| %>
+  <% reservations.each_with_index do |reservation, index| %>
   <div class="darkgrey-section">
-    <p>DAY 1</p>
+    <p>DAY <%= index + 1 %></p>
+
     <p><strong>24TH JULY 2020</strong></p>
   </div>
 
