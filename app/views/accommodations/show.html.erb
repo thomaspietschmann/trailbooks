@@ -26,7 +26,6 @@
       </a>
     </div>
   </div>
-
   <div class="accom-show-info">
     <% if @accommodation.category == "Hut"%>
       <svg width="36" height="36" viewBox="0 0 39 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,14 +36,14 @@
         <path d="M25.5363 22.7626L14.0652 3.63805L15.8661 0.634184L14.7961 0L13.3374 2.42846L11.8817 0L10.8117 0.634184L12.6126 3.63805L1.14462 22.7626H0V24H26.625V22.7626H25.5363ZM10.4509 22.7626V17.8716C10.4509 16.3155 11.7324 15.0472 13.3094 15.0472C14.0652 15.0472 14.7775 15.3411 15.3156 15.8732C15.8506 16.4053 16.1461 17.1137 16.1461 17.8716V22.7657H10.4509V22.7626Z" fill="#333333"/>
       </svg>
     <% end %>
-    <h2><%= @accommodation.name %></h2>
-    <p><strong><%= @accommodation.price_per_night %> kr.</strong></p>
+    <h2 id="accommodation-name"><%= @accommodation.name %></h2>
+    <p class="accommodation-show-pricing"><strong><%= @accommodation.price_per_night %> kr.</strong></p>
     <p><%= @accommodation.description %></p>
-    <div id="add-to-itinerary">
+    <%# <div id="add-to-itinerary">
       Add to my itinerary
-    </div>
+    </div> %>
+    <%= form_for([@accommodation, @reservation], remote: true) do |f| %>
+      <%= f.submit "Add to itinerary", id: "add-to-itinerary" %>
+    <% end %>
   </div>
 </div>
-
-
-
