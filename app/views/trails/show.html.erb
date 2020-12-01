@@ -2,6 +2,19 @@
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css">
 <!-- MAP -->
 <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
+  <script>
+    function showHideFilter(category) {
+      document.querySelectorAll('.marker-' + category).forEach((marker) => {
+        marker.style.display = marker.style.display === "none" ? 'flex' : 'none'
+      });
+      svg = document.querySelector(".filter." + category);
+      svg.src = "/assets/filter-" + category + (svg.src.includes("disabled") ? "" : "-disabled") + ".svg";
+    }
+  </script>
+
+  <%= image_tag "filter-hut.svg", class: "filter hut", onclick: "showHideFilter('hut')" %>
+  <%= image_tag "filter-campsite.svg", class: "filter campsite", onclick: "showHideFilter('campsite')" %>
+  <%= image_tag "filter-trailstage.svg", class: "filter trailstage", onclick: "showHideFilter('trailstage')" %>
   <div class="user-profile"></div>
   <h2 class="logo-on-map">
     <%= link_to root_path do %>

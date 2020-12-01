@@ -36,6 +36,7 @@ class TrailsController < ApplicationController
         {
           lat: accommodation.latitude,
           lng: accommodation.longitude,
+          category: accommodation.category,
           infoWindow: render_to_string(
             partial: "accommodation_popover",
             locals: { accommodation: accommodation }
