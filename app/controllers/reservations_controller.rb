@@ -13,8 +13,10 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = Reservation.new(reservations_params)
+    date = DateTime.parse(params[:reservation][:checkin_date])
+    @reservation = Reservation.new
     @user = current_user
+    @reservation.checkin_date = date
     @accommodation = Accommodation.find(params[:accommodation_id])
     @trail = @accommodation.trail
     @itinerary = @user.itineraries.find_by(trail_id: @trail.id)
@@ -23,7 +25,7 @@ class ReservationsController < ApplicationController
     @reservation.save!
     render partial: "trails/itinerary",
            locals: {
-             reservations: @itinerary.reservations.all
+             reservations: @itinerary.reservations.order(:checkin_date)
            }
   end
 
@@ -39,7 +41,7 @@ class ReservationsController < ApplicationController
     @reservation.destroy
     render partial: "trails/itinerary",
            locals: {
-             reservations: @itinerary.reservations.all
+             reservations: @itinerary.reservations.order(:checkin_date)
            }
   end
 
