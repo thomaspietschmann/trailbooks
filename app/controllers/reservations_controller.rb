@@ -13,7 +13,7 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = Reservation.new(checkin_date: Date.today)
+    @reservation = Reservation.new(reservations_params)
     @user = current_user
     @accommodation = Accommodation.find(params[:accommodation_id])
     @trail = @accommodation.trail
