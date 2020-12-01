@@ -1,10 +1,10 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.where(user: current_user)
-    respond_to do |format|
-      format.html
-      format.json { render json: { reservations: @reservations } }
-    end
+    # @reservations = Reservation.where(user: current_user)
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: { reservations: @reservations } }
+    # end
   end
 
   def new
@@ -13,39 +13,34 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    @reservation = Reservation.new(reservations_params)
     @user = current_user
     @accommodation = Accommodation.find(params[:accommodation_id])
     @trail = @accommodation.trail
-    @reservation = Reservation.new
-    # start_date = Date.parse(params[:reservation][:start_date])
-    # end_date = Date.parse(params[:reservation][:end_date])
-    # total_price = (end_date - start_date).to_i * @accommodation.total_price
-    # @reservation.total_price = total_price
     @itinerary = @user.itineraries.find_by(trail_id: @trail.id)
     @reservation.itinerary = @itinerary
     @reservation.accommodation = @accommodation
-    @reservation.save
-      render partial: "trails/itinerary",
-          locals: {
-            reservations: current_user.reservations
-          }
-    # if @reservation.save
-    #   redirect_to trail_path(@trail)
-    # end
+    @reservation.save!
+    render partial: "trails/itinerary",
+           locals: {
+             reservations: current_user.itineraries.find_by(trail_id: @trail.id).reservations.all.order(checkin_date: :asc)
+           }
   end
 
   def update
     @reservation = Reservation.find(params[:id])
     @reservation.update(reservation_params)
-
     redirect_to reservation_path(@reservation)
   end
 
   def destroy
     @reservation = Reservation.find(params[:id])
+    @itinerary = @reservation.itinerary
     @reservation.destroy
-
-    redirect_to reservations_path
+    render partial: "trails/itinerary",
+           locals: {
+             reservations: @itinerary.reservations.order(:checkin_date)
+           }
   end
 
   private

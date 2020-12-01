@@ -5,48 +5,46 @@
 .darkgrey-section {
   background: $grey-5;
   display: flex;
-  padding: 4px 8px;
+  padding: 4px 16px;
   border-radius: 8px 8px 0 0;
+  justify-content: space-between;
 
   p {
-    font-size: 10px;
+    font-size: 12px;
     margin-right: 16px;
     margin-bottom: 0;
-  }
-
-  .day {
-    width: 10%;
   }
 }
 
 .lightgrey-section {
   background: $grey-6;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 4px 8px;
-  height: 80px;
+  padding: 4px 16px;
+  height: 60px;
   border-radius: 0 0 8px 8px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 
   svg {
-    margin-right: 12px;
-    width: 10%;
+    margin-right: 16px;
   }
 }
 
 .itinerary-name {
-  font-weight: bold;
   margin: 0;
+  font-size: 14px;
+  font-family: 'Fira Sans';
 }
 
 .itinerary-price {
   color: $grey-3;
-  font-size: 12px;
-  font-weight: bold;
+  font-family: 'Fira Sans';
   margin: 0;
+  font-size: 14px;
 }
 
-.info {
-  width: 80%;
+.icon-name {
+  display: flex;
+  align-items: center;
 }
-
