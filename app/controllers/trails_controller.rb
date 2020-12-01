@@ -5,7 +5,7 @@ class TrailsController < ApplicationController
   def show
     @user = current_user
     @markers = build_markers
-    @reservations = @user.itineraries.find_by(trail_id: @trail.id).reservations.order(:checkin_date)
+    @reservations = @user.itineraries.find_by(trail_id: @trail.id).reservations.all.order(checkin_date: :asc)
   end
 
   private

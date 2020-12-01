@@ -23,7 +23,7 @@ class ReservationsController < ApplicationController
     @reservation.save!
     render partial: "trails/itinerary",
            locals: {
-             reservations: @itinerary.reservations.order(:checkin_date)
+             reservations: current_user.itineraries.find_by(trail_id: @trail.id).reservations.all.order(checkin_date: :asc)
            }
   end
 
