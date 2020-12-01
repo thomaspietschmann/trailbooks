@@ -5,7 +5,7 @@
 .darkgrey-section {
   background: $grey-5;
   display: flex;
-  padding: 4px 8px;
+  padding: 4px 16px;
   border-radius: 8px 8px 0 0;
   justify-content: space-between;
 
@@ -19,15 +19,15 @@
 .lightgrey-section {
   background: $grey-6;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 4px 8px;
+  padding: 4px 16px;
   height: 80px;
   border-radius: 0 0 8px 8px;
   margin-bottom: 12px;
 
   svg {
-    margin-right: 12px;
-    width: 10%;
+    margin-right: 16px;
   }
 }
 
@@ -38,11 +38,11 @@
 
 .itinerary-price {
   color: $grey-3;
-  font-size: 12px;
   font-weight: bold;
   margin: 0;
 }
 
-.info {
-  width: 80%;
+.icon-name {
+  display: flex;
+  align-items: center;
 }
