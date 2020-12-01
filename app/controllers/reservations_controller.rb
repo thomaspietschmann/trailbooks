@@ -26,9 +26,10 @@ class ReservationsController < ApplicationController
     @reservation.accommodation = @accommodation
     @reservation.save
       render partial: "trails/itinerary",
-          locals: {
-            reservations: current_user.reservations
-          }
+      locals: {
+        reservations: current_user.itineraries.find_by(trail_id: @trail.id).reservations.all.order(checkin_date: :asc)
+        }
+
     # if @reservation.save
     #   redirect_to trail_path(@trail)
     # end
