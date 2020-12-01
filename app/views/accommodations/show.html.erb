@@ -27,7 +27,6 @@
     </div>
   </div>
   <div class="accom-show-info">
-
     <div class="show-bookmark">
       <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M1 1.06622C1 1.03224 1.02776 1 1.06977 1H13.8052C13.8322 1 13.8482 1.00929 13.8581 1.01908C13.8634 1.02434 13.8673 1.03016 13.8699 1.0363C13.8722 1.0418 13.875 1.05096 13.875 1.06622V15.4244L8.88893 11.5588C8.45333 11.221 7.92249 11.0802 7.43504 11.0808C6.9479 11.0813 6.41896 11.2231 5.98607 11.5588L1 15.4244V1.06622ZM13.8739 16.4224C13.8739 16.4224 13.874 16.4217 13.8742 16.4203L13.8739 16.4224ZM14.6644 16.0355C14.6656 16.0363 14.6663 16.0367 14.6663 16.0367C14.6663 16.0367 14.6657 16.0364 14.6644 16.0355ZM0.205073 16.0392C0.205071 16.0392 0.205683 16.0388 0.206912 16.0381C0.205689 16.0389 0.205074 16.0392 0.205073 16.0392ZM1.0011 16.4256C1.00131 16.4269 1.00139 16.4276 1.00137 16.4276L1.0011 16.4256Z" fill="white" fill-opacity="0.05" stroke="#333333" stroke-width="2"/>
@@ -44,11 +43,8 @@
                                           flatpickr_alt_format: "F j, Y" } %>
         <%= f.submit "Add to itinerary", id: "add-to-itinerary", class: "show-bookmark" %>
       <% end %>
-      <%#= form_with(model: [@accommodation, @reservation], remote: true, data: { action: "ajax:success->reservation#refresh" }) do |f| %>
-        <%#= f.submit "Add to itinerary", id: "add-to-itinerary", class: "show-bookmark" %>
-      <%# end %>
-
     </div>
+
 
     <% if @accommodation.category == "Hut"%>
       <svg width="36" height="36" viewBox="0 0 39 37" fill="none" xmlns="http://www.w3.org/2000/svg">
