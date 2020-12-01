@@ -7,8 +7,12 @@
       </div>
       <% end %>
       <div class="login-signup">
-        <a href="#" class="login">Log in</a>
-        <a href="#" class="signup">Sign up</a>
+        <% if user_signed_in? %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "login" %>
+        <% else %>
+          <%= link_to "Log in", new_user_session_path, class: "login" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "signup" %>
+        <% end %>
       </div>
     </div>
 
