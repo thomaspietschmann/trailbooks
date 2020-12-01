@@ -16,7 +16,7 @@ class ReservationsController < ApplicationController
     @user = current_user
     @accommodation = Accommodation.find(params[:accommodation_id])
     @trail = @accommodation.trail
-    @reservation = Reservation.new
+    @reservation = Reservation.new(reservations_params)
     # start_date = Date.parse(params[:reservation][:start_date])
     # end_date = Date.parse(params[:reservation][:end_date])
     # total_price = (end_date - start_date).to_i * @accommodation.total_price

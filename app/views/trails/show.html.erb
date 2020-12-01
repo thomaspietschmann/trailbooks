@@ -20,10 +20,6 @@
       <div class="tab-content sidebar-tabs">
         <!-- ITINERARY TAB -->
         <div class="tab-pane fade show active" id="nav-itinerary" role="tabpanel" aria-labelledby="nav-itinerary-tab">
-          <%#= simple_form_for :search, method: "get" do |f| %>
-            <%#= f.input :, as: :string, remote: true,  required: true, input_html: {class: "datepicker"} %>
-            <%#= f.button :submit, " ", class: "btn btn-primary" %>
-          <%# end %>
           <%= render "itinerary", reservations: @reservations %>
         </div>
         <!-- TRAILSTAGES TAB -->
