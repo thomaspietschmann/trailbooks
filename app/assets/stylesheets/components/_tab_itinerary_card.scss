@@ -7,15 +7,12 @@
   display: flex;
   padding: 4px 8px;
   border-radius: 8px 8px 0 0;
+  justify-content: space-between;
 
   p {
-    font-size: 10px;
+    font-size: 12px;
     margin-right: 16px;
     margin-bottom: 0;
-  }
-
-  .day {
-    width: 10%;
   }
 }
 
@@ -49,4 +46,3 @@
 .info {
   width: 80%;
 }
-
