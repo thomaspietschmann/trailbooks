@@ -7,5 +7,25 @@
   padding: 1rem 1.5rem;
   position: absolute;
   bottom: 0;
-  border-radius: 32px;
+  width: 100%;
+  font-size: 14px;
+  position: absolute;
+  left: 0;
+
+  &:hover {
+    opacity: 0.8;
+    color: white;
+  }
+}
+
+#nav-itinerary {
+  padding: 16px;
+  bottom: 0;
+  padding-bottom: 50px;
+}
+
+#nav-trailstages {
+  padding: 16px;
+  bottom: 0;
+  padding-bottom: 50px;
 }

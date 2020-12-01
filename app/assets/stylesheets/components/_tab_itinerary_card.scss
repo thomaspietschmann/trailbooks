@@ -22,9 +22,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 4px 16px;
-  height: 80px;
+  height: 60px;
   border-radius: 0 0 8px 8px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 
   svg {
     margin-right: 16px;
@@ -32,14 +32,16 @@
 }
 
 .itinerary-name {
-  font-weight: bold;
   margin: 0;
+  font-size: 14px;
+  font-family: 'Fira Sans';
 }
 
 .itinerary-price {
   color: $grey-3;
-  font-weight: bold;
+  font-family: 'Fira Sans';
   margin: 0;
+  font-size: 14px;
 }
 
 .icon-name {
