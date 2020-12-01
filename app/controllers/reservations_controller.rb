@@ -13,10 +13,8 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    date = DateTime.parse(params[:reservation][:checkin_date])
-    @reservation = Reservation.new
+    @reservation = Reservation.new(reservations_params)
     @user = current_user
-    @reservation.checkin_date = date
     @accommodation = Accommodation.find(params[:accommodation_id])
     @trail = @accommodation.trail
     @itinerary = @user.itineraries.find_by(trail_id: @trail.id)
