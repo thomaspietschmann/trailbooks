@@ -22,9 +22,13 @@
 .marker-ts-start {
   background-image: asset-url("marker-stage-start.png");
   background-size: contain;
+  width: 24px;
+  height: 24px;
 }
 
 .marker-ts-end {
   background-image: asset-url("marker-stage-end.png");
   background-size: contain;
+  width: 24px;
+  height: 24px;
 }
