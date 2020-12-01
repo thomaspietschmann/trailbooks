@@ -215,19 +215,22 @@ attach_photos(acc)
 
 
 laugavegur_stages=[
-  ["Landmannalaugar",63.9909,-19.0612],
-  ["Hrafntinnusker",63.9330,-19.1684],
-  ["Álftavatn",63.8578,-19.2272 ],
-  ["Emstrur",63.7663,-19.374],
-  ["Þórsmörk",63.6807,-19.4826],
+  ["Landmannalaugar",63.9909,-19.0612, 0, 0, 0],
+  ["Hrafntinnusker",63.9330,-19.1684, 12, 470, 245],
+  ["Álftavatn",63.8578,-19.2272, 12, 564, 125],
+  ["Emstrur",63.7663,-19.374, 16, 112, 643],
+  ["Þórsmörk",63.6807,-19.4826, 15, 58, 245],
 ]
 
 laugavegur_stages.each_with_index do |stage, index|
   trailstage = TrailStage.new(
-    name: stage[0],
     stage_number: index,
+    name: stage[0],
     latitude: stage[1],
     longitude: stage[2],
+    distance_from_last: stage[3],
+    ascend_from_last: stage[4],
+    descend_from_last: stage[5]
   )
   trailstage.trail = Trail.find_by(name: "Laugavegur Trail")
   trailstage.save!
@@ -294,27 +297,31 @@ acc.trail = Trail.find_by(name: "Tour du Mont Blanc")
 attach_photo_and_save(acc)
 
 montblanc_stages=[
-  ["Les Houches",45.89006,6.79824],
-  ["Les Contamines",45.80732,6.72478],
-  ["Les Chapieux",45.69751,6.73441],
-  ["Rifugio Elisabetta",45.76700,6.83743],
-  ["Courmayeur",45.79683,6.96797],
-  ["Rifugio Bonatti",45.84692,7.03353],
-  ["La Fouly",45.93312,7.09851],
-  ["Champex",46.02969,7.11707],
-  ["Col de la Forclaz",46.057766,7.001360],
-  ["Tre le Champ",45.997076,6.926385],
-  ["La Flegere",45.96000,6.88743],
-  ["Les Houches",45.89636, 6.80487]
+  ["Les Houches",45.89006,6.79824, 0, 0, 0],
+  ["Les Contamines",45.80732,6.72478, 16, 646, 633],
+  ["Les Chapieux",45.69751,6.73441, 18, 1316, 929],
+  ["Rifugio Elisabetta",45.76700,6.83743, 15, 1004, 258],
+  ["Courmayeur",45.79683,6.96797, 18, 460, 1560],
+  ["Rifugio Bonatti",45.84692,7.03353, 12, 860, 101],
+  ["La Fouly",45.93312,7.09851, 20, 895, 1410],
+  ["Champex",46.02969,7.11707, 15, 420, 565],
+  ["Col de la Forclaz",46.057766,7.001360, 16, 742, 682],
+  ["Tre le Champ",45.997076,6.926385, 13, 1069, 1178],
+  ["La Flegere",45.96000,6.88743, 8, 733, 257],
+  ["Les Houches",45.89636, 6.80487, 17, 772, 1546]
 ]
 
 montblanc_stages.each_with_index do |stage, index|
   trailstage = TrailStage.new(
-    name: stage[0],
     stage_number: index,
+    name: stage[0],
     latitude: stage[1],
     longitude: stage[2],
+    distance_from_last: stage[3],
+    ascend_from_last: stage[4],
+    descend_from_last: stage[5]
   )
   trailstage.trail = Trail.find_by(name: "Tour du Mont Blanc")
   trailstage.save!
 end
+
