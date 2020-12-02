@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_29_115752) do
+ActiveRecord::Schema.define(version: 2020_12_02_094027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_115752) do
     t.date "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "total_price"
     t.index ["trail_id"], name: "index_itineraries_on_trail_id"
     t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
@@ -121,7 +122,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_115752) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "itineraries", "trails"
   add_foreign_key "itineraries", "users"
-  add_foreign_key "reservations", "accommodations", column: "accommodation_id"
+  add_foreign_key "reservations", "accommodations"
   add_foreign_key "reservations", "itineraries"
   add_foreign_key "trail_stages", "trails"
 end
