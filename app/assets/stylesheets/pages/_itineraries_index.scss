@@ -1,0 +1,91 @@
+.cards-iti {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.card-product {
+  overflow: hidden;
+  height: 500px;
+  width: 400px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 16px;
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.itinerary-card {
+  color: $grey-1;
+}
+
+.darkgrey-section-iti {
+  background: $grey-5;
+  display: flex;
+  padding: 4px 16px;
+  border-radius: 8px 8px 0 0;
+  justify-content: space-between;
+
+  p {
+    font-size: 12px;
+    margin-right: 8px;
+    margin-bottom: 0;
+  }
+}
+
+.lightgrey-section-iti {
+  background: $grey-6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 16px;
+  height: 24px;
+  border-radius: 0 0 8px 8px;
+  margin-bottom: 12px;
+
+  svg {
+    margin-right: 16px;
+  }
+}
+
+.itinerary-name {
+  font-weight: bold;
+  margin: 0;
+}
+
+.itinerary-price {
+  color: $grey-3;
+  font-weight: bold;
+  margin: 0;
+}
+
+.icon-name {
+  display: flex;
+  align-items: center;
+}
+
