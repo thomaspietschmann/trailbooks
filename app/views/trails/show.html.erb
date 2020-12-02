@@ -3,17 +3,23 @@
 <!-- MAP -->
 <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
   <script>
+    urls = {
+      "hut": ["<%= asset_path("filter-hut.svg") %>", "<%= asset_path("filter-hut-disabled.svg") %>"],
+      "campsite": ["<%= asset_path("filter-campsite.svg") %>", "<%= asset_path("filter-campsite-disabled.svg") %>"],
+      "trailstage": ["<%= asset_path("filter-trailstage.svg") %>", "<%= asset_path("filter-trailstage-disabled.svg") %>"]
+    };
     function showHideFilter(category) {
       document.querySelectorAll('.marker-' + category).forEach((marker) => {
         marker.style.display = marker.style.display === "none" ? 'flex' : 'none'
       });
       svg = document.querySelector(".filter." + category);
-      svg.src = "/assets/filter-" + category + (svg.src.includes("disabled") ? "" : "-disabled") + ".svg";
+      svg.src = urls[category][svg.src.includes("disabled") ? 0 : 1];
     }
   </script>
   <%= image_tag "filter-hut.svg", class: "filter hut", onclick: "showHideFilter('hut')" %>
   <%= image_tag "filter-campsite.svg", class: "filter campsite", onclick: "showHideFilter('campsite')" %>
   <%= image_tag "filter-trailstage.svg", class: "filter trailstage", onclick: "showHideFilter('trailstage')" %>
+
   <%= image_tag "profile.jpg", class: "avatar dropdown-toggle user-profile", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
     <%= link_to "My Itineraries", trails_path, class: "dropdown-item" %>
