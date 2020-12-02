@@ -4,4 +4,5 @@ class Itinerary < ApplicationRecord
   has_many :reservations
   has_many :accommodations, through: :reservations
   has_many :accommodations, through: :trails
+
 end
