@@ -1,6 +1,19 @@
-<h1>Itinerary confirmed</h1>
-<p><%= current_user.email %></p>
-<% @reservations.each do |r| %>
-  <%= r.accommodation.name %>
-  <%= r.accommodation.price_per_night %>
-<% end %>
+<div class=confirm-contain>
+  <div class=confirm-contain-text>
+
+
+  <h1>Pack your bags! Your itinerary is confirmed.</h1>
+  <p>We'll see you on the trail!</p>
+  <p><%= current_user.email %></p>
+  <% @reservations.each do |r| %>
+    <%= r.accommodation.name %>
+    <%= r.accommodation.price_per_night %>
+  <% end %>
+
+  </div>
+
+  <div class=confirm-contain-image>
+    <%= image_tag("confirmation-image.jpg") %>
+
+  </div>
+</div>
