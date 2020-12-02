@@ -8,7 +8,7 @@
   top: 16px;
   right: 16px;
   overflow-y: scroll;
-  box-shadow: 0px 0px 8px rgba(0,0,0,0.25)
+  box-shadow: 0px 0px 8px rgba(0,0,0,0.25);
 }
 
 .accom-show {
@@ -21,11 +21,17 @@
   }
 }
 
+.add-to-itinerary-section {
+  form {
+    display: flex;
+    padding: 16px 0;
+  }
+}
+
 .accom-show-info {
   padding: 36px 42px;
   position: relative;
-  display: flex;
-  justify-content: space-between;
+
   h2 {
     font-size: 36px;
     color: $grey-1;
@@ -36,22 +42,6 @@
     color: $grey-1;
     font-family: "Avenir", "Nunito Sans", "sans-serif";
     font-size: 16px;
-  }
-  .accom-show-info-text {
-  }
-  .accom-show-info-icons {
-    text-align: center;
-    background-color: #F2F2F2;
-    width: 65px;
-    height: 200px;
-    padding: 8px;
-    border-radius: 8px;
-    img {
-      height: 30px !important;
-    }
-    p {
-      font-size: 10px !important;
-    }
   }
 }
 
@@ -70,29 +60,62 @@
   }
 }
 
-.show-bookmark {
-  background: $trailbooks-red;
+.facilities {
+  text-align: center;
   display: flex;
-  padding: 0 16px;
-  border-radius: 32px;
-  font-weight: bold;
-  border: none;
-  color: white;
-  font-family: "Avenir", "Nunito Sans", "sans-serif";
-  height: 35px;
-  width: fit-content;
+  flex-direction: column;
+  background-color: $grey-1;
+  border-radius: 8px;
+  justify-content: space-around;
+  height: 200px;
+  padding: 8px 12px;
+
+  p {
+    font-size: 10px;
+    color: white;
+  }
+}
+
+.icon-label {
+  font-size: 10px;
+  padding: 8px 0;
 
   p {
     margin-bottom: 0;
-    margin-left: 8px;
+  }
+}
+
+.add-to-itinerary-btn {
+  background: $trailbooks-red;
+  padding: 0px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  font-family: "Avenir", "Nunito Sans", "sans-serif";
+
+  p {
+    margin-bottom: 0;
     font-size: 12px;
   }
 }
 
-.accom-show-info-description {
-  padding: 8px 32px;
+.add-to-itinerary-date {
+  border: none;
+  border-radius: 8px;
+  margin-right: 16px;
+  height: 42px;
 }
 
 .carousel-show {
   border-radius: 16px 16px 0 0;
+}
+
+.accom-show-info-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accom-show-info-description {
+  margin-top: 16px;
 }

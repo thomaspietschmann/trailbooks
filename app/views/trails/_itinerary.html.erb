@@ -5,23 +5,8 @@
     <p><strong><%= reservation.checkin_date ? reservation.checkin_date.strftime("%e %B, %Y") : "" %></strong></p>
     <%= link_to reservation_path(reservation), method: :delete, remote: true, data: { action: "ajax:success->reservation#refresh" } do %>
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-    <%end%>  
+    <%end%>
   </div>
-
-  <div class="lightgrey-section">
-    <div class="icon-name">
-      <% if reservation.accommodation.category == "Hut"%>
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="16" cy="16" r="16" fill="#A31621"/>
-        <path d="M24.1807 16.4583L21.3651 13.7553C21.3304 13.6886 21.2609 13.6218 21.1913 13.5885L16.5683 9.15017C16.3597 8.94994 16.0469 8.94994 15.8383 9.15017L11.1805 13.5885C11.111 13.6218 11.0415 13.6886 11.0067 13.7553L8.15642 16.4917C7.94786 16.6919 7.94786 16.9923 8.15642 17.1925C8.36498 17.3927 8.67782 17.3927 8.88637 17.1925L10.6244 15.5239C10.7286 15.4238 10.9024 15.4906 10.9024 15.6241V23.366C10.9024 23.633 11.1458 23.8666 11.4238 23.8666H13.7527C13.9265 23.8666 14.0656 23.7331 14.0656 23.5663V17.7931C14.0656 16.6585 15.0389 15.7242 16.2207 15.7242C17.4025 15.7242 18.3758 16.6585 18.3758 17.7931V23.633C18.3758 23.7999 18.5148 23.9333 18.6886 23.9333H20.9133C21.1913 23.9333 21.4347 23.6997 21.4347 23.4328V15.6574C21.4347 15.5239 21.6085 15.4238 21.7127 15.5573L23.4507 17.2258C23.555 17.326 23.694 17.3593 23.8331 17.3593C23.9721 17.3593 24.1112 17.2926 24.2154 17.1925C24.424 16.9589 24.3892 16.6585 24.1807 16.4583Z" fill="white"/>
-        </svg>
-      <% else %>
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="16" cy="16" r="16" fill="#A31621"/>
-        <path d="M23.9602 22.2266L16.7908 10.2738L17.9163 8.39637L17.2476 8L16.3359 9.51779L15.4261 8L14.7573 8.39637L15.8829 10.2738L8.71539 22.2266H8V23H24.6406V22.2266H23.9602ZM14.5318 22.2266V19.1698C14.5318 18.1972 15.3328 17.4045 16.3184 17.4045C16.7908 17.4045 17.2359 17.5882 17.5722 17.9207C17.9066 18.2533 18.0913 18.6961 18.0913 19.1698V22.2285H14.5318V22.2266Z" fill="white"/>
-        </svg>
-      <% end %>
-        <p class="itinerary-name"><%= reservation.accommodation.name %></p>
 
     <div class="lightgrey-section">
       <div class="icon-name">
