@@ -40,6 +40,8 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
     @itinerary = @reservation.itinerary
     @reservation.destroy
+    @itinerary.total_price = @itinerary.reservations.sum(&:total_price)
+    @itinerary.save!
     render partial: "trails/itinerary",
            locals: {
              reservations: @itinerary.reservations.order(:checkin_date)
