@@ -1,5 +1,65 @@
-.confirm-contain {
-  background: white;
-  border-radius: 8px;
+.container-confirmation {
+  margin-top: 32px;
+  padding: 16px;
+}
+
+hr {
+  border: 2px solid $trailbooks-red;
+  opacity: 75%;
+}
+
+.itinerary-card-confirmation {
+  color: $grey-1;
+}
+
+.darkgrey-section-confirmation {
+    background: #e0e0e0;
+    display: flex;
+    padding: 4px 16px;
+    border-radius: 0 0 8px 8px;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    width: 100%;
+
+  p {
+    font-size: 12px;
+    margin-right: 16px;
+    margin-bottom: 0;
+  }
+}
+
+.lightgrey-section-confirmation {
+  background: $grey-6;
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 4px 16px;
+  height: 60px;
+  border-radius: 8px 8px 0 0;
+
+  svg {
+    margin-right: 16px;
+  }
+}
+
+.itinerary-name-confirmation {
+  margin: 0;
+  font-size: 14px;
+  font-family: 'Fira Sans';
+}
+
+.itinerary-price-confirmation {
+  color: $grey-3;
+  font-family: 'Fira Sans';
+  margin: 0;
+  font-size: 14px;
+}
+
+.icon-name-confirmation {
+  display: flex;
+  align-items: center;
+}
+
+.img-confirmation {
+  border-radius: 50% !important;
 }
