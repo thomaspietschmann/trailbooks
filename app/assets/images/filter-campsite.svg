@@ -1,0 +1,17 @@
+<svg width="53" height="53" viewBox="0 0 53 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d)">
+<circle cx="26.5" cy="22.5" r="22.5" fill="white"/>
+</g>
+<path id="filter-campsite-svg-path" d="M39.6003 33.711L27.6512 13.7896L29.5272 10.6606L28.4126 10L26.8931 12.5296L25.3768 10L24.2622 10.6606L26.1382 13.7896L14.1923 33.711H13V35H40.7343V33.711H39.6003ZM23.8864 33.711V28.6163C23.8864 26.9954 25.2213 25.6741 26.8639 25.6741C27.6512 25.6741 28.3932 25.9803 28.9537 26.5345C29.511 27.0888 29.8188 27.8268 29.8188 28.6163V33.7142H23.8864V33.711Z" fill="#333333"/>
+<defs>
+<filter id="filter0_d" x="0" y="0" width="53" height="53" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+</defs>
+</svg>

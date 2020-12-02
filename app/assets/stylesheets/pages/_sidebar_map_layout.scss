@@ -55,3 +55,22 @@
     color: $trailbooks-blue;
   }
 }
+
+.filter {
+  position: absolute;
+  right: 32px;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.filter.hut {
+  top: 40vh;
+}
+
+.filter.campsite {
+  top: 47vh;
+}
+
+.filter.trailstage {
+  top: 54vh;
+}

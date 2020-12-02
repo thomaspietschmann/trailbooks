@@ -31,7 +31,7 @@ const initMapbox = () => {
     markers.accommodation.forEach(accommodation => {
       const popup = new mapboxgl.Popup().setHTML(accommodation.infoWindow);
       const element = document.createElement('div');
-      element.className = 'marker';
+      element.className = 'marker marker-' + accommodation.category.toLowerCase();
       element.style.backgroundImage = `url('${accommodation.image_url}')`;
       element.style.backgroundSize = 'contain';
       element.style.width = '40px';
@@ -60,6 +60,8 @@ const initMapbox = () => {
         element.className = 'marker-ts';
         element.innerHTML = trailstage.num;
       }
+
+      element.className += ' marker-trailstage';
 
       new mapboxgl.Marker(element)
         .setLngLat([trailstage.lng, trailstage.lat])

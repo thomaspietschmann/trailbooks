@@ -2,6 +2,18 @@
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css">
 <!-- MAP -->
 <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
+  <script>
+    function showHideFilter(category) {
+      document.querySelectorAll('.marker-' + category).forEach((marker) => {
+        marker.style.display = marker.style.display === "none" ? 'flex' : 'none'
+      });
+      svg = document.querySelector(".filter." + category);
+      svg.src = "/assets/filter-" + category + (svg.src.includes("disabled") ? "" : "-disabled") + ".svg";
+    }
+  </script>
+  <%= image_tag "filter-hut.svg", class: "filter hut", onclick: "showHideFilter('hut')" %>
+  <%= image_tag "filter-campsite.svg", class: "filter campsite", onclick: "showHideFilter('campsite')" %>
+  <%= image_tag "filter-trailstage.svg", class: "filter trailstage", onclick: "showHideFilter('trailstage')" %>
   <%= image_tag "profile.jpg", class: "avatar dropdown-toggle user-profile", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
     <%= link_to "My Itineraries", trails_path, class: "dropdown-item" %>
@@ -44,51 +56,48 @@
               <!-- FINAL STAGE -->
               <div class="trailstage-container">
                 <div class="icon-line">
-                  <div class="marker-ts-end"></div>
-                </div>
-                <p><%= ts.name %></p>
-              </div>
-            <% else %>
-              <!-- MID STAGE -->
-              <div class="trailstage-container">
-                <div class="icon-line">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-walk" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#c4c4c4" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <circle cx="13" cy="4" r="1" />
-                    <line x1="7" y1="21" x2="10" y2="17" />
-                    <path d="M16 21l-2 -4l-3 -3l1 -6" />
-                    <path d="M6 12l2 -3l4 -1l3 3l3 1" />
-                  </svg>
+                  <%= image_tag("walk.svg") %>
                   <div class="vl-short"></div>
                 </div>
                 <div class="trailstage-stats">
-                  <p id="distance">12km</p>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-up-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#c4c4c4" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <line x1="17" y1="7" x2="7" y2="17" />
-                    <polyline points="8 7 17 7 17 16" />
-                  </svg>
-                  <p>300m</p>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-down-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#c4c4c4" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <line x1="7" y1="7" x2="17" y2="17" />
-                    <polyline points="17 8 17 17 8 17" />
-                  </svg>
-                  <p>798m</p>
+                  <p id="distance"><%= ts.distance_from_last %>km</p>
+                  <%= image_tag("ascend.svg") %>
+                  <p><%= ts.ascend_from_last %>m</p>
+                  <%= image_tag("descend.svg") %>
+                  <p><%= ts.descend_from_last %>m</p>
                 </div>
               </div>
               <div class="trailstage-container">
                 <div class="icon-line">
-                  <div class="mid-marker"><%= ts.stage_number %></div>
-                  <div class="vl-long"></div>
+                  <div class="marker-ts-end"></div>
                 </div>
-                <p><%= ts.name %></p>
-              </div>
+              <% else %>
+                <!-- MID STAGE -->
+                <div class="trailstage-container">
+                  <div class="icon-line">
+                    <%= image_tag("walk.svg") %>
+                    <div class="vl-short"></div>
+                  </div>
+                  <div class="trailstage-stats">
+                    <p id="distance"><%= ts.distance_from_last %>km</p>
+                    <%= image_tag("ascend.svg") %>
+                    <p><%= ts.ascend_from_last %>m</p>
+                    <%= image_tag("descend.svg") %>
+                    <p><%= ts.descend_from_last %>m</p>
+                  </div>
+                </div>
+                <div class="trailstage-container">
+                  <div class="icon-line">
+                    <div class="mid-marker"><%= ts.stage_number %></div>
+                    <div class="vl-long"></div>
+                  </div>
+                  <p><%= ts.name %></p>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
+      <div class="accommodation-container"><!-- ACCOMMODATION SHOW --></div>
     </div>
-    <div class="accommodation-container"><!-- ACCOMMODATION SHOW --></div>
   </div>
-</div>

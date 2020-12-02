@@ -49,6 +49,7 @@
 
 .trailstage-stats {
   display: flex;
+  justify-content: center;
 
   p {
     color: $grey-3;
@@ -57,7 +58,8 @@
     margin-left: 0;
   }
 
-  svg {
+  img {
+    margin-top: -12px;
     margin-left: 8px;
   }
 }
