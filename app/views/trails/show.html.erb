@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css">
 <!-- MAP -->
 <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
-
   <script>
     function showHideFilter(category) {
       document.querySelectorAll('.marker-' + category).forEach((marker) => {
@@ -12,17 +11,14 @@
       svg.src = "/assets/filter-" + category + (svg.src.includes("disabled") ? "" : "-disabled") + ".svg";
     }
   </script>
-
   <%= image_tag "filter-hut.svg", class: "filter hut", onclick: "showHideFilter('hut')" %>
   <%= image_tag "filter-campsite.svg", class: "filter campsite", onclick: "showHideFilter('campsite')" %>
   <%= image_tag "filter-trailstage.svg", class: "filter trailstage", onclick: "showHideFilter('trailstage')" %>
-
-    <%= image_tag "profile.jpg", class: "avatar dropdown-toggle user-profile", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-        <%= link_to "My Itineraries", trails_path, class: "dropdown-item" %>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-      </div>
-
+  <%= image_tag "profile.jpg", class: "avatar dropdown-toggle user-profile", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+    <%= link_to "My Itineraries", trails_path, class: "dropdown-item" %>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+  </div>
   <h2 class="logo-on-map">
     <%= link_to root_path do %>
       TRAILBOOKS
@@ -41,14 +37,14 @@
         <!-- ITINERARY TAB -->
         <div class="tab-pane fade show active" id="nav-itinerary" role="tabpanel" aria-labelledby="nav-itinerary-tab">
           <%= render "itinerary", reservations: @reservations %>
-          <a href="#" class="btn-reserve">Reserve all</a>
+          <%# <a href="#" class="btn-reserve">Reserve all</a> %>
+          <%= link_to "Reserve all", itinerary_path(@itinerary), method: :patch, class: "btn-reserve"%>
         </div>
         <!-- TRAILSTAGES TAB -->
         <div class="tab-pane fade" id="nav-trailstages" role="tabpanel" aria-labelledby="nav-trailstages-tab">
-
           <% @trail.trail_stages.each do |ts| %>
             <% if ts.stage_number == 0 %>
-            <!-- FIRST STAGE -->
+              <!-- FIRST STAGE -->
               <div class="trailstage-container">
                 <div class="icon-line">
                   <div class="marker-ts-start"></div>
@@ -57,8 +53,8 @@
                 <p><%= ts.name %></p>
               </div>
             <% elsif ts.stage_number == (@trail.trail_stages.length - 1) %>
-            <!-- FINAL STAGE -->
-            <div class="trailstage-container">
+              <!-- FINAL STAGE -->
+              <div class="trailstage-container">
                 <div class="icon-line">
                   <%= image_tag("walk.svg") %>
                   <div class="vl-short"></div>
@@ -70,16 +66,14 @@
                   <%= image_tag("descend.svg") %>
                   <p><%= ts.descend_from_last %>m</p>
                 </div>
-            </div>
-            <div class="trailstage-container">
-              <div class="icon-line">
-                <div class="marker-ts-end"></div>
               </div>
-              <p><%= ts.name %></p>
-            </div>
-            <% else %>
-              <!-- MID STAGE -->
               <div class="trailstage-container">
+                <div class="icon-line">
+                  <div class="marker-ts-end"></div>
+                </div>
+              <% else %>
+                <!-- MID STAGE -->
+                <div class="trailstage-container">
                   <div class="icon-line">
                     <%= image_tag("walk.svg") %>
                     <div class="vl-short"></div>
@@ -91,19 +85,19 @@
                     <%= image_tag("descend.svg") %>
                     <p><%= ts.descend_from_last %>m</p>
                   </div>
-              </div>
-              <div class="trailstage-container">
-                <div class="icon-line">
-                  <div class="mid-marker"><%= ts.stage_number %></div>
-                  <div class="vl-long"></div>
                 </div>
-                <p><%= ts.name %></p>
-              </div>
+                <div class="trailstage-container">
+                  <div class="icon-line">
+                    <div class="mid-marker"><%= ts.stage_number %></div>
+                    <div class="vl-long"></div>
+                  </div>
+                  <p><%= ts.name %></p>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
+      <div class="accommodation-container"><!-- ACCOMMODATION SHOW --></div>
     </div>
-    <div class="accommodation-container"><!-- ACCOMMODATION SHOW --></div>
   </div>
-</div>

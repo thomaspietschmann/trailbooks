@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :accommodations, only: [:show] do
     resources :reservations, only: :create
   end
-  resources :reservations, only: [:new, :create, :index, :destroy, :update]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :reservations, only: [:new, :create, :index, :destroy, :update, :patch]
+  resources :itineraries, only: :update
 end

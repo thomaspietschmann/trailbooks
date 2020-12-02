@@ -23,15 +23,15 @@ class ReservationsController < ApplicationController
     @reservation.save!
     render partial: "trails/itinerary",
            locals: {
-             reservations: current_user.itineraries.find_by(trail_id: @trail.id).reservations.all.order(checkin_date: :asc)
+             reservations: @itinerary.reservations.order(:checkin_date)
            }
   end
 
-  def update
-    @reservation = Reservation.find(params[:id])
-    @reservation.update(reservation_params)
-    redirect_to reservation_path(@reservation)
-  end
+  # def update
+  #   @reservation = Reservation.find(params[:id])
+  #   @reservation.update(reservation_params)
+  #   redirect_to reservation_path(@reservation)
+  # end
 
   def destroy
     @reservation = Reservation.find(params[:id])
