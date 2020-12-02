@@ -2,10 +2,16 @@ class TrailsController < ApplicationController
   before_action :set_trail, only: %i[show]
   before_action :set_itinerary, only: %i[show]
 
+  def index
+    @user = current_user
+    # @itineraries = Itinerary.find_by(user_id: @user.id)
+    @itineraries = @user.itineraries
+  end
+
   def show
     @user = current_user
     @markers = build_markers
-    @reservations = @user.itineraries.find_by(trail_id: @trail.id).reservations.all
+    @reservations = @user.itineraries.find_by(trail_id: @trail.id).reservations.all.order(checkin_date: :asc)
   end
 
   private
