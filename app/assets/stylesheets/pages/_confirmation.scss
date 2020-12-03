@@ -1,5 +1,5 @@
 .container-confirmation {
-  margin-top: 32px;
+  margin-top: 64px;
   padding: 16px;
 }
 
@@ -61,5 +61,6 @@ hr {
 }
 
 .img-confirmation {
-  border-radius: 50% !important;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
