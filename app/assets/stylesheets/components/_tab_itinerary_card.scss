@@ -48,3 +48,19 @@
   display: flex;
   align-items: center;
 }
+
+.total-price {
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-align: center;
+  font-family: 'Fira Sans'
+}
+
+.placeholder {
+  color: $grey-2;
+  border: 2px dashed $grey-5;
+  padding: 16px;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 8px;
+}
