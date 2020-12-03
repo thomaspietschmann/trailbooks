@@ -17,14 +17,14 @@
 
     <div class="col-6">
       <!-- Safe zone begin -->
-      <h1>Pack your bags, Alizeh!</h1>
-      <p>Your itinerary is <strong>confirmed</strong>.</p>
-      <p>We'll see you on the trail!</p>
+      <h3>Your <%= @itinerary.trail.name %> accomodation has now been reserved</h3>
+      <p><br><strong>No advance payment required.</strong> We know a lot can happen on the trail! <br> <br> For mountain hut reservations please contact the host 24 hours in advance if you are unable to make it so another hiker can take your place.</p>
 
       <hr>
 
       <div class="itinerary-card-confirmation" data-target="reservation.refresh">
         <% @reservations.each_with_index do |reservation, index| %>
+
 
           <div class="lightgrey-section-confirmation">
             <div class="icon-name-confirmation">
@@ -42,11 +42,7 @@
               <p class="itinerary-name-confirmation"><%= reservation.accommodation.name %></p>
             </div>
             <p class="itinerary-price-confirmation"><%= reservation.accommodation.price_per_night %>
-              <% if reservation.itinerary.trail.country == "Iceland" %>
-                kr.
-              <% else %>
-                €
-              <% end %></p>
+              <%= reservation.itinerary.trail.country == "Iceland" ? "kr" : "€" %></p>
           </div>
           <!-- This is the date of the reservation -->
           <div class="darkgrey-section-confirmation">
@@ -54,24 +50,11 @@
           </div>
         <% end %>
       </div>
-
-
-
-
       <!-- Safe zone end -->
-
-
-
-
-
-
-
     </div>
 
     <div class="col-6">
-      <div class="img-confirmation">
-        <%= image_tag("confirmation-image.jpg", :class => "img-confirmation") %>
-      </div>
+      <%= image_tag("confirmation-image.jpg", :class => "img-confirmation") %>
     </div>
   </div>
 </div>
