@@ -13,7 +13,7 @@ class TrailsController < ApplicationController
     @markers = build_markers
     @itinerary = @user.itineraries.find_by(trail_id: @trail.id)
     @reservations = @itinerary.reservations.all.order(checkin_date: :asc)
-    @title = @trail.name 
+    @title = "Discover the #{@trail.name} trail"
   end
 
   private

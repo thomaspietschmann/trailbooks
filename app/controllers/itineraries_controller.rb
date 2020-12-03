@@ -7,7 +7,7 @@ class ItinerariesController < ApplicationController
       reservation.booked = true
       reservation.save
     end
-    @title = "Confirmed!"
+    @title = "Your itinerary has been confirmed!"
     render "itineraries/confirmation"
   end
 end
