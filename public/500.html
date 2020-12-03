@@ -1,6 +1,5 @@
 <div class="page">
   <header>
-    <div class="search"><svg><use xlink:href="#ico-search"></use></svg></div>
     <style type="text/css">
 
 
@@ -10,6 +9,7 @@
       html,
       body {
         height: 100%;
+        font-family: "Avenir", "Nunito Sans", "sans-serif";
       }
 
       /*--------------------
@@ -20,10 +20,10 @@
         width: 100%;
         height: 600px;
         z-index: 1;
-        font-family: $body-font, sans-serif;
-        background: $trailbooks-blue;
+        background: #1E222B;
         border-radius: 10px;
         overflow: hidden;
+        padding:48px;
       }
 
 
@@ -47,7 +47,9 @@
         position: relative;
         z-index: 2;
 
+
         h1 {
+          font-family: "Fira Sans", "sans-serif";
           font-weight: 900;
           font-size: 165px;
           line-height: 1;
@@ -56,6 +58,7 @@
 */        }
 
         h2 {
+          font-family: "Fira Sans", "sans-serif";
           font-weight: 700;
           font-size: 34px;
           margin-bottom: 6px;
@@ -63,6 +66,7 @@
 */        }
 
         p {
+          font-family: "Avenir", "Nunito Sans", "sans-serif";
           font-weight: 300;
           font-size: 14px;
           opacity: 0.7;
@@ -80,12 +84,12 @@
           border-radius: 4px;
           opacity: 0.4;
           cursor: pointer;
-          font-color:white;
-          text-decoration: none;
+          font-color: white;
         }
       }
 
       a:-webkit-any-link {
+        font-family: "Avenir", "Nunito Sans", "sans-serif" !important;
         color: white !important;
         cursor: pointer;
         text-decoration: none !important;
@@ -94,7 +98,6 @@
       a:hover {
        text-decoration: underline !important;
       }
-
 
 
       /*--------------------
@@ -115,7 +118,7 @@
     <h1>500</h1>
     <h2>Page not found</h2>
     <p>Oh no! You've wandered off the trail.</p>
-    <a href="www.trailbooks.de">back to home</a>
+    <a href="/">back to home</a>
   </div>
     <img src="404.jpg" />
 </div>
