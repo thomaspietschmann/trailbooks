@@ -161,7 +161,7 @@ attach_photos(acc)
 
 acc = Accommodation.new(
   name: "Hvanngil Hut",
-  description: "The hut in Hvanngil is on the popular trail Laugavegur, from Landmannalaugar to Þórsmörk, a little bit further than half-way on the trail.",
+  description: "The hut is on two floors. On the ground floor, there is a big entrance, a small kitchen and two dormitories with double bunk beds and tables and chairs. The loft has two sleeping quarters with sleeping bag accommodation on mattresses. The kitchen is equipped with gas stoves, utensils and running cold water. There is a charcoal grill on the patio outside. There is a small hut for the wardens close by as well as a toilet house with showers (accessible for a fee). Further away there is a stable with kitchen facilities and a loft where 20 people can sleep. By the stable, there is a toilet and a camping ground.",
   category: "Hut",
   toilets: true,
   showers: true,
@@ -172,6 +172,24 @@ acc = Accommodation.new(
   longitude: -19.20421,
   price_per_night: 9500,
   capacity: 60
+)
+
+acc.trail = Trail.find_by(name: "Laugavegur Trail")
+attach_photos(acc)
+
+acc = Accommodation.new(
+  name: "Hvanngil Camping",
+  description: "There is another and quite special camping ground by the main hut. The camping is more or less inside a lava field where one can find good shelter if the weather is bad.",
+  category: "Campsite",
+  toilets: true,
+  showers: false,
+  lunch_bag: true,
+  breakfast: false,
+  dinner: true,
+  latitude: 63.84399,
+  longitude: -19.21421,
+  price_per_night: 9500,
+  capacity: 100
 )
 
 acc.trail = Trail.find_by(name: "Laugavegur Trail")
@@ -196,6 +214,24 @@ acc.trail = Trail.find_by(name: "Laugavegur Trail")
 attach_photos(acc)
 
 acc = Accommodation.new(
+  name: "Emstrur Camping",
+  description: "Behind the huts and in a tiny valley below them is a small camping ground. The toilet house is jointly used by the huts and the camping ground. The showers (accessible for a fee) are also located in the toilet house.",
+  category: "Campsite",
+  toilets: true,
+  showers: true,
+  lunch_bag: true,
+  breakfast: false,
+  dinner: true,
+  latitude: 63.75857,
+  longitude: -19.34237,
+  price_per_night: 9500,
+  capacity: 100
+)
+
+acc.trail = Trail.find_by(name: "Laugavegur Trail")
+attach_photos(acc)
+
+acc = Accommodation.new(
   name: "Þórsmörk Hut",
   description: "Þórsmörk is a true Icelandic treasure and very popular with outdoor enthusiasts, for both short and long hikes. This is where the popular trail Laugavegur, from Landmannalaugar to Þórsmörk, ends and where another popular trail Fimmvörðuháls either ends or begins.",
   category: "Hut",
@@ -206,6 +242,25 @@ acc = Accommodation.new(
   dinner: true,
   latitude: 63.6860549,
   longitude: -19.5021758,
+  price_per_night: 9500,
+  capacity: 75
+)
+
+acc.trail = Trail.find_by(name: "Laugavegur Trail")
+attach_photos(acc)
+
+
+acc = Accommodation.new(
+  name: "Þórsmörk Camping",
+  description: "Þórsmörk is a true Icelandic treasure and very popular with outdoor enthusiasts, for both short and long hikes. This is where the popular trail Laugavegur, from Landmannalaugar to Þórsmörk, ends and where another popular trail Fimmvörðuháls either ends or begins.",
+  category: "Campsite",
+  toilets: true,
+  showers: true,
+  lunch_bag: true,
+  breakfast: false,
+  dinner: true,
+  latitude: 63.68905,
+  longitude: -19.51217,
   price_per_night: 9500,
   capacity: 75
 )
