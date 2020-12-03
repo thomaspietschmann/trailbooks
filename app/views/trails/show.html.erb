@@ -41,12 +41,14 @@
         <a class="tab-underlined" id="nav-trailstages-tab" data-toggle="tab" href="#nav-trailstages" role="tab" aria-controls="nav-trailstages" aria-selected="false">Trail Stages</a>
       </div>
       <div class="tab-content sidebar-tabs">
+
         <!-- ITINERARY TAB -->
         <div class="tab-pane fade show active" id="nav-itinerary" role="tabpanel" aria-labelledby="nav-itinerary-tab">
           <%= render "itinerary", reservations: @reservations %>
           <%# <a href="#" class="btn-reserve">Reserve all</a> %>
           <%= link_to "Reserve all", itinerary_path(@itinerary), method: :patch, class: "btn-reserve"%>
         </div>
+
         <!-- TRAILSTAGES TAB -->
         <div class="tab-pane fade" id="nav-trailstages" role="tabpanel" aria-labelledby="nav-trailstages-tab">
           <% @trail.trail_stages.each do |ts| %>

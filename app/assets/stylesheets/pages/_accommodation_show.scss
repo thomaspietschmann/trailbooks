@@ -61,18 +61,17 @@
 }
 
 .facilities {
-  text-align: center;
   display: flex;
-  flex-direction: column;
-  background-color: $grey-1;
-  border-radius: 8px;
-  justify-content: space-around;
-  height: 200px;
-  padding: 8px 12px;
 
-  p {
-    font-size: 10px;
-    color: white;
+  .facility-icon {
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+    background: $grey-6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 16px;
   }
 }
 

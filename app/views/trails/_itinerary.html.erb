@@ -1,4 +1,5 @@
 <div class="itinerary-card" data-target="reservation.refresh">
+
   <div>
     <% reservations.each_with_index do |reservation, index| %>
 
@@ -24,14 +25,19 @@
           <% end %>
           <p class="itinerary-name"><%= reservation.accommodation.name %></p>
         </div>
-        <p class="itinerary-price"><%= reservation.accommodation.price_per_night %>
-          <% if reservation.itinerary.trail.country == "Iceland" %>
-            kr.
-          <% else %>
-            €
-          <% end %></p>
+        <p class="itinerary-price">
+          <%= reservation.accommodation.price_per_night %>
+          <%= reservation.itinerary.trail.country == "Iceland" ? "kr." : "€" %>
+        </p>
       </div>
     <% end %>
   </div>
-  <h1><strong>Total:</strong> <%= reservations.sum(&:total_price).round() %> kr.</h1>
+
+  <div class="placeholder">
+    Explore the campsites and mountain huts on the map and add them to your itinerary
+  </div>
+
+  <p class="total-price"><strong>Total:</strong> <%= reservations.sum(&:total_price).round() %>
+    <%= @itinerary.trail.country == "Iceland" ? "kr." : "€" %>
+  </p>
 </div>
