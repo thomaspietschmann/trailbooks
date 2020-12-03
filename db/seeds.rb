@@ -188,7 +188,7 @@ acc = Accommodation.new(
   dinner: true,
   latitude: 63.84399,
   longitude: -19.21421,
-  price_per_night: 9500,
+  price_per_night: 500,
   capacity: 100
 )
 
@@ -224,7 +224,7 @@ acc = Accommodation.new(
   dinner: true,
   latitude: 63.75857,
   longitude: -19.34237,
-  price_per_night: 9500,
+  price_per_night: 500,
   capacity: 100
 )
 
@@ -261,7 +261,7 @@ acc = Accommodation.new(
   dinner: true,
   latitude: 63.68905,
   longitude: -19.51217,
-  price_per_night: 9500,
+  price_per_night: 500,
   capacity: 75
 )
 
