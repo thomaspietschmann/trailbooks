@@ -5,4 +5,7 @@ class PagesController < ApplicationController
     @trails = Trail.all
   end
 
+  def team
+    render template: "pages/team"
+  end
 end

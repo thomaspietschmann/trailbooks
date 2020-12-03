@@ -1,0 +1,77 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+<%= image_tag "profile.jpg", class: "avatar dropdown-toggle user-profile", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <%= link_to "My Itineraries", trails_path, class: "dropdown-item" %>
+        <%= link_to "Team", team_path, class: "dropdown-item" %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      </div>
+
+  <h2 class="logo-on-map">
+    <%= link_to root_path do %>
+      TRAILBOOKS
+    <% end %>
+  </h2>
+
+
+  <section class="our-webcoderskull padding-lg">
+  <div class="container">
+    <div class="row heading heading-icon">
+        <h2>Our Team</h2>
+    </div>
+    <ul class="row">
+      <li class="col-12 col-md-6 col-lg-3">
+          <div class="cnt-block equal-hight" style="height: 349px;">
+            <figure><img src="https://avatars0.githubusercontent.com/u/59119022?v=4" class="img-responsive" alt=""></figure>
+            <h3><a href="#">Alizeh</a></h3>
+            <p>FullStack Web Developer</p>
+            <ul class="follow-us clearfix">
+              <li><a href="https://github.com/alizehkhan"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/alizehkhan/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+      </li>
+      <li class="col-12 col-md-6 col-lg-3">
+          <div class="cnt-block equal-hight" style="height: 349px;">
+            <figure><img src="https://avatars0.githubusercontent.com/u/71378921?v=4" class="img-responsive" alt=""></figure>
+            <h3><a href="#">Briz</a></h3>
+            <p>FullStack Web Developer</p>
+            <ul class="follow-us clearfix">
+              <li><a href="https://www.linkedin.com/in/brizlelem/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+              <li><a href="https://github.com/BrizLeLem"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+              <li><a href="https://www.instagram.com/brizphtgrphy/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+              <li><a href="https://twitter.com/brizlelem"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+      </li>
+      <li class="col-12 col-md-6 col-lg-3">
+          <div class="cnt-block equal-hight" style="height: 349px;">
+            <figure><img src="https://avatars0.githubusercontent.com/u/69855916?v=4" class="img-responsive" alt=""></figure>
+            <h3><a href="#">Leeanna</a></h3>
+            <p>FullStack Web Developer</p>
+            <ul class="follow-us clearfix">
+              <li><a href="https://github.com/leeannas"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+       </li>
+      <li class="col-12 col-md-6 col-lg-3">
+          <div class="cnt-block equal-hight" style="height: 349px;">
+            <figure><img src="https://avatars3.githubusercontent.com/u/28597242?v=4" class="img-responsive" alt=""></figure>
+            <h3><a href="#">Thomas</a></h3>
+            <p>FullStack Web Developer</p>
+            <ul class="follow-us clearfix">
+              <li><a href="https://www.facebook.com/thomas.pietschmann.3304/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+              <li><a href="https://github.com/thomaspietschmann"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/thomas-pietschmann-18ab66190/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+      </li>
+    </ul>
+  </div>
+</section>
