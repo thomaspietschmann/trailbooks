@@ -1,3 +1,19 @@
+.logo-on-map-team {
+  text-align: center;
+  font-size: 14px;
+  position: absolute;
+  z-index: 3;
+  width: 100vw;
+  top: 16px;
+  font-family: 'Avenir', 'Nunito Sans';
+  letter-spacing: 0.16em;
+  font-weight: bold;
+}
+.logo-on-map-team a {
+  color: white !important;
+  text-decoration: none !important;
+  }
+
 
 .row.heading h2 {
     color: #fff;
@@ -7,7 +23,7 @@
     text-align: center;
     margin: 0 0 40px;
     padding-bottom: 20px;
-    text-transform: uppercase;
+    font-family: "Fira Sans", "sans-serif";
 }
 ul{
   margin:0;
@@ -68,11 +84,11 @@ ul{
    margin: 0 0 28px;
 }
 .our-webcoderskull .cnt-block figure{
-   width:148px;
-   height:148px;
-   border-radius:100%;
-   display:inline-block;
-   margin-bottom: 15px;
+  width:148px;
+  height:148px;
+  border-radius:100%;
+  display:inline-block;
+  margin-bottom: 15px;
 }
 .our-webcoderskull .cnt-block img{
    width:148px;
@@ -91,19 +107,19 @@ ul{
   color:#2a2a2a;
 }
 .our-webcoderskull .cnt-block h3 a:hover{
-  color:#337ab7;
+  color:#A31621;
 }
 .our-webcoderskull .cnt-block p{
-   color:#2a2a2a;
-   font-size:13px;
-   line-height:20px;
-   font-weight:400;
+  color:#2a2a2a;
+  font-size:13px;
+  line-height:20px;
+  font-weight:400;
 }
 .our-webcoderskull .cnt-block .follow-us{
   margin:20px 0 0;
 }
 .our-webcoderskull .cnt-block .follow-us li{
-    display:inline-block;
+  display:inline-block;
   width:auto;
   margin:0 5px;
 }
@@ -112,5 +128,9 @@ ul{
    color:#767676;
 }
 .our-webcoderskull .cnt-block .follow-us li .fa:hover{
-   color:#025a8e;
+   color:#A31621;
+}
+.thank-you-message {
+  color: white;
+  text-align:center;
 }
